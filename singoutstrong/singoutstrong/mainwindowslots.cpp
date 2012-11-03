@@ -1,0 +1,183 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+
+namespace SoS
+{
+	namespace QtGui
+	{
+
+		void MainWindow::updateSong()
+		{
+			QString description = "";
+			QString title = "";
+			const ISong* song = sosContext->SongControl->getSong();
+			if(sosContext->SongControl->isLoaded())
+			{
+				title = QString::fromLocal8Bit(song->getName());
+				if(song->getEncoding() == ISong::ANSI)
+					description = QString::fromLocal8Bit(song->getDescription()).replace("\n", "<br />");
+				else
+					description = QString::fromUtf8(song->getDescription());
+			}
+
+			ui->descriptioneLabel->setText(description.length() > 55 ? description.left(52) + "..." : description);
+			ui->descriptioneLabel->setToolTip(description);
+			ui->songTitleLabel->setText(title);
+			ui->viewTimeSlider->setSliderPosition(0);
+			outputSettings.updateSettings();
+		}
+
+		void MainWindow::on_playButton_clicked()
+		{
+#ifdef DEBUG
+			lowestFPS = 100;
+#endif
+			sosContext->SongControl->start();
+		}
+
+		void MainWindow::on_stopButton_clicked()
+		{
+			sosContext->SongControl->stop();
+			sosContext->SongControl->rewind();
+			settings->setViewedTime(settings->getCurrentTime() < settings->getViewTimeRange() / 2 ? 0 :
+																									   settings->getCurrentTime() - settings->getViewTimeRange() / 2);
+		}
+
+		void MainWindow::on_pauseButton_clicked()
+		{
+			sosContext->SongControl->stop();
+		}
+
+		void MainWindow::on_rewindButton_clicked()
+		{
+			playlist.loadPrevSong();
+		}
+
+		void MainWindow::on_fforwardButton_clicked()
+		{
+			playlist.loadNextSong();
+		}
+
+		void MainWindow::on_viewTimeSlider_sliderMoved(int position)
+		{
+			settings->setViewedTime((sosContext->SongControl->getSong()->getTotalTime() - settings->getViewTimeRange()) * position / 100);
+		}
+
+
+		void MainWindow::on_viewTimeSlider_valueChanged(int value)
+		{
+			settings->setViewedTime((sosContext->SongControl->getSong()->getTotalTime() - settings->getViewTimeRange()) * value / 100);
+
+			if(!detachViewTime)
+			{
+				settings->setCurrentTime(settings->getViewedTime() + settings->getViewTimeRange() / 2);
+			}
+		}
+
+		void MainWindow::setSkin(QString skinName)
+		{
+			generalSettings.setCurrentSkin(skinName.isEmpty() ? "default" : skinName);
+
+			QFile file(QString("skins/%1/style.css").arg(generalSettings.getCurrentSkin()));
+
+			if(!file.exists())
+				return;
+
+			file.open(QIODevice::ReadOnly);
+			QString ss = file.readAll();
+			file.close();
+			this->setStyleSheet(ss);
+			playlist.setStyleSheet(ss);
+			audioInSettingsWindow.setStyleSheet(ss);
+			songWindow.setStyleSheet(ss);
+			outputSettings.setStyleSheet(ss);
+			generalSettings.setStyleSheet(ss);
+			tutorial.setStyleSheet(ss);
+		}
+
+		void MainWindow::handleSubwinVisibilisty(SoSSubWindow *window, bool show)
+		{
+			window->setAllowShow(show);
+			if(show) window->show();
+			else if (!window->isFullScreen())
+				window->hide();
+		}
+
+		void MainWindow::on_songCheckbox_clicked(bool checked)
+		{
+			handleSubwinVisibilisty(&songWindow, checked);
+		}
+
+		void MainWindow::on_playlistCheckbox_clicked(bool checked)
+		{
+			handleSubwinVisibilisty(&playlist, checked);
+		}
+
+		void MainWindow::on_outputCheckbox_clicked(bool checked)
+		{
+			handleSubwinVisibilisty(&outputSettings, checked);
+		}
+
+		void MainWindow::on_audioInCheckbox_clicked(bool checked)
+		{
+			handleSubwinVisibilisty(&audioInSettingsWindow, checked);
+		}
+
+		void MainWindow::on_settingsCheckbox_clicked(bool checked)
+		{
+			handleSubwinVisibilisty(&generalSettings, checked);
+		}
+
+		void MainWindow::on_ejectButton_clicked()
+		{
+			playlist.addFile(QFileDialog::getOpenFileName(this, tr("Open File"), playlist.lastOpenedDir.absolutePath(), "Audio Files, SoS playlist (" + FILE_FORMATS.join(" ") + ")"));
+		}
+
+		void MainWindow::tutorialPageChange(int pageId)
+		{
+			audioInSettingsWindow.setTutorialHighlight(0);
+			outputSettings.setTutorialHighlight(false);
+
+			switch(pageId)
+			{
+			case 0:
+				break;
+			case 1:
+				audioInSettingsWindow.setAllowShow(true);
+				audioInSettingsWindow.show();
+				songWindow.setAllowShow(true);
+				songWindow.show();
+				tutorial.raise();
+				audioInSettingsWindow.setTutorialHighlight(1);
+				break;
+			case 2:
+				audioInSettingsWindow.setTutorialHighlight(2);
+				break;
+			case 3:
+				outputSettings.setAllowShow(true);
+				outputSettings.show();
+				tutorial.raise();
+				break;
+			case 4:
+				playlist.clearPlaylist();
+				playlist.addFile("samples/jingle_bells.kar");
+				playlist.loadNextSong();
+				outputSettings.setTutorialHighlight(true);
+				break;
+			}
+		}
+
+		void MainWindow::tutorialClose()
+		{
+			audioInSettingsWindow.setTutorialHighlight(false);
+			outputSettings.setTutorialHighlight(false);
+			tutorial.close();
+		}
+
+		void MainWindow::on_tutorialCheckbox_clicked(bool checked)
+		{
+			handleSubwinVisibilisty(&tutorial, checked);
+			tutorial.raise();
+		}
+	}
+}

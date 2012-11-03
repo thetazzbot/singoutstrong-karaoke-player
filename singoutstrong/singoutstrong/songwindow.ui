@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SongWindow</class>
+ <widget class="QFrame" name="SongWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>681</width>
+    <height>451</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>320</width>
+    <height>240</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Song</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/icons/singoutstrong.ico</normaloff>:/icons/singoutstrong.ico</iconset>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::StyledPanel</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <widget class="SoS::QtGui::WindowBar" name="windowBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>681</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fullScreenInfo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>330</y>
+     <width>669</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Press 'Escape' to leave full screen mode&lt;br /&gt;
+Press 'Space' to start and stop song&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+   </property>
+  </widget>
+  <widget class="SoS::QtGui::SoSNotesWidget" name="notes" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>20</y>
+     <width>681</width>
+     <height>301</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="SoS::QtGui::SoSLyricsWidget" name="lyrics" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>320</y>
+     <width>681</width>
+     <height>131</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SoS::QtGui::WindowBar</class>
+   <extends>QFrame</extends>
+   <header>windowbar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SoS::QtGui::SoSLyricsWidget</class>
+   <extends>QWidget</extends>
+   <header>soslyricswidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SoS::QtGui::SoSNotesWidget</class>
+   <extends>QWidget</extends>
+   <header>sosnoteswidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,12 @@
+#ifndef JDKSMIDI_GLOBAL_H
+#define JDKSMIDI_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(JDKSMIDI_LIBRARY)
+#  define JDKSMIDISHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define JDKSMIDISHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // JDKSMIDI_GLOBAL_H

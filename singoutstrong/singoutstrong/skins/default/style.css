@@ -1,0 +1,599 @@
+/* Class names and element Id's of all Widgets
+Also check out the following links for more information on styling Qt widgets:
+http://qt-project.org/doc/qt-4.8/stylesheet-reference.html
+http://qt-project.org/doc/qt-4.8/stylesheet-examples.html
+
+#windowBar : SoS--QtGui--WindowBar - The title bar in every application window
+	#exitButton		:	QPushButton	- Button for closing the window
+	#minimizeButton :	QPushButton	- Button for minimizing the window
+	#titleLabel		:	QLabel		- The window title label
+
+#MainWindow - Main application window
+	#content : QFrame - Container frame for storing all window widgets
+		#rewindButton		:	QPushButton - Button for loading the previous song on the playlist
+		#stopButton			:	QPushButton - Button for stopping playback, and rewinding the song to the beginning
+		#ejectButton		:	QPushButton - Button for opening files
+		#playButton			:	QPushButton - Button for starting song playback
+		#pauseButton		:	QPushButton - Button for stopping song playback without rewinding
+		#fforwardButton		:	QPushButton - Button for loading the next song on the playlist
+		#songTitleLabel		:	QLabel		- Label for displaying the song title
+		#descriptioneLabel	:	QLabel		- Label for displaying the song description
+		#viewTimeSlider		:	QSlider		- Slider for showing the viewed time of the song (which part of the song is displayed in the SongWindow)
+		#currTimeLabel		:	QLabel		- Label for displaying current playback time of the song
+		#totalTimeLabel		:	QLabel		- Label for displaying the total time length of the song
+		#songCheckbox		:	QCheckBox	- Checkbox for opening the #SongWindow
+		#playlistCheckbox	:	QCheckBox	- Checkbox for opening the #Playlist
+		#outputCheckbox		:	QCheckBox	- Checkbox for opening the #OutputSettings
+		#audioInCheckbox	:	QCheckBox	- Checkbox for opening the okienko #AudioInSettings
+		#settingsCheckbox	:	QCheckBox	- Checkbox for opening the #GeneralSettings
+		#tutorialButton		:	QPushButton - Button for opening the #TutorialWindow
+		
+#AudioInSettings - The audio input settings window
+	#content : QFrame - Container frame for storing all window widgets
+		#deviceLabel			:	QLabel		- Label for describing the #deviceBox
+		#deviceBox				:	QComboBox	- Combobox for chosing the audio input device
+		#applyButton			:	QPushButton - Button for applying the currently chosen audio input device
+		#samplesLabel			:	QLabel		- Label for describing the #samplesSlider
+		#samplesSlider			:	QSlider		- Slider for picking the number of audio samples to be analyzed
+		#volumeTresholdLabel	:	QLabel		- Label for describing the #volumeTresholdSlider
+		#volumeTresholdSlider	:	QSlider		- Slider for setting the volumeThreshold of the AudioAnalyzer
+
+#GeneralSettings - The general settings window
+	#content : QFrame - Container frame for storing all window widgets
+		#latencyLabel			:	QLabel		- Label for describing the #latencySlider
+		#latencySlider			:	QSlider		- Slider for setting the output latency
+		#latencyValueLabel		:	QLabel		- Label displaying the current value of the #latencySlider
+		#timeRangeLabel			:	QLabel		- Label for describing the #timeRangeSlider
+		#timeRangeSlider		:	QSlider 	- Slider for setting the viewed time range of the #SongWindow
+		#timeRangeValueLabel	:	QLabel		- Label for disblaing the current value of the #timeRangeSlider
+		#line					:	Line		- The upper separator line for the window
+		#textLinesLabel			:	QLabel		- Label for describing the #textLinesBox
+		#textLinesBox			:	QSpinBox	- SpinBox for setting the number of lines of lyrics shown in the #SongWindow
+		#groupedByLabel			:	QLabel		- Label for describing the #groupedByBox
+		#groupedByBox			:	QSpinBox	- Spinbox for setting by how many lines the lyrics in the #SongWindow will be grouped by
+		#line_2					:	Line		- The lower separator line for the window
+		#skinsLabel				:	QLabel		- Label for describing the #skinsList
+		#skinsList				:	SoS--QtGui--HighlightList	- A list for picking one of the available skins
+		
+#OutputSettings - The output settings window
+	#content : QFrame - Container frame for storing all window widgets
+		#volumeLabel			:	QLabel		- Label for describing the #volumeSlider
+		#volumeSlider			:	QSlider		- Slider for setting the playback volume
+		#currVolumeLabel		:	QLabel		- Label for displaying the current volume
+		#keyShiftLabel			:	QLabel		- Label for describing the #keyShiftSlider
+		#keyShiftSlider			:	QSlider		- Slider for changing the song's key
+		#currKeyShiftLabel		:	QLabel		- Label for displaying the current song key
+		#outputTracks			:	QScrollArea	- A container with scrollbars for displaying each track's properties
+			#outputTrackContents	:	QWidget		- A helper container for #outputTracks
+				(% is the track number, starting from 0)
+				#trackNameLabel_%		:	QLabel			- Label for displaying the track name
+				#vocalsButton_%			:	QCheckBox		- Checkbox for picking the vocals track
+					You can change the style of all vocalsButtons by using the QPushButton[vocalsButton="true"] selector
+				#muteButton_%			:	QCheckBox		- Checkbox for muting the track
+					You can change the style of all muteButtons by using the QPushButton[muteButton="true"] selector
+				#soloButton_%			:	QCheckBox		- Checkbox for muting every track except the selected one
+					You can change the style of all soloButtons by using the QPushButton[soloButton="true"] selector
+				#volumeBar_%			:	QProgressBar	- A progressbar displaying the current track volume
+			
+#Playlist - The playlist window
+	#content : QFrame - Container frame for storing all window widgets
+		#PlaylistBox	:	SoS--QtGui--Highlilghtlist	- List of songs to play
+		#newListButton	:	QPushButton		- Button for clearing the current playlist
+		#saveListButton	:	QPushButton		- Button for saving the current playlist to a file
+		
+#SongWindow - The window displaying song's notes and lyrics
+	#fullScreenInfo	:	QLabel	- Information label that shows up when the window goes into fullscreen mode
+	#lyrics			:	SoS--QtGui--SoSLyricsWidget	-	Widget for displaying the song's lyrics
+	#notes 			:	SoS--QtGui--SoSNotesWidget	-	Widget for displaying the song's notes
+
+#TutorialWindow - The widnow with a tutorial for the application
+	#TutorialWizard	:	QWizard	- A wizard for the tutorial.
+		The text of the tutorial is stored in QLabel widgets. Everything else is determined by the QWizard widget itself.
+		See the QWizard documentation for more information:
+		http://qt-project.org/doc/qt-4.8/qwizard.html
+	
+Additional style properties for custom widgets:
+	SoS--QtGui--HighlightList:
+		qproperty-highlightedItemColor	: QColor	- The color of the currently picked item on the list (changes only after doubleclicking an item)
+		qproperty-highlightedItemFont	: QString	- The font for the currently picked item. Has to be provided in the following format:
+			qproperty-highlightedItemFont:  "Tahoma,8.25,-1,5,75,0,0,0,0,0";
+			parameters:
+			font family, pointSizeF, pixelSize, QFont::StyleHint, QFont::Weight, QFont::Style, underline, strikeOut, fixedPitch, rawMode
+			
+	SoS--QtGui--SoSLyricsWidget:
+		qproperty-sungTextColor	: QColor	- The color of the sung lyrics
+			You can change the normal lyrics color with the standard 'color' property, and the font of both the sung and normal (unsung)
+			lyrics with the 'font property. The font size is irrelevant, as it's automatically incresed to fill up as much of the
+			widget as possible.
+
+	SoS--QtGui--SoSNotesWidget:
+		qproperty-noteColor					: QColor	- The fill color for the note bars
+		qproperty-recPerfectColor			: QColor	- The color of the audio samples graph when the user hit a note perfectly
+		qproperty-recGoodColor				: QColor	- The color of the audio samples graph when the user hit a note well
+		qproperty-recOkColor				: QColor	- The color of the audio samples graph when the user hit a note ok
+		qproperty-recPoorColor				: QColor	- The color of the audio samples graph when the user hit a note poorly
+		qproperty-recBadColor				: QColor	- The color of the audio samples graph when the user hit a note badly
+		qproperty-indicator					: QImage	- Image file with the current pitch indicator
+		qproperty-indicator_inactive		: QImage	- Image file with the inactive current pitch indicator (received sound was below volume threshold)
+		qproperty-indicator_high			: QImage	- Image file with the current pitch indicator, when the pitch was above the displayed scale
+		qproperty-indicator_high_inactive	: QImage	- Image file with the inactive current pitch indicator, when the pitch was above the displayed scale
+		qproperty-indicator_low				: QImage	- Image file with the current pitch indicator, when the pitch was below the displayed scale
+		qproperty-indicator_low_inactive	: QImage	- Image file with the inactive current pitch indicator, when the pitch was below the displayed scale
+*/
+
+
+*{
+background: #F3F3F3;
+color: #462514;
+border: 1px solid #462514;
+
+}
+
+QPushButton, QSlider, QLabel {
+	border: transparent none;
+}
+
+
+
+/*Main Window - button styles */
+#MainWindow QPushButton{
+	border: none;
+	background: none;
+}
+#windowBar QPushButton {
+	background: none;
+	border: none;
+}
+
+#windowBar #exitButton{
+	image: url(skins/default/close.png);
+	background: none;
+}
+
+#windowBar #minimizeButton{
+	image: url(skins/default/minimize.png);
+	background: none;
+}
+
+#windowBar{
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #df884b, stop: 1 #bb5641);
+}
+
+#windowBar QLabel{
+background: none;
+border: transparent;
+font: bold;
+color: #FFEDBE;
+}
+
+#SongWindow #windowBar{
+	border-bottom: none;
+}
+
+#fullScreenInfo {
+background: none;
+border: none;
+font:  bold 21px;
+color: rgba(70,37,20,128)
+}
+
+/*Sliders*/
+QSlider::groove{
+	height: 10px;
+	background: #F3F3F3;
+}
+
+QSlider::sub-page{
+	height: 3px;
+	background: #bb5641;
+	margin-top: 4px;
+	margin-bottom: 3px;
+}
+
+QSlider::add-page{
+	height: 1px;
+	background: #676766;
+	margin-top: 5px;
+	margin-bottom: 4px;
+
+}
+
+QSlider::handle{
+border: 1px solid #bb5641;
+background: #bb5641;
+height: 10px;
+width: 8px;
+border-radius: 5px;
+
+}
+/*Size grip for window resizing */
+QSizeGrip{
+	background: none;
+	border: none;
+	image: url(skins/default/sizegrip.png);
+    width: 16px;
+    height: 16px;
+}
+/*Checkboxes*/
+ QCheckBox {
+     spacing: 5px;
+     border: none;
+ }
+
+ QCheckBox::indicator {
+     width: 13px;
+     height: 13px;
+ }
+
+ QCheckBox::indicator:unchecked {
+     image: url(skins/default/checkbox_unchecked.png);
+ }
+ QCheckBox::indicator:checked {
+     image: url(skins/default/checkbox_checked.png);
+ }
+ 
+QCheckBox[muteButton="true"]::indicator:checked {
+     image: url(skins/default/audio-muted.png);
+}
+
+QCheckBox[muteButton="true"]::indicator:unchecked {
+     image: url(skins/default/audio-high.png);
+}
+
+QCheckBox[vocalsButton="true"]::indicator:checked {
+     image: url(skins/default/notes.png);
+}
+
+QCheckBox[vocalsButton="true"]::indicator:unchecked {
+     image: url(skins/default/notes-off.png);
+}
+
+QCheckBox[soloButton="true"]::indicator:checked {
+     image: url(skins/default/solo.png);
+}
+
+QCheckBox[soloButton="true"]::indicator:unchecked {
+     image: url(skins/default/solo-off.png);
+}
+
+
+
+/*Buttons for other windows (non image based)*/
+QPushButton{
+	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f6f7fa, stop: 1 #dadbde);
+	border: 1px solid #462514;
+	color: #462514;
+	min-height: 18px;
+	min-width: 50px;
+}
+QPushButton:hover{
+	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #faece1, stop: 1 #ddd1c7);
+	border: 1px solid #462514;
+	color: #462514;
+	min-height: 18px;
+}
+
+QPushButton:pressed {
+	color: #462514;
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+ 
+QPushButton:disabled {
+	color: #462514;
+	background-color: #bbb;
+}
+
+#windowBar QPushButton, #MainWindow QPushButton{
+	min-width: 0px;
+}
+
+/*ComboBoxes*/
+ QComboBox {
+     border: 1px solid #462514;
+     color: #462514;
+     min-height: 16px;
+     padding: 1px 18px 1px 6px;
+     background: #CBCBCB;
+ }
+ QComboBox::drop-down {
+     subcontrol-origin: padding;
+     subcontrol-position: top right;
+     width: 18px;
+     border-left-width: 1px;
+     border-left-color: #462514;
+     border-left-style: solid; 
+     border-top-right-radius: 3px; 
+     border-bottom-right-radius: 3px;
+ }
+ QComboBox::down-arrow {
+     image: url(skins/default/droper.png);
+     width: 16px;
+     height: 16px;
+ }
+ QComboBox::down-arrow:on { 
+     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #dadbde, stop: 1 #f6f7fa);
+ }
+
+QComboBox:!editable, QComboBox::drop-down:editable {
+      background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f6f7fa, stop: 1 #dadbde);
+ }
+ QComboBox:!editable:on, QComboBox::drop-down:editable:on {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #dadbde, stop: 1 #f6f7fa);
+ }
+
+ QComboBox QAbstractItemView {
+     border: 1px solid #462514;
+     background: #dadbde;
+     color: #462514;
+     selection-background-color: #d9a654;
+     selection-color: #F3F3F3;
+ }
+
+
+
+/*--------Scrollbars------------*/
+
+ QScrollBar:vertical {
+      border: none;
+      background: none;
+      width: 16px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+
+  }
+  QScrollBar::handle:vertical {
+      background: #bb5641;
+      min-height: 30px;
+	  border: 1px solid #462514;
+	  border-right: none;
+
+  }
+  QScrollBar::add-line:vertical {
+      background: none;
+      height: 16px;
+      subcontrol-position: bottom;
+      subcontrol-origin: margin;
+	  border: 1px solid #462514;
+	  border-right: none;
+  }
+
+  QScrollBar::sub-line:vertical {
+  	  border-left: 1px solid #462514;
+      height: 16px;
+      subcontrol-position: top;
+      subcontrol-origin: margin;
+  }
+  
+  QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+      border: 1px solid #462514;
+	  border-right: none;
+      background: #bb5641;
+      width: 16px;
+      height: 16px;
+  }
+ QScrollBar::down-arrow:vertical {
+ 	 image: url(skins/default/droper.png);
+ }
+  QScrollBar::up-arrow:vertical {
+ 	 image: url(skins/default/upper.png);
+ }
+ 
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+	border-left: 1px solid #462514;
+}
+
+
+
+
+/* Progres bar */
+
+ QProgressBar {
+     border: 1px solid #676766;
+     max-height: 18px;
+ }
+
+ QProgressBar::chunk {
+     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #d9a654, stop: 1 #df884b);
+     width: 2px;
+ }
+ 
+ #outputTrackContents{
+	border: none;
+ }
+
+
+/*********LISTS****/
+
+ SoS--QtGui--HighlightList {
+     show-decoration-selected: 1;
+     color: #676766;
+	 qproperty-highlightedItemColor: #bb5641;
+	 qproperty-highlightedItemFont:  "Tahoma,8.25,-1,5,75,0,0,0,0,0"; /*params: font family, pointSizeF, pixelSize, QFont::StyleHint, QFont::Weight, QFont::Style, underline, strikeOut, fixedPitch, rawMode */
+ }
+
+ SoS--QtGui--HighlightList::item:alternate {
+     background: #EEEEEE;
+ }
+
+ SoS--QtGui--HighlightList::item:selected {
+     border: 1px solid #959595;
+ }
+
+ SoS--QtGui--HighlightList::item:selected:!active {
+     background: #d9a654;
+     color: #F3F3F3;
+ }
+
+ SoS--QtGui--HighlightList::item:selected:active {
+     background: #d9a654;
+     color: #F3F3F3;
+ }
+
+ SoS--QtGui--HighlightList::item:hover {
+     background: #d9a654;
+     color: #F3F3F3;
+     border: 1px solid #959595;
+ }
+
+
+
+
+
+
+/*Spin boxes +/- */
+
+ QSpinBox {
+     padding-right: 5px; /* make room for the arrows */
+     padding-left: 10px;
+     border-width: 0;
+ }
+
+ QSpinBox::up-button {
+     subcontrol-origin: border;
+     subcontrol-position: right; /* position at the top right corner */
+     border-width: 1px;
+
+ }
+
+ QSpinBox::up-button:hover {
+    image: url(skins/default/upperspin.png);
+     width: 16px;
+     height: 16px;
+ }
+
+
+ QSpinBox::up-arrow { /*stan normalny*/
+     image: url(skins/default/upperspin.png);
+     width: 16px;
+     height: 16px;
+ }
+
+ QSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off { /* off state when value is max */
+    image: url(skins/default/upperspin.png);
+ }
+
+ QSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: left;
+     border-width: 1px;
+ }
+
+ QSpinBox::down-button:hover {
+     image: url(skins/default/dropperspin.png);
+     width: 16px;
+     height: 16px;
+ }
+
+ QSpinBox::down-arrow {
+     image: url(skins/default/dropperspin.png);
+     width: 16px;
+     height: 16px;
+ }
+
+ QSpinBox::down-arrow:disabled,
+ QSpinBox::down-arrow:off { 
+    image: url(skins/default/dropperspin.png);
+ }
+
+/*-------------------------------*/
+
+
+#songTitleLabel{
+	font:  bold 11px;
+}
+
+#descriptioneLabel{
+	font:  9px;
+}
+
+#totalTimeLabel{
+	qproperty-alignment: AlignRight;
+}
+
+#notes{
+	border: 1px solid black;
+	qproperty-noteColor:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff8888, stop: 0.5 #fab885, stop: 1 #ff8888);
+	qproperty-selectionColor: rgba(216,165,119,64);
+	qproperty-indicator: url(skins/default/indicator.png);
+	qproperty-indicator_inactive: url(skins/default/indicator-off.png);
+	qproperty-indicator_high: url(skins/default/indicator-high.png);
+	qproperty-indicator_high_inactive: url(skins/default/indicator-high-off.png);
+	qproperty-indicator_low: url(skins/default/indicator-low.png);
+	qproperty-indicator_low_inactive: url(skins/default/indicator-low-off.png);
+	qproperty-recPerfectColor: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #00c800, stop: 0.5 #00ff00, stop: 1 #00c800);
+	qproperty-recGoodColor: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #00ff00, stop: 0.5 #b6ff00, stop: 1 #00ff00);
+	qproperty-recOkColor: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #afaf00, stop: 0.5 #ffff00, stop: 1 #afaf00);
+	qproperty-recPoorColor: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #af2000, stop: 0.5 #ff8000, stop: 1 #af2000);
+	qproperty-recBadColor: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #800000, stop: 0.5 #ff0000, stop: 1 #800000);
+}
+
+#lyrics{
+	font-family: "Arial";
+	font-weight: bold;
+	border: 1px solid #676766;
+	qproperty-sungTextColor: #d9a654;
+	color: #462514;
+	width: 6px;
+}
+
+#playButton{
+	image: url(skins/default/Play.png);
+}
+#playButton:hover{
+	image: url(skins/default/Play_on.png);
+}
+
+#ejectButton{
+	image: url(skins/default/Eject.png);
+}
+#ejectButton:hover{
+	image: url(skins/default/Eject_on.png);
+}
+
+#tutorialButton{
+	image: url(skins/default/help.png);
+}
+
+
+#pauseButton{
+	image: url(skins/default/Pause.png);
+}
+#pauseButton:hover{
+	image: url(skins/default/Pause_on.png);
+}
+
+#stopButton{
+	image: url(skins/default/Stop.png);
+}
+#stopButton:hover{
+	image: url(skins/default/Stop_on.png);
+}
+
+#fforwardButton{
+	image: url(skins/default/FastF.png);
+}
+#fforwardButton:hover{
+	image: url(skins/default/FastF_on.png);
+}
+
+#rewindButton{
+	image: url(skins/default/Rewind.png);
+}
+#rewindButton:hover{
+	image: url(skins/default/Rewind_on.png);
+}
+
+#AudioInSettings QLabel[tutorialHighlight="true"] {
+	color: red;
+	font: bold;
+}
+
+#trackNameLabel_2[tutorialHighlight="true"] {
+	color: red;
+	font: bold;
+}
+
+#TutorialWindow #line {
+	margin: 11px 0 3px 0;
+}

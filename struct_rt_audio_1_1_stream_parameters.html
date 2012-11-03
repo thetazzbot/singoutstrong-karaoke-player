@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>SingOutStrong Karaoke Player: SingOutStrong Karaoke Player</title>
+<title>SingOutStrong Karaoke Player: RtAudio::StreamParameters Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,10 +37,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,7 +60,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,26 +82,81 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="class_rt_audio.html">RtAudio</a></li><li class="navelem"><a class="el" href="struct_rt_audio_1_1_stream_parameters.html">StreamParameters</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">SingOutStrong Karaoke Player </div>  </div>
+<div class="title">RtAudio::StreamParameters Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
-Introduction</h1>
-<p>SingOutStrong Karaoke Player is a free, open source music player, with a pitch detection and display feature similar to that of SingStar like games. <br/>
- Our goal is to create an easy to use and versitile player for practicing singing skills.</p>
-<p>This code documenation may not be too elaborate at the moment, but it should give you a rough idea about what's what.</p>
-<h1><a class="anchor" id="build_sec"></a>
-Building</h1>
-<p>The project was created in QtCreator 2.5 with Qt 4.8.0. The simplest way to build is to open the included .pro files in QtCreator.</p>
-<h1><a class="anchor" id="release_sec"></a>
-Release Packages</h1>
-<p>The latest release package is available for download at <a href="http://singoutstrong.org/karaokeplayer">http://singoutstrong.org/karaokeplayer</a> </p>
-</div></div><!-- contents -->
+
+<p>The structure for specifying input or ouput stream parameters.  
+ <a href="struct_rt_audio_1_1_stream_parameters.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="rtaudio_8h_source.html">rtaudio.h</a>&gt;</code></p>
+
+<p><a href="struct_rt_audio_1_1_stream_parameters-members.html">List of all members.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ab3c72bcf3ef12149ae9a4fb597cc5489"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_rt_audio_1_1_stream_parameters.html#ab3c72bcf3ef12149ae9a4fb597cc5489">deviceId</a></td></tr>
+<tr class="memitem:a88a10091b6e284e21235cc6f25332ebd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_rt_audio_1_1_stream_parameters.html#a88a10091b6e284e21235cc6f25332ebd">nChannels</a></td></tr>
+<tr class="memitem:ad4b4503782653ec93c83328c46abe50c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_rt_audio_1_1_stream_parameters.html#ad4b4503782653ec93c83328c46abe50c">firstChannel</a></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>The structure for specifying input or ouput stream parameters. </p>
+</div><hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ab3c72bcf3ef12149ae9a4fb597cc5489"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int RtAudio::StreamParameters::deviceId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Device index (0 to <a class="el" href="class_rt_audio.html#a747ce2d73803641bbb66d6e78092aa1a" title="A public function that queries for the number of audio devices available.">getDeviceCount()</a> - 1). </p>
+
+</div>
+</div>
+<a class="anchor" id="ad4b4503782653ec93c83328c46abe50c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int RtAudio::StreamParameters::firstChannel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>First channel index on device (default = 0). </p>
+
+</div>
+</div>
+<a class="anchor" id="a88a10091b6e284e21235cc6f25332ebd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int RtAudio::StreamParameters::nChannels</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of channels. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>soscore/src/audio/audioio/rtaudioinput/rtaudio/<a class="el" href="rtaudio_8h_source.html">rtaudio.h</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:03:07 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 3 2012 17:03:05 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

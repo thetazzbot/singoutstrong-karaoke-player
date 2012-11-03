@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>SingOutStrong Karaoke Player: SingOutStrong Karaoke Player</title>
+<title>SingOutStrong Karaoke Player: SoS::Core::UltraStarParser::BPM Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,10 +37,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,7 +60,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,26 +82,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_so_s.html">SoS</a></li><li class="navelem"><a class="el" href="namespace_so_s_1_1_core.html">Core</a></li><li class="navelem"><a class="el" href="class_so_s_1_1_core_1_1_ultra_star_parser.html">UltraStarParser</a></li><li class="navelem"><a class="el" href="struct_so_s_1_1_core_1_1_ultra_star_parser_1_1_b_p_m.html">BPM</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">SingOutStrong Karaoke Player </div>  </div>
+<div class="title">SoS::Core::UltraStarParser::BPM Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
-Introduction</h1>
-<p>SingOutStrong Karaoke Player is a free, open source music player, with a pitch detection and display feature similar to that of SingStar like games. <br/>
- Our goal is to create an easy to use and versitile player for practicing singing skills.</p>
-<p>This code documenation may not be too elaborate at the moment, but it should give you a rough idea about what's what.</p>
-<h1><a class="anchor" id="build_sec"></a>
-Building</h1>
-<p>The project was created in QtCreator 2.5 with Qt 4.8.0. The simplest way to build is to open the included .pro files in QtCreator.</p>
-<h1><a class="anchor" id="release_sec"></a>
-Release Packages</h1>
-<p>The latest release package is available for download at <a href="http://singoutstrong.org/karaokeplayer">http://singoutstrong.org/karaokeplayer</a> </p>
-</div></div><!-- contents -->
+
+<p>Struct for storing time in the Beats per minute format, and info that helps convert it to seconds.  
+ <a href="struct_so_s_1_1_core_1_1_ultra_star_parser_1_1_b_p_m.html#details">More...</a></p>
+
+<p><a href="struct_so_s_1_1_core_1_1_ultra_star_parser_1_1_b_p_m-members.html">List of all members.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ae478bbe6d85c4b82b9aa5a8e9aef124f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae478bbe6d85c4b82b9aa5a8e9aef124f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BPM</b> (double _begin, double _ts, double bpm)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a59a76c7f2f40d92daef2dbffcbd59808"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59a76c7f2f40d92daef2dbffcbd59808"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_so_s_1_1_core_1_1_ultra_star_parser_1_1_b_p_m.html#a59a76c7f2f40d92daef2dbffcbd59808">begin</a></td></tr>
+<tr class="memdesc:a59a76c7f2f40d92daef2dbffcbd59808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time in seconds. <br/></td></tr>
+<tr class="memitem:a24aff15614a6667c25a8bd7722f8fbef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24aff15614a6667c25a8bd7722f8fbef"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_so_s_1_1_core_1_1_ultra_star_parser_1_1_b_p_m.html#a24aff15614a6667c25a8bd7722f8fbef">step</a></td></tr>
+<tr class="memdesc:a24aff15614a6667c25a8bd7722f8fbef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seconds per quarter note. <br/></td></tr>
+<tr class="memitem:a8b3143951d673e5d6f7c1b086c5744a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b3143951d673e5d6f7c1b086c5744a9"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>ts</b></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Struct for storing time in the Beats per minute format, and info that helps convert it to seconds. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>soscore/src/musichandlers/ultrastarparser/<a class="el" href="ultrastarparser_8h_source.html">ultrastarparser.h</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:03:07 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 3 2012 17:03:06 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

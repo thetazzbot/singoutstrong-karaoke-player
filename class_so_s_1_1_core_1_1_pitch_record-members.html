@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>SingOutStrong Karaoke Player: SingOutStrong Karaoke Player</title>
+<title>SingOutStrong Karaoke Player: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,10 +37,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,7 +60,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,26 +82,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_so_s.html">SoS</a></li><li class="navelem"><a class="el" href="namespace_so_s_1_1_core.html">Core</a></li><li class="navelem"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">PitchRecord</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">SingOutStrong Karaoke Player </div>  </div>
+<div class="title">SoS::Core::PitchRecord Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
-Introduction</h1>
-<p>SingOutStrong Karaoke Player is a free, open source music player, with a pitch detection and display feature similar to that of SingStar like games. <br/>
- Our goal is to create an easy to use and versitile player for practicing singing skills.</p>
-<p>This code documenation may not be too elaborate at the moment, but it should give you a rough idea about what's what.</p>
-<h1><a class="anchor" id="build_sec"></a>
-Building</h1>
-<p>The project was created in QtCreator 2.5 with Qt 4.8.0. The simplest way to build is to open the included .pro files in QtCreator.</p>
-<h1><a class="anchor" id="release_sec"></a>
-Release Packages</h1>
-<p>The latest release package is available for download at <a href="http://singoutstrong.org/karaokeplayer">http://singoutstrong.org/karaokeplayer</a> </p>
-</div></div><!-- contents -->
+
+<p>This is the complete list of members for <a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html#a3e42d92c4d0e87b7eaff3f677f4bb32e">addSample</a>(float pitch)</td><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html#a0890283e37cec5b965e2e9348a34aa72">addSample</a>(float pitch, long time, float accuracy=2)</td><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html#a8cc6a4160f44bf0ea0e51a8bf753c3c6">clear</a>()</td><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html#a9d248d34ad0c7f61c8846282bc299efd">getCurrentSampleIndex</a>() const </td><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html#a13bd1388d3044c024c1f675f2563731d">getSample</a>(int index) const </td><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html#a87169aa3a8174f4c0fb7da538e9ada30">getStartIndex</a>(long viewTime) const </td><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html#a9f37a571fd17dd7dbe03a6012c26e8c2">markAsEnd</a>()</td><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>PitchRecord</b>() (defined in <a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a>)</td><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html#a04988a1f5fb20e7affa2d6d1d306875f">pitchSamples</a></td><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_pitch_record.html">SoS::Core::PitchRecord</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>~IPitchRecord</b>() (defined in <a class="el" href="class_so_s_1_1_core_1_1_i_pitch_record.html">SoS::Core::IPitchRecord</a>)</td><td class="entry"><a class="el" href="class_so_s_1_1_core_1_1_i_pitch_record.html">SoS::Core::IPitchRecord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+</table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:03:07 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 3 2012 17:03:06 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

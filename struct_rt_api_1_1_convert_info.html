@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>SingOutStrong Karaoke Player: SingOutStrong Karaoke Player</title>
+<title>SingOutStrong Karaoke Player: RtApi::ConvertInfo Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,10 +37,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,7 +60,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,26 +82,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="class_rt_api.html">RtApi</a></li><li class="navelem"><a class="el" href="struct_rt_api_1_1_convert_info.html">ConvertInfo</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">SingOutStrong Karaoke Player </div>  </div>
+<div class="title">RtApi::ConvertInfo Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
-Introduction</h1>
-<p>SingOutStrong Karaoke Player is a free, open source music player, with a pitch detection and display feature similar to that of SingStar like games. <br/>
- Our goal is to create an easy to use and versitile player for practicing singing skills.</p>
-<p>This code documenation may not be too elaborate at the moment, but it should give you a rough idea about what's what.</p>
-<h1><a class="anchor" id="build_sec"></a>
-Building</h1>
-<p>The project was created in QtCreator 2.5 with Qt 4.8.0. The simplest way to build is to open the included .pro files in QtCreator.</p>
-<h1><a class="anchor" id="release_sec"></a>
-Release Packages</h1>
-<p>The latest release package is available for download at <a href="http://singoutstrong.org/karaokeplayer">http://singoutstrong.org/karaokeplayer</a> </p>
-</div></div><!-- contents -->
+
+<p><a href="struct_rt_api_1_1_convert_info-members.html">List of all members.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ae6fdb3e6b6a3a4974b49ded33291678b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6fdb3e6b6a3a4974b49ded33291678b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>channels</b></td></tr>
+<tr class="memitem:a4af72ecf20214d857c3a8e6190230840"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4af72ecf20214d857c3a8e6190230840"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>inJump</b></td></tr>
+<tr class="memitem:acb0920de8188e4453daf37a080ff78f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb0920de8188e4453daf37a080ff78f5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>outJump</b></td></tr>
+<tr class="memitem:a44d9cf8d7c26ff60fed5d0274cf6d81a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44d9cf8d7c26ff60fed5d0274cf6d81a"></a>
+<a class="el" href="rtaudio_8h.html#aafca92882d25915560018873221e44b8">RtAudioFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inFormat</b></td></tr>
+<tr class="memitem:a64970c900e1649a386f3df8254ef4aec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64970c900e1649a386f3df8254ef4aec"></a>
+<a class="el" href="rtaudio_8h.html#aafca92882d25915560018873221e44b8">RtAudioFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><b>outFormat</b></td></tr>
+<tr class="memitem:a5e3b0a93cd8bfbf62e275cf4de22bcc5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e3b0a93cd8bfbf62e275cf4de22bcc5"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inOffset</b></td></tr>
+<tr class="memitem:afe1baae9554f14df0f5f90c3f2beadaa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe1baae9554f14df0f5f90c3f2beadaa"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>outOffset</b></td></tr>
+</table>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>soscore/src/audio/audioio/rtaudioinput/rtaudio/<a class="el" href="rtaudio_8h_source.html">rtaudio.h</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:03:07 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 3 2012 17:03:05 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

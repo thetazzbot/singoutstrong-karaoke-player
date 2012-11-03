@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>SingOutStrong Karaoke Player: SingOutStrong Karaoke Player</title>
+<title>SingOutStrong Karaoke Player: SoS::QtGui::SoSContext Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,10 +37,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,7 +60,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,23 +82,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_so_s.html">SoS</a></li><li class="navelem"><a class="el" href="namespace_so_s_1_1_qt_gui.html">QtGui</a></li><li class="navelem"><a class="el" href="class_so_s_1_1_qt_gui_1_1_so_s_context.html">SoSContext</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">SingOutStrong Karaoke Player </div>  </div>
+<div class="title">SoS::QtGui::SoSContext Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
-Introduction</h1>
-<p>SingOutStrong Karaoke Player is a free, open source music player, with a pitch detection and display feature similar to that of SingStar like games. <br/>
- Our goal is to create an easy to use and versitile player for practicing singing skills.</p>
-<p>This code documenation may not be too elaborate at the moment, but it should give you a rough idea about what's what.</p>
-<h1><a class="anchor" id="build_sec"></a>
-Building</h1>
-<p>The project was created in QtCreator 2.5 with Qt 4.8.0. The simplest way to build is to open the included .pro files in QtCreator.</p>
-<h1><a class="anchor" id="release_sec"></a>
-Release Packages</h1>
-<p>The latest release package is available for download at <a href="http://singoutstrong.org/karaokeplayer">http://singoutstrong.org/karaokeplayer</a> </p>
-</div></div><!-- contents -->
+
+<p>Class holding interfaces from the <a class="el" href="namespace_so_s_1_1_core.html" title="Core functionalisties: loading files, audio processing, playback control, etc.">Core</a> library.  
+ <a href="class_so_s_1_1_qt_gui_1_1_so_s_context.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="soscontext_8h_source.html">soscontext.h</a>&gt;</code></p>
+
+<p><a href="class_so_s_1_1_qt_gui_1_1_so_s_context-members.html">List of all members.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ace7556e0a425647da3101881797c2128"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace7556e0a425647da3101881797c2128"></a>
+ISoSDevice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_so_s_context.html#ace7556e0a425647da3101881797c2128">SingDevice</a></td></tr>
+<tr class="memdesc:ace7556e0a425647da3101881797c2128"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main device. <br/></td></tr>
+<tr class="memitem:a0c1406bd7307eb8d6c17aac4de5c9f15"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c1406bd7307eb8d6c17aac4de5c9f15"></a>
+IAudioInput *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_so_s_context.html#a0c1406bd7307eb8d6c17aac4de5c9f15">AudioInput</a></td></tr>
+<tr class="memdesc:a0c1406bd7307eb8d6c17aac4de5c9f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">The audio input. <br/></td></tr>
+<tr class="memitem:a94947afba33bc4d79221e82209100f91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94947afba33bc4d79221e82209100f91"></a>
+IAudioAnalyzer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_so_s_context.html#a94947afba33bc4d79221e82209100f91">AudioAnalyzer</a></td></tr>
+<tr class="memdesc:a94947afba33bc4d79221e82209100f91"><td class="mdescLeft">&#160;</td><td class="mdescRight">The audio analyzer. <br/></td></tr>
+<tr class="memitem:a008f9964fddebe38be22a882fc028c6d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a008f9964fddebe38be22a882fc028c6d"></a>
+ISongControl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_so_s_context.html#a008f9964fddebe38be22a882fc028c6d">SongControl</a></td></tr>
+<tr class="memdesc:a008f9964fddebe38be22a882fc028c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The song controller. <br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Class holding interfaces from the <a class="el" href="namespace_so_s_1_1_core.html" title="Core functionalisties: loading files, audio processing, playback control, etc.">Core</a> library. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>singoutstrong/<a class="el" href="soscontext_8h_source.html">soscontext.h</a></li>
+<li>singoutstrong/soscontext.cpp</li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Sat Nov 3 2012 17:03:07 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">

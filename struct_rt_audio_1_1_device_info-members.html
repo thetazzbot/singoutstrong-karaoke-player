@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>SingOutStrong Karaoke Player: SingOutStrong Karaoke Player</title>
+<title>SingOutStrong Karaoke Player: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,10 +37,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,7 +60,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,26 +82,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="class_rt_audio.html">RtAudio</a></li><li class="navelem"><a class="el" href="struct_rt_audio_1_1_device_info.html">DeviceInfo</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">SingOutStrong Karaoke Player </div>  </div>
+<div class="title">RtAudio::DeviceInfo Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
-Introduction</h1>
-<p>SingOutStrong Karaoke Player is a free, open source music player, with a pitch detection and display feature similar to that of SingStar like games. <br/>
- Our goal is to create an easy to use and versitile player for practicing singing skills.</p>
-<p>This code documenation may not be too elaborate at the moment, but it should give you a rough idea about what's what.</p>
-<h1><a class="anchor" id="build_sec"></a>
-Building</h1>
-<p>The project was created in QtCreator 2.5 with Qt 4.8.0. The simplest way to build is to open the included .pro files in QtCreator.</p>
-<h1><a class="anchor" id="release_sec"></a>
-Release Packages</h1>
-<p>The latest release package is available for download at <a href="http://singoutstrong.org/karaokeplayer">http://singoutstrong.org/karaokeplayer</a> </p>
-</div></div><!-- contents -->
+
+<p>This is the complete list of members for <a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a>, including all inherited members.</p>
+<table class="directory">
+  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>DeviceInfo</b>() (defined in <a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a>)</td><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html#a3e8ad34c2d14e24293a0beafc26186e7">duplexChannels</a></td><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html#a56247b458a937ae84d98ca9c4b243275">inputChannels</a></td><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html#a7c8aca084bd908799b6be5954b80def2">isDefaultInput</a></td><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html#a5365245e73ffe29a05734de4474acd58">isDefaultOutput</a></td><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html#a24df596ab8d54f2eb540c7cf16212b3b">name</a></td><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html#a23251b549b89b2fe04a57fcd7cb76ea4">nativeFormats</a></td><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html#a81aaf488f8158ef55b1bb678f66feb7d">outputChannels</a></td><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html#a97573717ccb1e75a834a0a108cd6982d">probed</a></td><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html#afa65f5f92f66ce7aacd3ff35e11b230f">sampleRates</a></td><td class="entry"><a class="el" href="struct_rt_audio_1_1_device_info.html">RtAudio::DeviceInfo</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:03:07 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 3 2012 17:03:05 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

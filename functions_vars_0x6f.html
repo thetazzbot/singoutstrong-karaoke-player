@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>SingOutStrong Karaoke Player: SingOutStrong Karaoke Player</title>
+<title>SingOutStrong Karaoke Player: Class Members - Variables</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,10 +37,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,6 +60,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li class="current"><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li><a href="functions.html"><span>All</span></a></li>
+      <li><a href="functions_func.html"><span>Functions</span></a></li>
+      <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="functions_vars.html#index__"><span>_</span></a></li>
+      <li><a href="functions_vars_0x61.html#index_a"><span>a</span></a></li>
+      <li><a href="functions_vars_0x62.html#index_b"><span>b</span></a></li>
+      <li><a href="functions_vars_0x63.html#index_c"><span>c</span></a></li>
+      <li><a href="functions_vars_0x64.html#index_d"><span>d</span></a></li>
+      <li><a href="functions_vars_0x65.html#index_e"><span>e</span></a></li>
+      <li><a href="functions_vars_0x66.html#index_f"><span>f</span></a></li>
+      <li><a href="functions_vars_0x67.html#index_g"><span>g</span></a></li>
+      <li><a href="functions_vars_0x68.html#index_h"><span>h</span></a></li>
+      <li><a href="functions_vars_0x69.html#index_i"><span>i</span></a></li>
+      <li><a href="functions_vars_0x6b.html#index_k"><span>k</span></a></li>
+      <li><a href="functions_vars_0x6c.html#index_l"><span>l</span></a></li>
+      <li><a href="functions_vars_0x6d.html#index_m"><span>m</span></a></li>
+      <li><a href="functions_vars_0x6e.html#index_n"><span>n</span></a></li>
+      <li class="current"><a href="functions_vars_0x6f.html#index_o"><span>o</span></a></li>
+      <li><a href="functions_vars_0x70.html#index_p"><span>p</span></a></li>
+      <li><a href="functions_vars_0x71.html#index_q"><span>q</span></a></li>
+      <li><a href="functions_vars_0x72.html#index_r"><span>r</span></a></li>
+      <li><a href="functions_vars_0x73.html#index_s"><span>s</span></a></li>
+      <li><a href="functions_vars_0x74.html#index_t"><span>t</span></a></li>
+      <li><a href="functions_vars_0x75.html#index_u"><span>u</span></a></li>
+      <li><a href="functions_vars_0x76.html#index_v"><span>v</span></a></li>
+      <li><a href="functions_vars_0x77.html#index_w"><span>w</span></a></li>
+    </ul>
+  </div>
 </div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -75,26 +120,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div class="header">
-  <div class="headertitle">
-<div class="title">SingOutStrong Karaoke Player </div>  </div>
-</div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
-Introduction</h1>
-<p>SingOutStrong Karaoke Player is a free, open source music player, with a pitch detection and display feature similar to that of SingStar like games. <br/>
- Our goal is to create an easy to use and versitile player for practicing singing skills.</p>
-<p>This code documenation may not be too elaborate at the moment, but it should give you a rough idea about what's what.</p>
-<h1><a class="anchor" id="build_sec"></a>
-Building</h1>
-<p>The project was created in QtCreator 2.5 with Qt 4.8.0. The simplest way to build is to open the included .pro files in QtCreator.</p>
-<h1><a class="anchor" id="release_sec"></a>
-Release Packages</h1>
-<p>The latest release package is available for download at <a href="http://singoutstrong.org/karaokeplayer">http://singoutstrong.org/karaokeplayer</a> </p>
-</div></div><!-- contents -->
+&#160;
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>oldEnd
+: <a class="el" href="group___qt_gui.html#gaaa2979f12dd4f4adcc69989d78ec35cb">SoS::QtGui::SoSLyricsWidget</a>
+</li>
+<li>oldStart
+: <a class="el" href="group___qt_gui.html#gaa74104084a9c8fc55a1472ba33736220">SoS::QtGui::SoSLyricsWidget</a>
+</li>
+<li>outputChannels
+: <a class="el" href="struct_rt_audio_1_1_device_info.html#a81aaf488f8158ef55b1bb678f66feb7d">RtAudio::DeviceInfo</a>
+</li>
+<li>outputLatency
+: <a class="el" href="struct_so_s_1_1_core_1_1_song_settings.html#a44112637f56ed691def61ac1f0a7a56a">SoS::Core::SongSettings</a>
+</li>
+<li>outputSettings
+: <a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#aa64eab583f27ebebfa318eb2e8c2c269">SoS::QtGui::MainWindow</a>
+</li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:03:07 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 3 2012 17:03:08 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

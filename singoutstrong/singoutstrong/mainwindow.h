@@ -23,6 +23,10 @@
  * \section release_sec Release Packages
  *
  * The latest release package is available for download at http://singoutstrong.org/karaokeplayer
+ *
+ * \section src_sec Source code
+ *
+ * Get the source code at https://github.com/singoutstrong/singoutstrong-karaoke-player
  */
 
 #include <QMainWindow>

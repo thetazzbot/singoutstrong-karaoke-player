@@ -1,0 +1,7 @@
+/singoutstrong/Makefile
+/singoutstrong/jdksmidi/debug/*.*
+/singoutstrong/jdksmidi/release/*.*
+/singoutstrong/singoutstrong/debug/*.*
+/singoutstrong/singoutstrong/release/*.*
+/singoutstrong/soscore/debug/*.*
+/singoutstrong/soscore/release/*.*

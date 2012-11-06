@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "SingOutStrong"
-#define MyAppVersion "0.8.0.9"
+#define MyAppVersion "0.8.0.10"
 #define MyAppPublisher "singoutstrong.org"
 #define MyAppURL "http://singoutstrong.org/"
 #define MyAppExeName "singoutstrong.exe"

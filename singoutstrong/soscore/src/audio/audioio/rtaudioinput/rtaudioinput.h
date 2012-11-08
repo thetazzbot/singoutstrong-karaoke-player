@@ -7,7 +7,6 @@
 #include "../../audioanalyzer/audioanalyzer.h"
 #include "../../../../include/iaudioio.h"
 #include "rtaudio\rtaudio.h"
-#include "rtaudio\rtmidi.h"
 #include "log.h"
 
 #if AUDIOFORMAT_SINT8

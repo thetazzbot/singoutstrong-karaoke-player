@@ -13,7 +13,6 @@ DEFINES += SOSCORE_LIBRARY
 
 SOURCES += \
     src/audio/audioanalyzer/aubioanalyzer/aubioanalyzer.cpp \
-    src/audio/audioio/rtaudioinput/rtaudio/rtmidi.cpp \
     src/audio/audioio/rtaudioinput/rtaudio/rtaudio.cpp \
     src/audio/pitchrecord/pitchsample.cpp \
     src/audio/pitchrecord/pitchrecord.cpp \
@@ -45,7 +44,6 @@ HEADERS += \
     src/audio/audioanalyzer/aubioanalyzer/aubiofuncs.h \
     src/audio/audioio/rtaudioinput/rtaudio/rterror.h \
     src/audio/audioio/rtaudioinput/rtaudio/rtaudio.h \
-    src/audio/audioio/rtaudioinput/rtaudio/rtmidi.h \
     src/audio/pitchrecord/pitchrecord.h \
     src/audio/pitchrecord/pitchsample.h \
     include/itextdata.h \

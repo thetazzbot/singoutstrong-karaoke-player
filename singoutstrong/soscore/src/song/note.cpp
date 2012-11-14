@@ -24,12 +24,12 @@ namespace SoS
 
 		long Note::getStartTime() const
 		{
-			return startTime;
+			return startTime / settings->getTempo();
 		}
 
 		long Note::getStopTime() const
 		{
-			return stopTime;
+			return stopTime / settings->getTempo();
 		}
 
 		const ISongSettings* Note::settings = NULL;

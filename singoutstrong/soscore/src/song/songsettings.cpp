@@ -101,7 +101,7 @@ namespace SoS
 		void SongControl::setTempo(float tempo)
 		{
 			pitchRecord->clear();
-			song->changeTempo(settings.tempo / tempo);
+			settings.currTime *= settings.tempo / tempo;
 			settings.tempo = tempo;
 			currentHandler->changeTempo();
 		}

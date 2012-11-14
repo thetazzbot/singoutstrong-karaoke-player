@@ -13,7 +13,7 @@ namespace SoS
 
 		long TextData::getTime() const
 		{
-			return time;
+			return time / settings->getTempo();
 		}
 
 		const char* TextData::getText() const

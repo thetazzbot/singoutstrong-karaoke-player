@@ -80,7 +80,7 @@ namespace SoS
 				 */
 				static bool CmpFirstAfterCurrTime(const TextData* td1, const TextData* td2 = NULL)
 				{
-					return td1->time < TextData::settings->getCurrentTime();
+					return td1->getTime() < TextData::settings->getCurrentTime();
 				}
 		};
 	}

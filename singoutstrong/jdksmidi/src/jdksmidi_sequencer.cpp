@@ -557,7 +557,7 @@ MIDISequencer::MIDISequencer (
 )
     :
     solo_mode ( false ),
-    tempo_scale ( 100 ),
+	tempo_scale ( 1.0 ),
     num_tracks ( m->GetNumTracks() ),
     state ( this, m, n ) // TO DO: fix this hack
 {
@@ -627,9 +627,9 @@ int MIDISequencer::GetCurrentMeasure() const
     return state.cur_measure;
 }
 
-double MIDISequencer::GetCurrentTempoScale() const
+float MIDISequencer::GetCurrentTempoScale() const
 {
-    return ( ( double ) tempo_scale ) * 0.01;
+	return tempo_scale;
 }
 
 double MIDISequencer::GetCurrentTempo() const
@@ -664,7 +664,7 @@ bool MIDISequencer::GetSoloMode() const
 
 void MIDISequencer::SetCurrentTempoScale ( float scale )
 {
-    tempo_scale = ( int ) ( scale * 100 );
+	tempo_scale = scale;
 }
 
 void MIDISequencer::SetSoloMode ( bool m, int trk )
@@ -896,7 +896,7 @@ bool MIDISequencer::GetNextEventTimeMs ( double *t )
         double delta_clocks = ( double ) ( ct - state.cur_clock );
         // calculate tempo in milliseconds per clock
         double clocks_per_sec = ( ( state.track_state[0]->tempobpm *
-                                    ( ( ( double ) tempo_scale ) * 0.01 )
+									( tempo_scale )
                                     * ( 1. / 60. ) ) * state.multitrack->GetClksPerBeat() );
 
         if ( clocks_per_sec > 0. )

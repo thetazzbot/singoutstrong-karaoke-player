@@ -292,7 +292,7 @@ public:
     int GetCurrentBeat() const;
     int GetCurrentMeasure() const;
 
-    double GetCurrentTempoScale() const;
+	float GetCurrentTempoScale() const;
     double GetCurrentTempo() const;
 
     MIDISequencerState *GetState();
@@ -336,7 +336,7 @@ protected:
     MIDITimedBigMessage beat_marker_msg;
 
     bool solo_mode;
-    int tempo_scale;
+	float tempo_scale;
 
     int num_tracks;
     MIDISequencerTrackProcessor *track_processors[64];

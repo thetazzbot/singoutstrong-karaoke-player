@@ -44,7 +44,7 @@ namespace SoS
 
 		long BassStreamAudioHandler::getCurrTime() const
 		{
-			return BASS_ChannelBytes2Seconds(stream, BASS_ChannelGetPosition(stream, BASS_POS_BYTE)) * 1000 - settings->getOutputLatency();
+			return BASS_ChannelBytes2Seconds(stream, BASS_ChannelGetPosition(stream, BASS_POS_BYTE)) * 1000 / settings->getTempo() - settings->getOutputLatency();
 		}
 
 		void BassStreamAudioHandler::setSolo(bool solo, int track)
@@ -63,6 +63,14 @@ namespace SoS
 		void BassStreamAudioHandler::changeKey()
 		{
 			BASS_ChannelSetAttribute(stream, BASS_ATTRIB_TEMPO_PITCH, (float)settings->getKeyShift());
+		}
+
+		void BassStreamAudioHandler::changeTempo()
+		{
+			float tempo = settings->getTempo() - 1.0;
+			BOOL result = BASS_ChannelSetAttribute(stream, BASS_ATTRIB_TEMPO, tempo*100.0);
+			int err = BASS_ErrorGetCode();
+			int t = 0;
 		}
 
 		void BassStreamAudioHandler::updateTrackPlayedTime()

@@ -162,6 +162,12 @@ namespace SoS
 				virtual void changeKey();
 
 				/**
+				 * @brief Changes the tempo of the audio to what is specified in the SongSettings
+				 *
+				 */
+				virtual void changeTempo();
+
+				/**
 				 * @brief Changes the volume of the audio to what is specified in the SongSettings
 				 *
 				 */

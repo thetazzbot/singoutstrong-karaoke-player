@@ -109,18 +109,32 @@ namespace SoS
 				virtual void setSelectedTrackIndex(char index) = 0;
 
 				/**
-				 * @brief Gets the number of noted the Song's key was shifted by.
+				 * @brief Gets the number of notes the Song's key was shifted by.
 				 *
 				 * @return int The key shift
 				 */
 				virtual char getKeyShift() const = 0;
 
 				/**
-				 * @brief Sets the number of noted the Song's key is to be shifted by.
+				 * @brief Sets the number of notes the Song's key is to be shifted by.
 				 *
 				 * @param keyShift the key shift
 				 */
 				virtual void setKeyShift(char keyShift) = 0;
+
+				/**
+				 * @brief Gets the number of notes the Song's key was shifted by.
+				 *
+				 * @return int The key shift
+				 */
+				virtual float getTempo() const = 0;
+
+				/**
+				 * @brief Sets the number of notes the Song's key is to be shifted by.
+				 *
+				 * @param keyShift the key shift
+				 */
+				virtual void setTempo(float tempo) = 0;
 
 				/**
 				 * @brief Gets the Song's master volume.

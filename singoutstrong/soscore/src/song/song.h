@@ -43,6 +43,13 @@ namespace SoS
 				ISong::TextEncoding encoding;
 
 				/**
+				 * @brief Changes the song tempo
+				 *
+				 * Multiplies the \c songDuration, and all track events by \c multiplier
+				 */
+				void changeTempo(float multiplier);
+
+				/**
 				 * @brief Clears all song information
 				 *
 				 */

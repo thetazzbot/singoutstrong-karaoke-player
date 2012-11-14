@@ -78,6 +78,7 @@ namespace SoS
 			updateTracks();
 			ui->keyShiftSlider->setValue(context->SongControl->getSettings()->getKeyShift());
 			ui->volumeSlider->setValue(context->SongControl->getSettings()->getVolume());
+			ui->tempoSlider->setValue(context->SongControl->getSettings()->getTempo()*100 - 100);
 		}
 
 		void OutputSettings::updateTracks()
@@ -155,6 +156,13 @@ namespace SoS
 		{
 			context->SongControl->getSettings()->setVolume(value);
 			ui->currVolumeLabel->setText(QString("%1%").arg((int)(100*value/255)));
+		}
+
+		void OutputSettings::on_tempoSlider_valueChanged(int value)
+		{
+			context->SongControl->getSettings()->setTempo((float)(100+value)/100.0);
+			ui->currTempoLabel->setText(QString("%1%").arg(value));
+			emit tempoChanged();
 		}
 
 		void OutputSettings::setMute()

@@ -85,7 +85,7 @@ namespace SoS
 											.arg(totalTime/60000)
 											.arg(totalTime/1000%60, 2, 10, QChar('0')));
 
-				if(sosContext->SongControl->isPlaying())
+				//if(sosContext->SongControl->isPlaying())
 				{
 					int pageLength = settings->getViewTimeRange();
 					int viewTime = currTime - pageLength / 2;

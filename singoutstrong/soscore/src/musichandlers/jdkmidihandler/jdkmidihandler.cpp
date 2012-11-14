@@ -124,6 +124,11 @@ namespace SoS
 			}
 		}
 
+		void JdkMidiHandler::changeTempo()
+		{
+			sequencer->SetCurrentTempoScale(settings->getTempo());
+		}
+
 		void JdkMidiHandler::updateTrackPlayedTime()
 		{
 			for(int i = 0; i < multiTrack->GetNumTracks(); i ++)
@@ -183,6 +188,7 @@ namespace SoS
 				name = name.substr(sep + 1, name.size() - sep - 1);
 
 			song->name = name.c_str();
+
 			return true;
 		}
 

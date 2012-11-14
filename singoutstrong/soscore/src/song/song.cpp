@@ -16,6 +16,26 @@ namespace SoS
 			clear();
 		}
 
+		void Song::changeTempo(float multiplier)
+		{
+			songDuration *= multiplier;
+
+			for(int i = 0; i < tracks.size(); i++)
+			{
+				Track* track = tracks[i];
+				for(int n = 0; n < track->notes.size(); n++)
+				{
+					track->notes[n]->startTime *= multiplier;
+					track->notes[n]->stopTime *= multiplier;
+				}
+				for(int tdt = 0; tdt < TEXT_DATA_TYPES_COUNT; tdt++)
+				{
+					for(int t = 0; t < track->textData[tdt].size(); t++)
+						track->textData[tdt][t]->time *= multiplier;
+				}
+			}
+		}
+
 		void Song::clear()
 		{
 			name.clear();

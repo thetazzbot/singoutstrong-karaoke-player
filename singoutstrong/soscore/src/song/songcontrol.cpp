@@ -28,6 +28,7 @@ namespace SoS
 			settings.viewedTime = 0;
 			settings.selectedTrackIndex = 0;
 			settings.keyShift = 0;
+			settings.tempo = 1.0;
 			settings.viewTimeRange = 5000;
 			settings.volume = 255;
 			settings.textLineCount = 4;
@@ -101,6 +102,8 @@ namespace SoS
 
 				setSelectedTrackIndex(settings.selectedTrackIndex);
 				setKeyShift(0);
+				setTempo(1.0);
+				currentHandler->changeVolume();
 
 				return true;
 			}

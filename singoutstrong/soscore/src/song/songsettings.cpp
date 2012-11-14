@@ -29,11 +29,6 @@ namespace SoS
 			return settings.selectedTrackIndex;
 		}
 
-		char SongControl::getKeyShift() const
-		{
-			return settings.keyShift;
-		}
-
 		void SongControl::setOutputLatency(long timeShift)
 		{
 			settings.outputLatency = timeShift;
@@ -86,11 +81,29 @@ namespace SoS
 				settings.selectedTrackIndex = index;
 		}
 
+		char SongControl::getKeyShift() const
+		{
+			return settings.keyShift;
+		}
+
 		void SongControl::setKeyShift(char keyShift)
 		{
 			settings.keyShift = keyShift;
 			pitchRecord->clear();
 			currentHandler->changeKey();
+		}
+
+		float SongControl::getTempo() const
+		{
+			return settings.tempo;
+		}
+
+		void SongControl::setTempo(float tempo)
+		{
+			pitchRecord->clear();
+			song->changeTempo(settings.tempo / tempo);
+			settings.tempo = tempo;
+			currentHandler->changeTempo();
 		}
 
 		unsigned char SongControl::getVolume()

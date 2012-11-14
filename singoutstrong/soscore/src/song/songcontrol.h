@@ -46,6 +46,7 @@ namespace SoS
 				long viewTimeRange;				/**< @brief The time range of the displayed section */
 				char selectedTrackIndex;		/**< @brief The index of the selected track */
 				char keyShift;					/**< @brief The song's key shift */
+				float tempo;					/**< @brief The song's tempo */
 				unsigned char volume;			/**< @brief The song's master volume */
 				unsigned char textLineCount;	/**< @brief The number of lyric lines to be displayed */
 				unsigned char textGroupBy;		/**< @brief The number of lines the lyrics are to be grouped by */
@@ -310,6 +311,20 @@ namespace SoS
 				 * @param keyShift the key shift
 				 */
 				virtual void setKeyShift(char keyShift);
+
+				/**
+				 * @brief Gets the number of notes the Song's key was shifted by.
+				 *
+				 * @return int The key shift
+				 */
+				virtual float getTempo() const;
+
+				/**
+				 * @brief Sets the number of notes the Song's key is to be shifted by.
+				 *
+				 * @param keyShift the key shift
+				 */
+				virtual void setTempo(float tempo);
 
 				/**
 				 * @brief Gets the Song's master volume.

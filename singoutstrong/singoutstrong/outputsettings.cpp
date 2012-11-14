@@ -162,7 +162,6 @@ namespace SoS
 		{
 			context->SongControl->getSettings()->setTempo((float)(100+value)/100.0);
 			ui->currTempoLabel->setText(QString("%1%").arg(value));
-			emit tempoChanged();
 		}
 
 		void OutputSettings::setMute()

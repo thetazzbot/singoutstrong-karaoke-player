@@ -107,13 +107,6 @@ namespace SoS
 				 */
 				virtual void show();
 
-			signals:
-				/**
-				 * @brief A signal thtat is emitted when the tempo is changed
-				 *
-				 */
-				void tempoChanged();
-
 			protected:
 				int lastSolo;					/**< @brief The index of the previously checked solo button */
 				QList<QCheckBox*> vocalTracks;	/**< @brief List of checkboxes for selecting the vocals track */

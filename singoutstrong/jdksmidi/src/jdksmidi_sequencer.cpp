@@ -894,24 +894,15 @@ bool MIDISequencer::GetNextEventTimeMs ( double *t )
     {
         // calculate delta time from last event time
         double delta_clocks = ( double ) ( ct - state.cur_clock );
-        // calculate tempo in milliseconds per clock
-        double clocks_per_sec = ( ( state.track_state[0]->tempobpm *
-									( tempo_scale )
-                                    * ( 1. / 60. ) ) * state.multitrack->GetClksPerBeat() );
-
-        if ( clocks_per_sec > 0. )
-        {
-            double ms_per_clock = 1000. / clocks_per_sec;
-            // calculate delta time in milliseconds
-            double delta_ms = delta_clocks * ms_per_clock;
-            // return it added with the current time in ms.
-            *t = delta_ms + state.cur_time_ms;
-        }
-
-        else
-        {
-            f = false;
-        }
+		double delta_ms = 0;
+		if(MidiClockTimeToMs(delta_clocks, &delta_ms))
+		{
+			*t = delta_ms + state.cur_time_ms;
+		}
+		else
+		{
+			f = false;
+		}
     }
 
     return f;
@@ -1127,6 +1118,24 @@ double MIDISequencer::GetMisicDurationInSeconds()
     }
 
     return ( 0.001 * event_time );
+}
+
+bool MIDISequencer::MidiClockTimeToMs(MIDIClockTime t, double *ms)
+{
+	double clocks_per_sec = ( ( state.track_state[0]->tempobpm *
+								( tempo_scale )
+								* ( 1. / 60. ) ) * state.multitrack->GetClksPerBeat() );
+
+	if ( clocks_per_sec > 0. )
+	{
+		double ms_per_clock = 1000. / clocks_per_sec;
+		// calculate time in milliseconds
+		*ms = t * ms_per_clock;
+
+		return true;
+	}
+
+	return false;
 }
 
 

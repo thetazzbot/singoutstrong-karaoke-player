@@ -242,7 +242,7 @@ public:
     char track_name[256];  // track name
     bool got_good_track_name; // true if we dont want to use generic text events for track name
 
-	unsigned long lastNoteOnTime;
+	unsigned long lastNoteOnSysTime;
     bool notes_are_on;   // true if there are any notes currently on
     MIDIMatrix note_matrix;  // to keep track of all notes on
 };
@@ -325,6 +325,8 @@ public:
     bool GetNextEventTimeMs ( double *t );
     bool GetNextEventTime ( MIDIClockTime *t );
     bool GetNextEvent ( int *tracknum, MIDITimedBigMessage *msg );
+
+	bool MidiClockTimeToMs(MIDIClockTime t, double* ms);
 
     void ScanEventsAtThisTime();
 

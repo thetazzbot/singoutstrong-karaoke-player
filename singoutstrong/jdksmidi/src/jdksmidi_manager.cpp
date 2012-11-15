@@ -44,7 +44,9 @@ MIDIManager::MIDIManager (
     notifier ( n ),
     repeat_play_mode ( false ),
     repeat_start_measure ( 0 ),
-    repeat_end_measure ( 0 )
+	repeat_end_measure ( 0 ),
+	last_event_sys_time ( 0 ),
+	last_event_time ( 0 )
 {
     driver->SetTickProc ( this );
 }
@@ -118,6 +120,7 @@ unsigned long MIDIManager::GetSeqOffset()
 void MIDIManager::SetCurrTime(unsigned long time)
 {
 	curr_time = time;
+	last_event_time = time;
 }
 
 unsigned long MIDIManager::GetCurrTime()
@@ -130,7 +133,7 @@ void MIDIManager::SeqPlay()
 {
     stop_mode = false;
     play_mode = true;
-	curr_time = 0;
+	//curr_time = 0;
 
     if ( notifier )
     {
@@ -206,10 +209,10 @@ void MIDIManager::TimeTick ( unsigned long sys_time_ )
 void MIDIManager::TimeTickPlayMode ( unsigned long sys_time_ )
 {
     double sys_time = ( double ) sys_time_ - ( double ) sys_time_offset;
-    curr_time = sys_time;
-    float next_event_time = 0.0;
+	float next_event_time = 0.0;
     int ev_track;
-    MIDITimedBigMessage ev;
+	MIDITimedBigMessage ev;
+	bool gotEvent = false;
 
     // if we are in repeat mode, repeat if we hit end of the repeat region
     if ( repeat_play_mode &&
@@ -243,11 +246,21 @@ void MIDIManager::TimeTickPlayMode ( unsigned long sys_time_ )
 			 !(ev.IsControlChange() && ev.GetController() == C_MAIN_VOLUME))
         {
             // ok, tell the driver the send this message now
-            driver->OutputMessage ( ev );
+			driver->OutputMessage ( ev );
+
+			if(!gotEvent)
+			{
+				last_event_sys_time = sys_time_;
+				sequencer->MidiClockTimeToMs(ev.GetTime(), &last_event_time);
+				gotEvent = true;
+			}
+
 			if(ev.ImplicitIsNoteOn())
-				sequencer->GetTrackState(ev_track)->lastNoteOnTime = sys_time;
+				sequencer->GetTrackState(ev_track)->lastNoteOnSysTime = sys_time_;
         }
     }
+
+	curr_time = last_event_time + sys_time_ - last_event_sys_time - seq_time_offset;
 
     // auto stop at end of sequence
 

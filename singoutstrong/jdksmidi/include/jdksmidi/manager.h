@@ -87,6 +87,7 @@ public:
 
     // inherited from MIDITick
     virtual void TimeTick ( unsigned long sys_time );
+	unsigned long last_event_sys_time;
 
 protected:
 
@@ -100,6 +101,8 @@ protected:
     unsigned long sys_time_offset;
     unsigned long seq_time_offset;
     unsigned long curr_time;
+
+	double last_event_time;
 
     volatile bool play_mode;
     volatile bool stop_mode;

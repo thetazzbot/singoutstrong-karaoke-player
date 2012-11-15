@@ -67,6 +67,7 @@ namespace SoS
 
 			playlist.loadPlaylist(QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "\\playlist." + LIST_EXT);
 			loadSettings();
+			outputSettings.updateSettings();
 
 			audioInSettingsWindow.refreshSettings();
 
@@ -128,6 +129,12 @@ namespace SoS
 				if(!node.isNull())
 				{
 					sosContext->AudioAnalyzer->setSamplesArraySize(node.attributes().namedItem("Samples").nodeValue().toInt());
+				}
+				node = docElement.firstChildElement("Volume");
+				if(!node.isNull())
+				{
+					sosContext->SongControl->getSettings()->setVolume(
+								node.attributes().namedItem("Volume").nodeValue().toInt());
 				}
 				node = docElement.firstChildElement("VolumeTreshold");
 				if(!node.isNull())
@@ -206,6 +213,9 @@ namespace SoS
 
 			node = getNode("InputSamples", &doc, &root);
 			node.setAttribute("Samples", sosContext->AudioAnalyzer->getSamplesArraySize());
+
+			node = getNode("Volume", &doc, &root);
+			node.setAttribute("Volume", sosContext->SongControl->getSettings()->getVolume());
 
 			node = getNode("VolumeTreshold", &doc, &root);
 			node.setAttribute("Treshold", sosContext->AudioAnalyzer->getVolumeThreshold());

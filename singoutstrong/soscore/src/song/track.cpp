@@ -143,7 +143,7 @@ namespace SoS
 
 			//If we reached the end of text data, exit
 			if(start >= textData[ITextData::LYRIC_TEXT].size() -1 &&
-					textData[ITextData::LYRIC_TEXT][start]->time < settings->getCurrentTime() - time_length)
+					textData[ITextData::LYRIC_TEXT][start]->getTime() < settings->getCurrentTime() - time_length)
 			{
 				end = start;
 				return;
@@ -171,16 +171,16 @@ namespace SoS
 				{
 					//If the time distance between the end of the last line,
 					//and the beginning of this line is greater then time_length
-					if(end == 0 || textData[ITextData::LYRIC_TEXT][end]->time - textData[ITextData::LYRIC_TEXT][end-1]->time > time_length)
+					if(end == 0 || textData[ITextData::LYRIC_TEXT][end]->getTime() - textData[ITextData::LYRIC_TEXT][end-1]->getTime() > time_length)
 					{
 						//if the last line is further from current time then time_length
-						if(end > 0 && textData[ITextData::LYRIC_TEXT][end-1]->time < settings->getCurrentTime() - time_length)
+						if(end > 0 && textData[ITextData::LYRIC_TEXT][end-1]->getTime() < settings->getCurrentTime() - time_length)
 						{
 							//disregard the last line
 							start = end;
 						}
 						//and if this line is further from current time then the time_length
-						if(textData[ITextData::LYRIC_TEXT][end]->time > settings->getCurrentTime() + time_length)
+						if(textData[ITextData::LYRIC_TEXT][end]->getTime() > settings->getCurrentTime() + time_length)
 						{
 							//exit, and disregard what follows as well
 							return;

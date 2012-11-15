@@ -62,10 +62,7 @@ namespace SoS
 
 		void SongWindow::setTextLines(int number)
 		{
-			ui->lyrics->lines.clear();
-			while(ui->lyrics->lines.size() < number)
-				ui->lyrics->lines.push_back(QStringList());
+			ui->lyrics->setLineCount(number);
 		}
-
 	}
 }

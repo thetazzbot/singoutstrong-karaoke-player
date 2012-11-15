@@ -37,8 +37,6 @@ namespace SoS
 
 				Q_PROPERTY(QColor sungTextColor READ getSungTextColor WRITE setSungTextColor)
 			public:
-				QList<QStringList> lines; /**< @brief Lines of text to be displayed */
-
 				explicit SoSLyricsWidget(QWidget *parent = 0);
 
 				/**
@@ -56,13 +54,22 @@ namespace SoS
 				QColor getSungTextColor();
 
 				/**
-				 * @brief Sets the sung thext color
+				 * @brief Sets the sung text color
 				 *
 				 * @param value
 				 */
 				void setSungTextColor(QColor value);
 
+				/**
+				 * @brief Sets the number of text lines to be displayed
+				 *
+				 * @param count
+				 */
+				void setLineCount(int count);
+
 			protected:
+				QList<QStringList> lines; /**< @brief Lines of text to be displayed */
+
 				QPen sungText;			/**< @brief Stores the sung text color */
 				int oldStart;			/**< @brief Stores the previous index of the first displayed text data */
 				int oldEnd;				/**< @brief Stores the previous index of the last displayed text data */

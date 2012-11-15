@@ -116,6 +116,15 @@ namespace SoS
 			}
 		}
 
+		void SoSLyricsWidget::setLineCount(int count)
+		{
+			lines.clear();
+			while(lines.size() < count)
+				lines.push_back(QStringList());
+
+			setupFont();
+		}
+
 		void SoSLyricsWidget::setupFont()
 		{
 			int longestLine = 0;

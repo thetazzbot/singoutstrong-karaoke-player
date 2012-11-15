@@ -126,6 +126,7 @@ namespace SoS
 
 		void JdkMidiHandler::changeTempo()
 		{
+			manager->SetCurrTime(settings->getCurrentTime());
 			sequencer->SetCurrentTempoScale(settings->getTempo());
 		}
 
@@ -135,7 +136,7 @@ namespace SoS
 			{
 				if(!multiTrack->GetTrack(i)->IsTrackEmpty() && i < song->tracks.size())
 				{
-					unsigned long playedMsAgo = settings->getCurrentTime() - sequencer->GetTrackState(i)->lastNoteOnTime;
+					unsigned long playedMsAgo = timeGetTime() - sequencer->GetTrackState(i)->lastNoteOnSysTime;
 					song->tracks[i]->volume = playedMsAgo > 1000 ? 0 : 16*(1000 - playedMsAgo)/1000;
 				}
 			}
@@ -143,6 +144,7 @@ namespace SoS
 
 		void JdkMidiHandler::reset()
 		{
+			driver->AllNotesOff();
 			driver->Reset();
 			driver->ResetMIDIOut();
 
@@ -166,6 +168,7 @@ namespace SoS
 			reset();
 			multiTrack->Clear();
 			song->clear();
+			sequencer->SetCurrentTempoScale(1.0);
 			sequencer->SetSoloMode(false);
 			for(int i = 0; i < sequencer->GetNumTracks(); i++)
 				sequencer->GetTrackProcessor(i)->mute = false;

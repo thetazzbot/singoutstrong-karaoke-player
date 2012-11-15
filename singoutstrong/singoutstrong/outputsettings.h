@@ -187,6 +187,13 @@ namespace SoS
 				 */
 				void setMute();
 
+				/**
+				 * @brief Called when the user moves the tempoSlider
+				 *
+				 * Changes the tempo by calling the ISongSettings::setTempo method
+				 *
+				 * @param value
+				 */
 				void on_tempoSlider_valueChanged(int value);
 
 			private:

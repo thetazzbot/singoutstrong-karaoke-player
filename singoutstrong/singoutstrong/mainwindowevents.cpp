@@ -85,19 +85,17 @@ namespace SoS
 											.arg(totalTime/60000)
 											.arg(totalTime/1000%60, 2, 10, QChar('0')));
 
-				if(sosContext->SongControl->isPlaying())
-				{
-					int pageLength = settings->getViewTimeRange();
-					int viewTime = currTime - pageLength / 2;
-					viewTime = viewTime < 0 ?
-								0 : viewTime > totalTime - pageLength ?
-									totalTime - pageLength : viewTime;
 
-					if(!detachViewTime && !ui->viewTimeSlider->isSliderDown())
-					{
-						ui->viewTimeSlider->setSliderPosition(viewTime*100/(totalTime-pageLength));
-						settings->setViewedTime(viewTime);
-					}
+				int pageLength = settings->getViewTimeRange();
+				int viewTime = currTime - pageLength / 2;
+				viewTime = viewTime < 0 ?
+							0 : viewTime > totalTime - pageLength ?
+								totalTime - pageLength : viewTime;
+
+				if(!detachViewTime && !ui->viewTimeSlider->isSliderDown())
+				{
+					ui->viewTimeSlider->setSliderPosition(viewTime*100/(totalTime-pageLength));
+					settings->setViewedTime(viewTime);
 				}
 
 				songWindow.update();

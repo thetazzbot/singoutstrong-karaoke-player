@@ -40,7 +40,7 @@ namespace SoS
 				currTime = settings.selectionStart;
 
 			settings.currTime = currTime < 0 ? 0 :
-								currTime > song->getTotalTime() ? song->getTotalTime() : currTime;
+											   currTime > song->getTotalTime() ? song->getTotalTime() : currTime;
 			pitchRecord->clear();
 
 			if(playing)
@@ -55,7 +55,7 @@ namespace SoS
 		void SongControl::setViewedTime(long viewedTime)
 		{
 			settings.viewedTime = viewedTime < song->getTotalTime() - settings.viewTimeRange ? viewedTime :
-									song->getTotalTime() - settings.viewTimeRange;
+																							   song->getTotalTime() - settings.viewTimeRange;
 		}
 
 		void SongControl::setViewTimeRange(long timePageLength)
@@ -100,10 +100,16 @@ namespace SoS
 
 		void SongControl::setTempo(float tempo)
 		{
-			pitchRecord->clear();
-			settings.currTime *= settings.tempo / tempo;
-			settings.tempo = tempo;
-			currentHandler->changeTempo();
+			if(tempo != settings.tempo)
+			{
+				pitchRecord->clear();
+				float tempoRatio = settings.tempo / tempo;
+				settings.currTime *= tempoRatio;
+				settings.selectionStart *= tempoRatio;
+				settings.selectionEnd *= tempoRatio;
+				settings.tempo = tempo;
+				currentHandler->changeTempo();
+			}
 		}
 
 		unsigned char SongControl::getVolume()

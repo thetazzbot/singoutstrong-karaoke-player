@@ -125,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="group___core.html#ga6b424294e9a886978e047e2523f79d2b">   81</a></span>&#160;                    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="group___core.html#ga6b424294e9a886978e047e2523f79d2b" title="Compares the time of the first textData and the currentTime in the SongControl settings.">CmpFirstAfterCurrTime</a>(<span class="keyword">const</span> <a class="code" href="class_so_s_1_1_core_1_1_text_data.html" title="Class implementing the ITextData interface.">TextData</a>* td1, <span class="keyword">const</span> <a class="code" href="class_so_s_1_1_core_1_1_text_data.html" title="Class implementing the ITextData interface.">TextData</a>* td2 = NULL)</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                         <span class="keywordflow">return</span> td1-&gt;<a class="code" href="group___core.html#gafd03f6d80c41c9b4b76085ec0cf9b227" title="The display time of the text.">time</a> &lt; <a class="code" href="group___core.html#gae0c74ce2c96fb6a5dd93ea1f04bd09fc" title="the settings from the SongControl class">TextData::settings</a>-&gt;<a class="code" href="class_so_s_1_1_core_1_1_i_song_settings.html#abc663045ec6754975aa0814cc2efe900" title="Gets the Song&#39;s current playback time.">getCurrentTime</a>();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                         <span class="keywordflow">return</span> td1-&gt;<a class="code" href="group___core.html#gadcb28d469c6217183eae594ae4fbd414" title="Gets the time in miliseconds that the text should be displayed.">getTime</a>() &lt; <a class="code" href="group___core.html#gae0c74ce2c96fb6a5dd93ea1f04bd09fc" title="the settings from the SongControl class">TextData::settings</a>-&gt;<a class="code" href="class_so_s_1_1_core_1_1_i_song_settings.html#abc663045ec6754975aa0814cc2efe900" title="Gets the Song&#39;s current playback time.">getCurrentTime</a>();</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;          };</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;     }</div>
@@ -133,7 +133,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:27:14 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 20 2012 15:29:49 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/********************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">** Form generated from reading UI file &#39;tutorialwindow.ui&#39;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">**</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">** Created: Sat 3. Nov 15:59:51 2012</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">** Created: Mon 19. Nov 15:07:01 2012</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">**      by: Qt User Interface Compiler version 4.8.0</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">**</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">** WARNING! All changes made in this file will be lost when recompiling UI file!</span></div>
@@ -150,45 +150,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        label-&gt;setGeometry(QRect(20, 10, 281, 241));</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        label-&gt;setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        label-&gt;setWordWrap(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        label-&gt;setOpenExternalLinks(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        prevButton = <span class="keyword">new</span> QPushButton(content);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        prevButton-&gt;setObjectName(QString::fromUtf8(<span class="stringliteral">&quot;prevButton&quot;</span>));</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        prevButton-&gt;setGeometry(QRect(150, 270, 75, 23));</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        nextButton = <span class="keyword">new</span> QPushButton(content);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        nextButton-&gt;setObjectName(QString::fromUtf8(<span class="stringliteral">&quot;nextButton&quot;</span>));</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        nextButton-&gt;setGeometry(QRect(230, 270, 75, 23));</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        line = <span class="keyword">new</span> QFrame(content);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        line-&gt;setObjectName(QString::fromUtf8(<span class="stringliteral">&quot;line&quot;</span>));</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        line-&gt;setGeometry(QRect(0, 250, 320, 16));</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        line-&gt;setFrameShape(QFrame::HLine);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        line-&gt;setFrameShadow(QFrame::Sunken);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        retranslateUi(TutorialWindow);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        QMetaObject::connectSlotsByName(TutorialWindow);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    } <span class="comment">// setupUi</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> retranslateUi(QFrame *TutorialWindow)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        TutorialWindow-&gt;setWindowTitle(QApplication::translate(<span class="stringliteral">&quot;TutorialWindow&quot;</span>, <span class="stringliteral">&quot;Help&quot;</span>, 0, QApplication::UnicodeUTF8));</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        label-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;TutorialWindow&quot;</span>, <span class="stringliteral">&quot;TextLabel&quot;</span>, 0, QApplication::UnicodeUTF8));</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        prevButton-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;TutorialWindow&quot;</span>, <span class="stringliteral">&quot;Back&quot;</span>, 0, QApplication::UnicodeUTF8));</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        nextButton-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;TutorialWindow&quot;</span>, <span class="stringliteral">&quot;Next&quot;</span>, 0, QApplication::UnicodeUTF8));</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    } <span class="comment">// retranslateUi</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">namespace </span>Ui {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">class </span>TutorialWindow: <span class="keyword">public</span> Ui_TutorialWindow {};</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;} <span class="comment">// namespace Ui</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;QT_END_NAMESPACE</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif // UI_TUTORIALWINDOW_H</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        prevButton = <span class="keyword">new</span> QPushButton(content);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        prevButton-&gt;setObjectName(QString::fromUtf8(<span class="stringliteral">&quot;prevButton&quot;</span>));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        prevButton-&gt;setGeometry(QRect(150, 270, 75, 23));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        nextButton = <span class="keyword">new</span> QPushButton(content);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        nextButton-&gt;setObjectName(QString::fromUtf8(<span class="stringliteral">&quot;nextButton&quot;</span>));</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        nextButton-&gt;setGeometry(QRect(230, 270, 75, 23));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        line = <span class="keyword">new</span> QFrame(content);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        line-&gt;setObjectName(QString::fromUtf8(<span class="stringliteral">&quot;line&quot;</span>));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        line-&gt;setGeometry(QRect(0, 250, 320, 16));</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        line-&gt;setFrameShape(QFrame::HLine);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        line-&gt;setFrameShadow(QFrame::Sunken);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        retranslateUi(TutorialWindow);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        QMetaObject::connectSlotsByName(TutorialWindow);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    } <span class="comment">// setupUi</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> retranslateUi(QFrame *TutorialWindow)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        TutorialWindow-&gt;setWindowTitle(QApplication::translate(<span class="stringliteral">&quot;TutorialWindow&quot;</span>, <span class="stringliteral">&quot;Help&quot;</span>, 0, QApplication::UnicodeUTF8));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        label-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;TutorialWindow&quot;</span>, <span class="stringliteral">&quot;TextLabel&quot;</span>, 0, QApplication::UnicodeUTF8));</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        prevButton-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;TutorialWindow&quot;</span>, <span class="stringliteral">&quot;Back&quot;</span>, 0, QApplication::UnicodeUTF8));</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        nextButton-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;TutorialWindow&quot;</span>, <span class="stringliteral">&quot;Next&quot;</span>, 0, QApplication::UnicodeUTF8));</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    } <span class="comment">// retranslateUi</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">namespace </span>Ui {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">class </span>TutorialWindow: <span class="keyword">public</span> Ui_TutorialWindow {};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;} <span class="comment">// namespace Ui</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;QT_END_NAMESPACE</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif // UI_TUTORIALWINDOW_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:27:14 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 20 2012 15:29:48 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

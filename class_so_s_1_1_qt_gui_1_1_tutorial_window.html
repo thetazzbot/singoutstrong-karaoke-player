@@ -117,8 +117,8 @@ Inheritance diagram for SoS::QtGui::TutorialWindow:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:a7cca1208cc380a4d2ee7fac264cb5fe2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a7cca1208cc380a4d2ee7fac264cb5fe2">pageChanged</a> (int pageNo)</td></tr>
-<tr class="memdesc:a7cca1208cc380a4d2ee7fac264cb5fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A signal sent when the wizard page is changed.  <a href="#a7cca1208cc380a4d2ee7fac264cb5fe2"></a><br/></td></tr>
+<tr class="memitem:ab1c51a64344b0f93343feacf4e561e08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ab1c51a64344b0f93343feacf4e561e08">pageChanged</a> (QString docName, int pageNo)</td></tr>
+<tr class="memdesc:ab1c51a64344b0f93343feacf4e561e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">A signal sent when the wizard page is changed.  <a href="#ab1c51a64344b0f93343feacf4e561e08"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -126,6 +126,10 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TutorialWindow</b> (QWidget *parent=0)</td></tr>
 <tr class="memitem:a599faff354a4937416f63fbd57b167b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a599faff354a4937416f63fbd57b167b0">show</a> ()</td></tr>
 <tr class="memdesc:a599faff354a4937416f63fbd57b167b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to show the window (depends on allowShow)  <a href="#a599faff354a4937416f63fbd57b167b0"></a><br/></td></tr>
+<tr class="memitem:aecfa4c31ee1ac02d5edf1d32b3588668"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aecfa4c31ee1ac02d5edf1d32b3588668"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDocumentName</b> (QString name)</td></tr>
+<tr class="memitem:a708f6727b6c289af59b6c627b9ee654c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a708f6727b6c289af59b6c627b9ee654c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPage</b> (int page)</td></tr>
 <tr class="inherit_header pub_methods_class_so_s_1_1_qt_gui_1_1_so_s_sub_window"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_so_s_1_1_qt_gui_1_1_so_s_sub_window')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="class_so_s_1_1_qt_gui_1_1_so_s_sub_window.html">SoS::QtGui::SoSSubWindow</a></td></tr>
 <tr class="memitem:a564bfe7b7dd8aa41f67833d997ff047b inherit pub_methods_class_so_s_1_1_qt_gui_1_1_so_s_sub_window"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a564bfe7b7dd8aa41f67833d997ff047b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>SoSSubWindow</b> (QWidget *parent=0, Qt::WindowFlags flags=0)</td></tr>
@@ -144,20 +148,24 @@ Private Slots</h2></td></tr>
 <tr class="memdesc:ab4f0c9ec5adfb35190a536f5f35e6352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the nextButton is clicked.  <a href="#ab4f0c9ec5adfb35190a536f5f35e6352"></a><br/></td></tr>
 <tr class="memitem:ad66b171c7ab72c2fc950c224b73e977a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ad66b171c7ab72c2fc950c224b73e977a">on_prevButton_clicked</a> ()</td></tr>
 <tr class="memdesc:ad66b171c7ab72c2fc950c224b73e977a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the prevButton is clicked.  <a href="#ad66b171c7ab72c2fc950c224b73e977a"></a><br/></td></tr>
+<tr class="memitem:a15843eee9f4c189ee0dfa783c6b9eef7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15843eee9f4c189ee0dfa783c6b9eef7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>on_label_linkActivated</b> (const QString &amp;link)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ac1934de87bf3f58028bfd8e08037a956"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ac1934de87bf3f58028bfd8e08037a956">loadPage</a> ()</td></tr>
-<tr class="memdesc:ac1934de87bf3f58028bfd8e08037a956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to load the current page.  <a href="#ac1934de87bf3f58028bfd8e08037a956"></a><br/></td></tr>
+<tr class="memitem:acd4585120f594d4557da34f505c05c0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#acd4585120f594d4557da34f505c05c0d">reload</a> ()</td></tr>
+<tr class="memdesc:acd4585120f594d4557da34f505c05c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to load the current page.  <a href="#acd4585120f594d4557da34f505c05c0d"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ae133d5d2ff87171a9f296501e629b76b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae133d5d2ff87171a9f296501e629b76b"></a>
 Ui::TutorialWindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ae133d5d2ff87171a9f296501e629b76b">ui</a></td></tr>
 <tr class="memdesc:ae133d5d2ff87171a9f296501e629b76b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Qt's container for the window's subwidgets. <br/></td></tr>
-<tr class="memitem:a6fc1dfc91968b255fa8ded72759751c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6fc1dfc91968b255fa8ded72759751c8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a6fc1dfc91968b255fa8ded72759751c8">page</a></td></tr>
-<tr class="memdesc:a6fc1dfc91968b255fa8ded72759751c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current page of the wizard. <br/></td></tr>
+<tr class="memitem:a25ec20858fa7ac37e6c35ffc955b50ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25ec20858fa7ac37e6c35ffc955b50ee"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a25ec20858fa7ac37e6c35ffc955b50ee">pageNumber</a></td></tr>
+<tr class="memdesc:a25ec20858fa7ac37e6c35ffc955b50ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current page of the wizard. <br/></td></tr>
+<tr class="memitem:ae4a6c3605c80f53e654bcbb2f33cf647"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4a6c3605c80f53e654bcbb2f33cf647"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><b>documentName</b></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -186,33 +194,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>The QWizard class was causing some problems on Windows 7, so this tutorial was moved to a custom window. <br/>
  This class tries to load the contents of each page from htm files in the /docs/tutorial directory. The files should be named after the page number, starting from 0 (e.g.: 0.htm, 1.htm... etc.) </p>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ac1934de87bf3f58028bfd8e08037a956"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool SoS::QtGui::TutorialWindow::loadPage </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Tries to load the current page. </p>
-<p>Also changes the text on the "Next" and "Previous" buttons to "Finish" when the last page is reached and "Cancel" if the first page is reached.</p>
-<dl class="section return"><dt>Returns:</dt><dd>bool <code>True</code> if the page was loaded successfully, otherwise <code>false</code>. </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="ab4f0c9ec5adfb35190a536f5f35e6352"></a>
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +246,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a class="anchor" id="a7cca1208cc380a4d2ee7fac264cb5fe2"></a>
+<a class="anchor" id="ab1c51a64344b0f93343feacf4e561e08"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -275,9 +256,19 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="memname">void SoS::QtGui::TutorialWindow::pageChanged </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>pageNo</em></td><td>)</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>docName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pageNo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -294,6 +285,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="acd4585120f594d4557da34f505c05c0d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SoS::QtGui::TutorialWindow::reload </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tries to load the current page. </p>
+<p>Also changes the text on the "Next" and "Previous" buttons to "Finish" when the last page is reached and "Cancel" if the first page is reached.</p>
+<dl class="section return"><dt>Returns:</dt><dd>bool <code>True</code> if the page was loaded successfully, otherwise <code>false</code>. </dd></dl>
 
 </div>
 </div>
@@ -328,13 +346,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>singoutstrong/<a class="el" href="tutorialwindow_8h_source.html">tutorialwindow.h</a></li>
 <li>singoutstrong/debug/moc_tutorialwindow.cpp</li>
-<li>singoutstrong/release/moc_tutorialwindow.cpp</li>
 <li>singoutstrong/tutorialwindow.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:27:17 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 20 2012 15:29:52 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

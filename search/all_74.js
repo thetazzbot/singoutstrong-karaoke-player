@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['tempo',['tempo',['../struct_so_s_1_1_core_1_1_song_settings.html#af54051b67072dd65bc98995e35a1d0bb',1,'SoS::Core::SongSettings']]],
   ['text',['text',['../group___core.html#gacaf7136c29935d649a7fb9ba18ae33cc',1,'SoS::Core::TextData']]],
   ['text_5fdata_5ftypes_5fcount',['TEXT_DATA_TYPES_COUNT',['../itextdata_8h.html#ae4d2f3297206a71a935c36e64d24cb6f',1,'itextdata.h']]],
   ['textdata',['textData',['../class_so_s_1_1_core_1_1_track.html#a83c956ac556b25d320234a3dba9e8fcc',1,'SoS::Core::Track']]],
@@ -16,7 +17,8 @@ var searchData=
   ['timeoffset',['timeOffset',['../group___qt_gui.html#gab89e618bdcf4b322c073db78369c3266',1,'SoS::QtGui::SoSNotesWidget']]],
   ['timer',['timer',['../class_so_s_1_1_qt_gui_1_1_main_window.html#ae6a83e73936e3b6db12821703c78f1d7',1,'SoS::QtGui::MainWindow']]],
   ['timerevent',['timerEvent',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a1339bb0dff911f3585069a461c5149d6',1,'SoS::QtGui::MainWindow']]],
-  ['timestamp',['timestamp',['../class_so_s_1_1_core_1_1_pitch_sample.html#af19025dc1486f4781c6e1c9c9b805278',1,'SoS::Core::PitchSample::timestamp()'],['../struct_rt_midi_in_1_1_midi_message.html#ad98a44ab08da8cca8fd49af177e9a9bc',1,'RtMidiIn::MidiMessage::timeStamp()']]],
+  ['timeslaunched',['timesLaunched',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a1fc0f223757916a06ffaae1186a654cd',1,'SoS::QtGui::MainWindow']]],
+  ['timestamp',['timestamp',['../class_so_s_1_1_core_1_1_pitch_sample.html#af19025dc1486f4781c6e1c9c9b805278',1,'SoS::Core::PitchSample']]],
   ['timetox',['timeToX',['../group___qt_gui.html#gae234ffb334c1799e28c0912d98d5ef63',1,'SoS::QtGui::SoSNotesWidget']]],
   ['togglesongplay',['toggleSongPlay',['../class_so_s_1_1_qt_gui_1_1_main_window.html#aa9fdf4f7cf9961c062ac20973b977c83',1,'SoS::QtGui::MainWindow']]],
   ['topnote',['topNote',['../class_so_s_1_1_core_1_1_track.html#a7b8472054d1879678dd5c24989ce4a65',1,'SoS::Core::Track']]],
@@ -31,13 +33,13 @@ var searchData=
   ['tstime',['tsTime',['../class_so_s_1_1_core_1_1_ultra_star_parser.html#a6fbff11bd7d77353ac257a0db806828d',1,'SoS::Core::UltraStarParser']]],
   ['tutorial',['tutorial',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a6835caab68be59973f30995086747a58',1,'SoS::QtGui::MainWindow']]],
   ['tutorialclose',['tutorialClose',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a5e9b6e4744215e83aef0ede45161bb8e',1,'SoS::QtGui::MainWindow']]],
-  ['tutorialpagechange',['tutorialPageChange',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a0c1d9303ae61d631653724d5b879f95e',1,'SoS::QtGui::MainWindow']]],
+  ['tutorialpagechange',['tutorialPageChange',['../class_so_s_1_1_qt_gui_1_1_main_window.html#afff227397c1afb96c0f58d877d1df2dd',1,'SoS::QtGui::MainWindow']]],
   ['tutorialwindow',['TutorialWindow',['../class_so_s_1_1_qt_gui_1_1_tutorial_window.html',1,'SoS::QtGui']]],
   ['tutorialwindow_2eh',['tutorialwindow.h',['../tutorialwindow_8h.html',1,'']]],
   ['txtcheck',['txtCheck',['../class_so_s_1_1_core_1_1_ultra_star_parser.html#aa7bf7ea40cf00635fb3d6b41cd7128ef',1,'SoS::Core::UltraStarParser']]],
   ['txtparse',['txtParse',['../class_so_s_1_1_core_1_1_ultra_star_parser.html#a121e2f0149f45c986bfad94f012cdccd',1,'SoS::Core::UltraStarParser']]],
   ['txtparseheader',['txtParseHeader',['../class_so_s_1_1_core_1_1_ultra_star_parser.html#af159319017131428b250a64a1d06e947',1,'SoS::Core::UltraStarParser']]],
-  ['type',['type',['../group___core.html#gab58d020cadba8075da2777defa9a82c0',1,'SoS::Core::TextData::type()'],['../class_rt_error.html#ab04667aae01bffc354a9ac6bda6903ac',1,'RtError::Type()'],['../class_so_s_1_1_core_1_1_note.html#a127cd58d15ab7ac6fbdb767d8909891f',1,'SoS::Core::Note::Type()']]],
+  ['type',['Type',['../class_rt_error.html#ab04667aae01bffc354a9ac6bda6903ac',1,'RtError::Type()'],['../class_so_s_1_1_core_1_1_note.html#a127cd58d15ab7ac6fbdb767d8909891f',1,'SoS::Core::Note::Type()'],['../group___core.html#gab58d020cadba8075da2777defa9a82c0',1,'SoS::Core::TextData::type()']]],
   ['type_5f',['type_',['../class_rt_error.html#ab4f7a5e085eb9fce8e1d264944e53ab3',1,'RtError']]],
   ['typechanged',['typeChanged',['../class_so_s_1_1_core_1_1_aubio_analyzer.html#ae0ed50bf92bb711fb9c254ac9568b9fb',1,'SoS::Core::AubioAnalyzer']]]
 ];

@@ -90,6 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">SoS::Core::BassStreamAudioHandler Class Reference</div>  </div>
@@ -134,8 +135,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:ae4e2eadc330ffbd9d0446c4698791cf9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4e2eadc330ffbd9d0446c4698791cf9"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#ae4e2eadc330ffbd9d0446c4698791cf9">updateTrackPlayedTime</a> ()</td></tr>
 <tr class="memdesc:ae4e2eadc330ffbd9d0446c4698791cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the time of playback of a note on each track (used to calculate current track volume) <br/></td></tr>
-<tr class="memitem:afdb0152a9be07ecfa4e66f245392e78e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#afdb0152a9be07ecfa4e66f245392e78e">moveTo</a> (long time)</td></tr>
-<tr class="memdesc:afdb0152a9be07ecfa4e66f245392e78e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the playback to the specified time.  <a href="#afdb0152a9be07ecfa4e66f245392e78e"></a><br/></td></tr>
 <tr class="memitem:acad2dbda35647a7064f82fc310010347"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#acad2dbda35647a7064f82fc310010347">setSolo</a> (bool solo, int track=-1)</td></tr>
 <tr class="memdesc:acad2dbda35647a7064f82fc310010347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set's the specified <a class="el" href="class_so_s_1_1_core_1_1_track.html" title="Class implementing the ITrack interface.">Track</a> for solo playback.  <a href="#acad2dbda35647a7064f82fc310010347"></a><br/></td></tr>
 <tr class="memitem:a0f22ac31ce2721adaf2e5463b2cfd3b9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#a0f22ac31ce2721adaf2e5463b2cfd3b9">setMute</a> (bool mute, int track)</td></tr>
@@ -143,12 +142,20 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:aca5293aac625dc383065d4b31ae14d6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca5293aac625dc383065d4b31ae14d6a"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#aca5293aac625dc383065d4b31ae14d6a">changeKey</a> ()</td></tr>
 <tr class="memdesc:aca5293aac625dc383065d4b31ae14d6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the key of the audio to what is specified in the <a class="el" href="struct_so_s_1_1_core_1_1_song_settings.html" title="A struct holding the display and playback settings for a Song.">SongSettings</a>. <br/></td></tr>
+<tr class="memitem:ac39f21083188766ab1d4fc11585b5c06"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac39f21083188766ab1d4fc11585b5c06"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#ac39f21083188766ab1d4fc11585b5c06">changeTempo</a> ()</td></tr>
+<tr class="memdesc:ac39f21083188766ab1d4fc11585b5c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the tempo of the audio to what is specified in the <a class="el" href="struct_so_s_1_1_core_1_1_song_settings.html" title="A struct holding the display and playback settings for a Song.">SongSettings</a>. <br/></td></tr>
 <tr class="memitem:a9cb26c22d3ad5a25bf71a1a43ce67d9b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9cb26c22d3ad5a25bf71a1a43ce67d9b"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#a9cb26c22d3ad5a25bf71a1a43ce67d9b">changeVolume</a> ()</td></tr>
 <tr class="memdesc:a9cb26c22d3ad5a25bf71a1a43ce67d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the volume of the audio to what is specified in the <a class="el" href="struct_so_s_1_1_core_1_1_song_settings.html" title="A struct holding the display and playback settings for a Song.">SongSettings</a>. <br/></td></tr>
 <tr class="memitem:a4a2a5f4b63eb414939f314508a2220b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a2a5f4b63eb414939f314508a2220b0"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#a4a2a5f4b63eb414939f314508a2220b0">free</a> ()</td></tr>
 <tr class="memdesc:a4a2a5f4b63eb414939f314508a2220b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees any external files used by the handler. <br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:afdb0152a9be07ecfa4e66f245392e78e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#afdb0152a9be07ecfa4e66f245392e78e">moveTo</a> (long time)</td></tr>
+<tr class="memdesc:afdb0152a9be07ecfa4e66f245392e78e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the playback to the specified time.  <a href="#afdb0152a9be07ecfa4e66f245392e78e"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -277,7 +284,7 @@ std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -289,8 +296,6 @@ std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
   </table>
   </dd>
 </dl>
-
-<p>Implements <a class="el" href="class_so_s_1_1_core_1_1_i_music_handler.html#aa077d477cc246e78e1b1f48a300f45b4">SoS::Core::IMusicHandler</a>.</p>
 
 </div>
 </div>
@@ -392,7 +397,7 @@ std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:27:16 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 20 2012 15:29:51 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -16,7 +16,6 @@ var searchData=
   ['loaded',['loaded',['../class_so_s_1_1_core_1_1_song_control.html#aa71493c4ed829acb0c1117f51111f40e',1,'SoS::Core::SongControl']]],
   ['loadfile',['loadFile',['../class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#a4a02554a69c691408dd801b5cf0fd9b6',1,'SoS::Core::BassStreamAudioHandler::loadFile()'],['../class_so_s_1_1_core_1_1_i_music_handler.html#a5d72d609ae681b3e9056ed51acc508ca',1,'SoS::Core::IMusicHandler::loadFile()'],['../class_so_s_1_1_core_1_1_jdk_midi_handler.html#afa4b6a94427e82259a979d9d2196b3d1',1,'SoS::Core::JdkMidiHandler::loadFile()']]],
   ['loadnextsong',['loadNextSong',['../class_so_s_1_1_qt_gui_1_1_playlist.html#a97e05872febf0c11586a4da037fe80f0',1,'SoS::QtGui::Playlist']]],
-  ['loadpage',['loadPage',['../class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ac1934de87bf3f58028bfd8e08037a956',1,'SoS::QtGui::TutorialWindow']]],
   ['loadplaylist',['loadPlaylist',['../class_so_s_1_1_qt_gui_1_1_playlist.html#af58f6374d20582d9ec9c7291a1485818',1,'SoS::QtGui::Playlist']]],
   ['loadprevsong',['loadPrevSong',['../class_so_s_1_1_qt_gui_1_1_playlist.html#a90334faa836652addd29050e23050e6e',1,'SoS::QtGui::Playlist']]],
   ['loadsettings',['loadSettings',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a74daa9f927ab4b8334ba48eb9c2798ff',1,'SoS::QtGui::MainWindow']]],

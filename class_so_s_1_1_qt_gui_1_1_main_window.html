@@ -143,6 +143,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="memdesc:ad14b48f363b42a69ba9fc03bc6ab9b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the user releases a keyboard key.  <a href="#ad14b48f363b42a69ba9fc03bc6ab9b16"></a><br/></td></tr>
 <tr class="memitem:ad267d31578e3dd436533e0fd7446d183"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#ad267d31578e3dd436533e0fd7446d183">eventFilter</a> (QObject *target, QEvent *event)</td></tr>
 <tr class="memdesc:ad267d31578e3dd436533e0fd7446d183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intercepts events from other objects when <a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html" title="Main application window.">MainWindow</a> is installed as their event filter.  <a href="#ad267d31578e3dd436533e0fd7446d183"></a><br/></td></tr>
+<tr class="memitem:a01b9f6684e311efeb4ee2426ff4d619e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#a01b9f6684e311efeb4ee2426ff4d619e">processPromo</a> ()</td></tr>
+<tr class="memdesc:a01b9f6684e311efeb4ee2426ff4d619e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows the promo screen if the user opened enough songs.  <a href="#a01b9f6684e311efeb4ee2426ff4d619e"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -191,6 +193,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a9440314ebe8db219087cd082058b29a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9440314ebe8db219087cd082058b29a3"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#a9440314ebe8db219087cd082058b29a3">showTutorial</a></td></tr>
 <tr class="memdesc:a9440314ebe8db219087cd082058b29a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">When set to <code>true</code>, the tutorial will be showed at the start of the application. <br/></td></tr>
+<tr class="memitem:a1fc0f223757916a06ffaae1186a654cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1fc0f223757916a06ffaae1186a654cd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#a1fc0f223757916a06ffaae1186a654cd">timesLaunched</a></td></tr>
+<tr class="memdesc:a1fc0f223757916a06ffaae1186a654cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of times the app was luanched (used by promo screen) <br/></td></tr>
+<tr class="memitem:a85684f19d917e5b30c42b151f3f36dc3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85684f19d917e5b30c42b151f3f36dc3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#a85684f19d917e5b30c42b151f3f36dc3">promoShown</a></td></tr>
+<tr class="memdesc:a85684f19d917e5b30c42b151f3f36dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Was the promo screen shown? <br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-slots"></a>
 Private Slots</h2></td></tr>
@@ -214,8 +222,8 @@ Private Slots</h2></td></tr>
 <tr class="memdesc:ab7774efe4a0a6bc234c2c22bcc6de30e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a new skin is selected in the <code><a class="el" href="class_so_s_1_1_qt_gui_1_1_general_settings.html" title="The general settings window class.">GeneralSettings</a></code> window.  <a href="#ab7774efe4a0a6bc234c2c22bcc6de30e"></a><br/></td></tr>
 <tr class="memitem:a98498840c65242dba712f8b9644d1a4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#a98498840c65242dba712f8b9644d1a4c">updateSong</a> ()</td></tr>
 <tr class="memdesc:a98498840c65242dba712f8b9644d1a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a new song is loaded.  <a href="#a98498840c65242dba712f8b9644d1a4c"></a><br/></td></tr>
-<tr class="memitem:a0c1d9303ae61d631653724d5b879f95e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#a0c1d9303ae61d631653724d5b879f95e">tutorialPageChange</a> (int pageId)</td></tr>
-<tr class="memdesc:a0c1d9303ae61d631653724d5b879f95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the user moves to another page in the tutorialWizard.  <a href="#a0c1d9303ae61d631653724d5b879f95e"></a><br/></td></tr>
+<tr class="memitem:afff227397c1afb96c0f58d877d1df2dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#afff227397c1afb96c0f58d877d1df2dd">tutorialPageChange</a> (QString docName, int pageId)</td></tr>
+<tr class="memdesc:afff227397c1afb96c0f58d877d1df2dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the user moves to another page in the tutorialWizard.  <a href="#afff227397c1afb96c0f58d877d1df2dd"></a><br/></td></tr>
 <tr class="memitem:a5e9b6e4744215e83aef0ede45161bb8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#a5e9b6e4744215e83aef0ede45161bb8e">tutorialClose</a> ()</td></tr>
 <tr class="memdesc:a5e9b6e4744215e83aef0ede45161bb8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the user closes the tutorial.  <a href="#a5e9b6e4744215e83aef0ede45161bb8e"></a><br/></td></tr>
 <tr class="memitem:a28b16fabbb822cb75d0dcc2fcae68e3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_main_window.html#a28b16fabbb822cb75d0dcc2fcae68e3a">on_songCheckbox_clicked</a> (bool checked)</td></tr>
@@ -1031,6 +1039,32 @@ Private Slots</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a01b9f6684e311efeb4ee2426ff4d619e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SoS::QtGui::MainWindow::processPromo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shows the promo screen if the user opened enough songs. </p>
+<p>The amount of opened songs is greater or equal to SOS_LAUNCHES_TO_PROMO, and the promo screen wasn't shown before </p>
+
+</div>
+</div>
 <a class="anchor" id="a4dd5c9ae58a12cbdec3eed5e6abe823c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1246,7 +1280,7 @@ Private Slots</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0c1d9303ae61d631653724d5b879f95e"></a>
+<a class="anchor" id="afff227397c1afb96c0f58d877d1df2dd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1256,9 +1290,19 @@ Private Slots</h2></td></tr>
         <tr>
           <td class="memname">void SoS::QtGui::MainWindow::tutorialPageChange </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>pageId</em></td><td>)</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>docName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pageId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -1314,7 +1358,7 @@ Private Slots</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:27:17 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 20 2012 15:29:52 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

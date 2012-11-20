@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['page',['page',['../class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a6fc1dfc91968b255fa8ded72759751c8',1,'SoS::QtGui::TutorialWindow']]],
+  ['pagenumber',['pageNumber',['../class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a25ec20858fa7ac37e6c35ffc955b50ee',1,'SoS::QtGui::TutorialWindow']]],
   ['paragraphno',['paragraphNo',['../group___core.html#gaf494c64c41a57cb9aca52d6555ba381d',1,'SoS::Core::TextData']]],
   ['parameters',['parameters',['../class_so_s_1_1_core_1_1_rt_audio_input.html#af0d06fc09825f06f7cc34bf466b0460e',1,'SoS::Core::RtAudioInput']]],
   ['path',['path',['../class_so_s_1_1_core_1_1_ultra_star_parser.html#abe72a8c3b8fcaf8880d6fa722bb94a70',1,'SoS::Core::UltraStarParser']]],
@@ -13,5 +13,6 @@ var searchData=
   ['playlist',['playlist',['../class_so_s_1_1_qt_gui_1_1_main_window.html#ac3e3525ec373ea569b18821a43758cf9',1,'SoS::QtGui::MainWindow']]],
   ['priority',['priority',['../struct_rt_audio_1_1_stream_options.html#adfd267059434edb21573c584e6367def',1,'RtAudio::StreamOptions']]],
   ['probed',['probed',['../struct_rt_audio_1_1_device_info.html#a97573717ccb1e75a834a0a108cd6982d',1,'RtAudio::DeviceInfo']]],
+  ['promoshown',['promoShown',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a85684f19d917e5b30c42b151f3f36dc3',1,'SoS::QtGui::MainWindow']]],
   ['properties',['properties',['../class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#aad713e6fd4d60bc6eecebe47075e043d',1,'SoS::Core::BassStreamAudioHandler']]]
 ];

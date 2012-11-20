@@ -8,7 +8,7 @@ var searchData=
   ['togglesongplay',['toggleSongPlay',['../class_so_s_1_1_qt_gui_1_1_main_window.html#aa9fdf4f7cf9961c062ac20973b977c83',1,'SoS::QtGui::MainWindow']]],
   ['tstime',['tsTime',['../class_so_s_1_1_core_1_1_ultra_star_parser.html#a6fbff11bd7d77353ac257a0db806828d',1,'SoS::Core::UltraStarParser']]],
   ['tutorialclose',['tutorialClose',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a5e9b6e4744215e83aef0ede45161bb8e',1,'SoS::QtGui::MainWindow']]],
-  ['tutorialpagechange',['tutorialPageChange',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a0c1d9303ae61d631653724d5b879f95e',1,'SoS::QtGui::MainWindow']]],
+  ['tutorialpagechange',['tutorialPageChange',['../class_so_s_1_1_qt_gui_1_1_main_window.html#afff227397c1afb96c0f58d877d1df2dd',1,'SoS::QtGui::MainWindow']]],
   ['txtcheck',['txtCheck',['../class_so_s_1_1_core_1_1_ultra_star_parser.html#aa7bf7ea40cf00635fb3d6b41cd7128ef',1,'SoS::Core::UltraStarParser']]],
   ['txtparse',['txtParse',['../class_so_s_1_1_core_1_1_ultra_star_parser.html#a121e2f0149f45c986bfad94f012cdccd',1,'SoS::Core::UltraStarParser']]],
   ['txtparseheader',['txtParseHeader',['../class_so_s_1_1_core_1_1_ultra_star_parser.html#af159319017131428b250a64a1d06e947',1,'SoS::Core::UltraStarParser']]]

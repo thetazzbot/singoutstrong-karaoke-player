@@ -14,7 +14,6 @@ var searchData=
   ['deviceinfo',['DeviceInfo',['../struct_rt_audio_1_1_device_info.html',1,'RtAudio']]],
   ['devicename',['DeviceName',['../struct_so_s_1_1_core_1_1_audio_device_info.html#ac571e450cf138e81abad435f7b242861',1,'SoS::Core::AudioDeviceInfo']]],
   ['dllloaded',['dllLoaded',['../class_so_s_1_1_core_1_1_aubio_analyzer.html#a78e5312128853b3d6e909ea024b2c165',1,'SoS::Core::AubioAnalyzer']]],
-  ['doinput',['doInput',['../struct_rt_midi_in_1_1_rt_midi_in_data.html#aca5cc3bba9f37ff952d76c7fc4d7b370',1,'RtMidiIn::RtMidiInData']]],
   ['dragenterevent',['dragEnterEvent',['../class_so_s_1_1_qt_gui_1_1_playlist.html#a51dd386f7bd1c886a524e4095965ec79',1,'SoS::QtGui::Playlist']]],
   ['dragposition',['dragPosition',['../class_so_s_1_1_qt_gui_1_1_window_bar.html#a9168b0a3e19ecc6a17b078ee39bc986f',1,'SoS::QtGui::WindowBar']]],
   ['drawbackground',['drawBackground',['../group___qt_gui.html#gad83f1f91090363c299db58bb53cf4e0c',1,'SoS::QtGui::SoSLyricsWidget']]],

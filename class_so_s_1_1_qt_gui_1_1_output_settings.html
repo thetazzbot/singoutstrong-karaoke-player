@@ -204,6 +204,8 @@ Private Slots</h2></td></tr>
 <tr class="memdesc:a166f6e9b49f85ebbc704df2a1c4cb760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the user clicks one of the solos checkboxes.  <a href="#a166f6e9b49f85ebbc704df2a1c4cb760"></a><br/></td></tr>
 <tr class="memitem:a0ad2b74cba06071b3d31054906a33f22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_output_settings.html#a0ad2b74cba06071b3d31054906a33f22">setMute</a> ()</td></tr>
 <tr class="memdesc:a0ad2b74cba06071b3d31054906a33f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the user clicks one of the mutes checkboxes.  <a href="#a0ad2b74cba06071b3d31054906a33f22"></a><br/></td></tr>
+<tr class="memitem:a909f23e5f9673c460067f07145ea161f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_qt_gui_1_1_output_settings.html#a909f23e5f9673c460067f07145ea161f">on_tempoSlider_valueChanged</a> (int value)</td></tr>
+<tr class="memdesc:a909f23e5f9673c460067f07145ea161f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the user moves the tempoSlider.  <a href="#a909f23e5f9673c460067f07145ea161f"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -323,6 +325,39 @@ Ui::OutputSettings *&#160;</td><td class="memItemRight" valign="bottom"><a class
 
 <p>Called when the user moves the keyShiftSlider. </p>
 <p>Changes the key of the song by calling the ISongSettings::setKeyShift method</p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a909f23e5f9673c460067f07145ea161f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SoS::QtGui::OutputSettings::on_tempoSlider_valueChanged </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when the user moves the tempoSlider. </p>
+<p>Changes the tempo by calling the ISongSettings::setTempo method</p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramname">value</td><td></td></tr>
@@ -581,7 +616,7 @@ Ui::OutputSettings *&#160;</td><td class="memItemRight" valign="bottom"><a class
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:27:17 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 20 2012 15:29:52 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

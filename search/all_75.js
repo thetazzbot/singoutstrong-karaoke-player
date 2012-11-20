@@ -11,8 +11,5 @@ var searchData=
   ['updatesong',['updateSong',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a98498840c65242dba712f8b9644d1a4c',1,'SoS::QtGui::MainWindow']]],
   ['updatetrackplayedtime',['updateTrackPlayedTime',['../class_so_s_1_1_core_1_1_bass_stream_audio_handler.html#ae4e2eadc330ffbd9d0446c4698791cf9',1,'SoS::Core::BassStreamAudioHandler::updateTrackPlayedTime()'],['../class_so_s_1_1_core_1_1_i_music_handler.html#ad4c39c8e0facc50b063fa8434cfc648f',1,'SoS::Core::IMusicHandler::updateTrackPlayedTime()'],['../class_so_s_1_1_core_1_1_jdk_midi_handler.html#aae490149f45e1ecb8175ac48441a328e',1,'SoS::Core::JdkMidiHandler::updateTrackPlayedTime()']]],
   ['updatetracks',['updateTracks',['../class_so_s_1_1_qt_gui_1_1_output_settings.html#a030e5648d6f4543ebb9f8b63ad444063',1,'SoS::QtGui::OutputSettings']]],
-  ['updatevolumes',['updateVolumes',['../class_so_s_1_1_qt_gui_1_1_output_settings.html#af1540350725b26118ef730ed7b3d07d6',1,'SoS::QtGui::OutputSettings']]],
-  ['usercallback',['userCallback',['../struct_rt_midi_in_1_1_rt_midi_in_data.html#ab9c9af1d99b827c707c431d1df63e45c',1,'RtMidiIn::RtMidiInData']]],
-  ['userdata',['userData',['../struct_rt_midi_in_1_1_rt_midi_in_data.html#a226b00beebe1e58b9a94bd2a0fb4a6b2',1,'RtMidiIn::RtMidiInData']]],
-  ['usingcallback',['usingCallback',['../struct_rt_midi_in_1_1_rt_midi_in_data.html#a94e0c3ac98df989ea46c18981f516cc1',1,'RtMidiIn::RtMidiInData']]]
+  ['updatevolumes',['updateVolumes',['../class_so_s_1_1_qt_gui_1_1_output_settings.html#af1540350725b26118ef730ed7b3d07d6',1,'SoS::QtGui::OutputSettings']]]
 ];

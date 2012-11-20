@@ -175,6 +175,10 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memdesc:a613ad8d8a6f7db502aeb52053d5de3c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of noted the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s key was shifted by.  <a href="#a613ad8d8a6f7db502aeb52053d5de3c9"></a><br/></td></tr>
 <tr class="memitem:a3889b45d6e47ba26100a2215aa4d62ac"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_song_control.html#a3889b45d6e47ba26100a2215aa4d62ac">setKeyShift</a> (char keyShift)</td></tr>
 <tr class="memdesc:a3889b45d6e47ba26100a2215aa4d62ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of noted the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s key is to be shifted by.  <a href="#a3889b45d6e47ba26100a2215aa4d62ac"></a><br/></td></tr>
+<tr class="memitem:a9d9306b08d52c9c2b5f997860ba87455"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_song_control.html#a9d9306b08d52c9c2b5f997860ba87455">getTempo</a> () const </td></tr>
+<tr class="memdesc:a9d9306b08d52c9c2b5f997860ba87455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the song's tempo.  <a href="#a9d9306b08d52c9c2b5f997860ba87455"></a><br/></td></tr>
+<tr class="memitem:a5a34e9d69169e9240b3fd77c2d05f231"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_song_control.html#a5a34e9d69169e9240b3fd77c2d05f231">setTempo</a> (float tempo)</td></tr>
+<tr class="memdesc:a5a34e9d69169e9240b3fd77c2d05f231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the song's tempo.  <a href="#a5a34e9d69169e9240b3fd77c2d05f231"></a><br/></td></tr>
 <tr class="memitem:a576929ee11f76c651011dc578a2b89a6"><td class="memItemLeft" align="right" valign="top">virtual unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_song_control.html#a576929ee11f76c651011dc578a2b89a6">getVolume</a> ()</td></tr>
 <tr class="memdesc:a576929ee11f76c651011dc578a2b89a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s master volume.  <a href="#a576929ee11f76c651011dc578a2b89a6"></a><br/></td></tr>
 <tr class="memitem:a524734d48fd37508b35e2116fa62002f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_song_control.html#a524734d48fd37508b35e2116fa62002f">setVolume</a> (unsigned char volume)</td></tr>
@@ -604,6 +608,34 @@ long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns:</dt><dd>const <a class="el" href="class_so_s_1_1_core_1_1_i_song.html" title="Interface for accessing information about the song.">ISong</a> Readonly pointer to <a class="el" href="class_so_s_1_1_core_1_1_i_song.html" title="Interface for accessing information about the song.">ISong</a> interface </dd></dl>
 
 <p>Implements <a class="el" href="class_so_s_1_1_core_1_1_i_song_control.html#a20ad29e46a547772db4bd32eb9b51172">SoS::Core::ISongControl</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d9306b08d52c9c2b5f997860ba87455"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float SoS::Core::SongControl::getTempo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the song's tempo. </p>
+<dl class="section return"><dt>Returns:</dt><dd>The tempo </dd></dl>
+
+<p>Implements <a class="el" href="class_so_s_1_1_core_1_1_i_song_settings.html#a938b1c1af511b7033bb992c6e2eb3961">SoS::Core::ISongSettings</a>.</p>
 
 </div>
 </div>
@@ -1183,6 +1215,40 @@ long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a class="anchor" id="a5a34e9d69169e9240b3fd77c2d05f231"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SoS::Core::SongControl::setTempo </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>tempo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the song's tempo. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tempo</td><td>The tempo. 1.0 is 100% </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_so_s_1_1_core_1_1_i_song_settings.html#a21fa77c731fad7590b9bb808b0ba8df9">SoS::Core::ISongSettings</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="abaec631df4dfd142c850fcec885333f7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1425,7 +1491,7 @@ long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:27:16 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 20 2012 15:29:51 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

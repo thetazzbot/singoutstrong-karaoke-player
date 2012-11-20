@@ -135,8 +135,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:aae490149f45e1ecb8175ac48441a328e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae490149f45e1ecb8175ac48441a328e"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_jdk_midi_handler.html#aae490149f45e1ecb8175ac48441a328e">updateTrackPlayedTime</a> ()</td></tr>
 <tr class="memdesc:aae490149f45e1ecb8175ac48441a328e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the time of playback of a note on each track (used to calculate current track volume) <br/></td></tr>
-<tr class="memitem:adf08d7880db6e7f02817aeac228a99a6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_jdk_midi_handler.html#adf08d7880db6e7f02817aeac228a99a6">moveTo</a> (long time)</td></tr>
-<tr class="memdesc:adf08d7880db6e7f02817aeac228a99a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the playback to the specified time.  <a href="#adf08d7880db6e7f02817aeac228a99a6"></a><br/></td></tr>
 <tr class="memitem:aed06d0999751d02a0cf937077493fd66"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_jdk_midi_handler.html#aed06d0999751d02a0cf937077493fd66">setSolo</a> (bool solo, int track=-1)</td></tr>
 <tr class="memdesc:aed06d0999751d02a0cf937077493fd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set's the specified <a class="el" href="class_so_s_1_1_core_1_1_track.html" title="Class implementing the ITrack interface.">Track</a> for solo playback.  <a href="#aed06d0999751d02a0cf937077493fd66"></a><br/></td></tr>
 <tr class="memitem:a3485ff9b2bbeff484237eefff7cd6b11"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_jdk_midi_handler.html#a3485ff9b2bbeff484237eefff7cd6b11">setMute</a> (bool mute, int track)</td></tr>
@@ -144,6 +142,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:afe4e16538a652e9ff42c0cfa59510b0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe4e16538a652e9ff42c0cfa59510b0d"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_jdk_midi_handler.html#afe4e16538a652e9ff42c0cfa59510b0d">changeKey</a> ()</td></tr>
 <tr class="memdesc:afe4e16538a652e9ff42c0cfa59510b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the key of the audio to what is specified in the <a class="el" href="struct_so_s_1_1_core_1_1_song_settings.html" title="A struct holding the display and playback settings for a Song.">SongSettings</a>. <br/></td></tr>
+<tr class="memitem:a817ea44d6b966ab98b191c9d691bbda6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a817ea44d6b966ab98b191c9d691bbda6"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_jdk_midi_handler.html#a817ea44d6b966ab98b191c9d691bbda6">changeTempo</a> ()</td></tr>
+<tr class="memdesc:a817ea44d6b966ab98b191c9d691bbda6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the tempo of the audio to what is specified in the <a class="el" href="struct_so_s_1_1_core_1_1_song_settings.html" title="A struct holding the display and playback settings for a Song.">SongSettings</a>. <br/></td></tr>
 <tr class="memitem:ab5b5e2b693be2b69e9ac443643c10637"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5b5e2b693be2b69e9ac443643c10637"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_jdk_midi_handler.html#ab5b5e2b693be2b69e9ac443643c10637">changeVolume</a> ()</td></tr>
 <tr class="memdesc:ab5b5e2b693be2b69e9ac443643c10637"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the volume of the audio to what is specified in the <a class="el" href="struct_so_s_1_1_core_1_1_song_settings.html" title="A struct holding the display and playback settings for a Song.">SongSettings</a>. <br/></td></tr>
@@ -162,6 +163,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a53f90a130594949ea12a7ea1d2ade889"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53f90a130594949ea12a7ea1d2ade889"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_jdk_midi_handler.html#a53f90a130594949ea12a7ea1d2ade889">reset</a> ()</td></tr>
 <tr class="memdesc:a53f90a130594949ea12a7ea1d2ade889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the midi output. <br/></td></tr>
+<tr class="memitem:adf08d7880db6e7f02817aeac228a99a6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_jdk_midi_handler.html#adf08d7880db6e7f02817aeac228a99a6">moveTo</a> (long time)</td></tr>
+<tr class="memdesc:adf08d7880db6e7f02817aeac228a99a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the playback to the specified time.  <a href="#adf08d7880db6e7f02817aeac228a99a6"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -295,7 +298,7 @@ MIDIManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -307,8 +310,6 @@ MIDIManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
   </table>
   </dd>
 </dl>
-
-<p>Implements <a class="el" href="class_so_s_1_1_core_1_1_i_music_handler.html#aa077d477cc246e78e1b1f48a300f45b4">SoS::Core::IMusicHandler</a>.</p>
 
 </div>
 </div>
@@ -410,7 +411,7 @@ MIDIManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:27:16 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 20 2012 15:29:51 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

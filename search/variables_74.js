@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['tempo',['tempo',['../struct_so_s_1_1_core_1_1_song_settings.html#af54051b67072dd65bc98995e35a1d0bb',1,'SoS::Core::SongSettings']]],
   ['text',['text',['../group___core.html#gacaf7136c29935d649a7fb9ba18ae33cc',1,'SoS::Core::TextData']]],
   ['textdata',['textData',['../class_so_s_1_1_core_1_1_track.html#a83c956ac556b25d320234a3dba9e8fcc',1,'SoS::Core::Track']]],
   ['textgroupby',['textGroupBy',['../struct_so_s_1_1_core_1_1_song_settings.html#ab99a4d242625487d4ef03f430bf3f825',1,'SoS::Core::SongSettings']]],
@@ -7,7 +8,8 @@ var searchData=
   ['time',['time',['../group___core.html#gafd03f6d80c41c9b4b76085ec0cf9b227',1,'SoS::Core::TextData']]],
   ['timeoffset',['timeOffset',['../group___qt_gui.html#gab89e618bdcf4b322c073db78369c3266',1,'SoS::QtGui::SoSNotesWidget']]],
   ['timer',['timer',['../class_so_s_1_1_qt_gui_1_1_main_window.html#ae6a83e73936e3b6db12821703c78f1d7',1,'SoS::QtGui::MainWindow']]],
-  ['timestamp',['timestamp',['../class_so_s_1_1_core_1_1_pitch_sample.html#af19025dc1486f4781c6e1c9c9b805278',1,'SoS::Core::PitchSample::timestamp()'],['../struct_rt_midi_in_1_1_midi_message.html#ad98a44ab08da8cca8fd49af177e9a9bc',1,'RtMidiIn::MidiMessage::timeStamp()']]],
+  ['timeslaunched',['timesLaunched',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a1fc0f223757916a06ffaae1186a654cd',1,'SoS::QtGui::MainWindow']]],
+  ['timestamp',['timestamp',['../class_so_s_1_1_core_1_1_pitch_sample.html#af19025dc1486f4781c6e1c9c9b805278',1,'SoS::Core::PitchSample']]],
   ['topnote',['topNote',['../class_so_s_1_1_core_1_1_track.html#a7b8472054d1879678dd5c24989ce4a65',1,'SoS::Core::Track']]],
   ['topwidget',['topWidget',['../class_so_s_1_1_qt_gui_1_1_window_bar.html#a24546fd5e649a07c26940c86b8e7b352',1,'SoS::QtGui::WindowBar']]],
   ['track',['track',['../group___qt_gui.html#gaf06ea5c2f42cf8fe73c5bfe2978a39d8',1,'SoS::QtGui::SoSNotesWidget']]],

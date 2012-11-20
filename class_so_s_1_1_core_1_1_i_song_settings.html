@@ -134,9 +134,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adfc2a06f464fbf7b7c0b41e228193e63"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_i_song_settings.html#adfc2a06f464fbf7b7c0b41e228193e63">setSelectedTrackIndex</a> (char index)=0</td></tr>
 <tr class="memdesc:adfc2a06f464fbf7b7c0b41e228193e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the index of the selected <a class="el" href="class_so_s_1_1_core_1_1_track.html" title="Class implementing the ITrack interface.">Track</a>.  <a href="#adfc2a06f464fbf7b7c0b41e228193e63"></a><br/></td></tr>
 <tr class="memitem:a4172b881bb1ca50f10b0a7a60f772cee"><td class="memItemLeft" align="right" valign="top">virtual char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_i_song_settings.html#a4172b881bb1ca50f10b0a7a60f772cee">getKeyShift</a> () const =0</td></tr>
-<tr class="memdesc:a4172b881bb1ca50f10b0a7a60f772cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of noted the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s key was shifted by.  <a href="#a4172b881bb1ca50f10b0a7a60f772cee"></a><br/></td></tr>
+<tr class="memdesc:a4172b881bb1ca50f10b0a7a60f772cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of notes the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s key was shifted by.  <a href="#a4172b881bb1ca50f10b0a7a60f772cee"></a><br/></td></tr>
 <tr class="memitem:a729e053e3fe8e62dcd59539fe0ae644e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_i_song_settings.html#a729e053e3fe8e62dcd59539fe0ae644e">setKeyShift</a> (char keyShift)=0</td></tr>
-<tr class="memdesc:a729e053e3fe8e62dcd59539fe0ae644e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of noted the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s key is to be shifted by.  <a href="#a729e053e3fe8e62dcd59539fe0ae644e"></a><br/></td></tr>
+<tr class="memdesc:a729e053e3fe8e62dcd59539fe0ae644e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of notes the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s key is to be shifted by.  <a href="#a729e053e3fe8e62dcd59539fe0ae644e"></a><br/></td></tr>
+<tr class="memitem:a938b1c1af511b7033bb992c6e2eb3961"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_i_song_settings.html#a938b1c1af511b7033bb992c6e2eb3961">getTempo</a> () const =0</td></tr>
+<tr class="memdesc:a938b1c1af511b7033bb992c6e2eb3961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the song's tempo.  <a href="#a938b1c1af511b7033bb992c6e2eb3961"></a><br/></td></tr>
+<tr class="memitem:a21fa77c731fad7590b9bb808b0ba8df9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_i_song_settings.html#a21fa77c731fad7590b9bb808b0ba8df9">setTempo</a> (float tempo)=0</td></tr>
+<tr class="memdesc:a21fa77c731fad7590b9bb808b0ba8df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the song's tempo.  <a href="#a21fa77c731fad7590b9bb808b0ba8df9"></a><br/></td></tr>
 <tr class="memitem:aec0274280b20c97da4b29871671ec365"><td class="memItemLeft" align="right" valign="top">virtual unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_i_song_settings.html#aec0274280b20c97da4b29871671ec365">getVolume</a> ()=0</td></tr>
 <tr class="memdesc:aec0274280b20c97da4b29871671ec365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s master volume.  <a href="#aec0274280b20c97da4b29871671ec365"></a><br/></td></tr>
 <tr class="memitem:a3177a822b72a64d02ec3b493fbd9e100"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_so_s_1_1_core_1_1_i_song_settings.html#a3177a822b72a64d02ec3b493fbd9e100">setVolume</a> (unsigned char volume)=0</td></tr>
@@ -210,7 +214,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the number of noted the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s key was shifted by. </p>
+<p>Gets the number of notes the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s key was shifted by. </p>
 <dl class="section return"><dt>Returns:</dt><dd>int The key shift </dd></dl>
 
 <p>Implemented in <a class="el" href="class_so_s_1_1_core_1_1_song_control.html#a613ad8d8a6f7db502aeb52053d5de3c9">SoS::Core::SongControl</a>.</p>
@@ -328,6 +332,34 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>long The selection start time </dd></dl>
 
 <p>Implemented in <a class="el" href="class_so_s_1_1_core_1_1_song_control.html#a5532cbce7335233ff42aad7061a3e4ff">SoS::Core::SongControl</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a938b1c1af511b7033bb992c6e2eb3961"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual float SoS::Core::ISongSettings::getTempo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the song's tempo. </p>
+<dl class="section return"><dt>Returns:</dt><dd>The tempo </dd></dl>
+
+<p>Implemented in <a class="el" href="class_so_s_1_1_core_1_1_song_control.html#a9d9306b08d52c9c2b5f997860ba87455">SoS::Core::SongControl</a>.</p>
 
 </div>
 </div>
@@ -527,7 +559,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the number of noted the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s key is to be shifted by. </p>
+<p>Sets the number of notes the <a class="el" href="class_so_s_1_1_core_1_1_song.html" title="Class implementing the ISong interface.">Song</a>'s key is to be shifted by. </p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramname">keyShift</td><td>the key shift </td></tr>
@@ -674,6 +706,40 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p>Implemented in <a class="el" href="class_so_s_1_1_core_1_1_song_control.html#a1f621b4f5bcc0fda31d4390ca276ecc3">SoS::Core::SongControl</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21fa77c731fad7590b9bb808b0ba8df9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SoS::Core::ISongSettings::setTempo </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>tempo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the song's tempo. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tempo</td><td>The tempo. 1.0 is 100% </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_so_s_1_1_core_1_1_song_control.html#a5a34e9d69169e9240b3fd77c2d05f231">SoS::Core::SongControl</a>.</p>
 
 </div>
 </div>
@@ -853,7 +919,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:27:16 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 20 2012 15:29:51 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

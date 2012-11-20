@@ -97,52 +97,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sossubwindow_8h.html">sossubwindow.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QWizard&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QLabel&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QDesktopServices&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QUrl&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>Ui {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;     <span class="keyword">class </span>TutorialWindow;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>Ui {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;     <span class="keyword">class </span>TutorialWindow;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>SoS</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;     <span class="keyword">namespace </span>QtGui</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;     {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html">   44</a></span>&#160;          <span class="keyword">class </span><a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html" title="Window for displaying the application tutorial.">TutorialWindow</a> : <span class="keyword">public</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_so_s_sub_window.html" title="Class for handling common subwindow widgets and events.">SoSSubWindow</a></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;          {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    Q_OBJECT</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;               <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    <span class="keyword">explicit</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html" title="Window for displaying the application tutorial.">TutorialWindow</a>(QWidget *parent = 0);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    ~<a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html" title="Window for displaying the application tutorial.">TutorialWindow</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    <span class="keywordtype">void</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a599faff354a4937416f63fbd57b167b0" title="Attempts to show the window (depends on allowShow)">show</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;               signals:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    <span class="keywordtype">void</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a7cca1208cc380a4d2ee7fac264cb5fe2" title="A signal sent when the wizard page is changed.">pageChanged</a>(<span class="keywordtype">int</span> pageNo);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;               <span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    <span class="keywordtype">void</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ab4f0c9ec5adfb35190a536f5f35e6352" title="Called when the nextButton is clicked.">on_nextButton_clicked</a>();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="keywordtype">void</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ad66b171c7ab72c2fc950c224b73e977a" title="Called when the prevButton is clicked.">on_prevButton_clicked</a>();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;               <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ae133d5d2ff87171a9f296501e629b76b">   83</a></span>&#160;                    Ui::TutorialWindow *<a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ae133d5d2ff87171a9f296501e629b76b" title="Qt&#39;s container for the window&#39;s subwidgets.">ui</a>; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a6fc1dfc91968b255fa8ded72759751c8">   84</a></span>&#160;                    <span class="keywordtype">int</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a6fc1dfc91968b255fa8ded72759751c8" title="The current page of the wizard.">page</a>;                </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ac1934de87bf3f58028bfd8e08037a956" title="Tries to load the current page.">loadPage</a>();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;          };</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;     }  </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;} </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif // TUTORIALWINDOW_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>SoS</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;     <span class="keyword">namespace </span>QtGui</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;     {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html">   46</a></span>&#160;          <span class="keyword">class </span><a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html" title="Window for displaying the application tutorial.">TutorialWindow</a> : <span class="keyword">public</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_so_s_sub_window.html" title="Class for handling common subwindow widgets and events.">SoSSubWindow</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    Q_OBJECT</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;               <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keyword">explicit</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html" title="Window for displaying the application tutorial.">TutorialWindow</a>(QWidget *parent = 0);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    ~<a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html" title="Window for displaying the application tutorial.">TutorialWindow</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    <span class="keywordtype">void</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a599faff354a4937416f63fbd57b167b0" title="Attempts to show the window (depends on allowShow)">show</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    <span class="keywordtype">void</span> setDocumentName(QString name);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    <span class="keywordtype">void</span> setPage(<span class="keywordtype">int</span> page);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;               signals:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <span class="keywordtype">void</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ab1c51a64344b0f93343feacf4e561e08" title="A signal sent when the wizard page is changed.">pageChanged</a>(QString docName, <span class="keywordtype">int</span> pageNo);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;               <span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    <span class="keywordtype">void</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ab4f0c9ec5adfb35190a536f5f35e6352" title="Called when the nextButton is clicked.">on_nextButton_clicked</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    <span class="keywordtype">void</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ad66b171c7ab72c2fc950c224b73e977a" title="Called when the prevButton is clicked.">on_prevButton_clicked</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <span class="keywordtype">void</span> on_label_linkActivated(<span class="keyword">const</span> QString &amp;link);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;               <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ae133d5d2ff87171a9f296501e629b76b">   90</a></span>&#160;                    Ui::TutorialWindow *<a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#ae133d5d2ff87171a9f296501e629b76b" title="Qt&#39;s container for the window&#39;s subwidgets.">ui</a>; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a25ec20858fa7ac37e6c35ffc955b50ee">   91</a></span>&#160;                    <span class="keywordtype">int</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#a25ec20858fa7ac37e6c35ffc955b50ee" title="The current page of the wizard.">pageNumber</a>;               </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    QString documentName;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="class_so_s_1_1_qt_gui_1_1_tutorial_window.html#acd4585120f594d4557da34f505c05c0d" title="Tries to load the current page.">reload</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;          };</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;     }  </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;} </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif // TUTORIALWINDOW_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 3 2012 17:27:13 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 20 2012 15:29:48 for SingOutStrong Karaoke Player by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

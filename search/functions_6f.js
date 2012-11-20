@@ -25,6 +25,7 @@ var searchData=
   ['on_5fskinslist_5fitemdoubleclicked',['on_skinsList_itemDoubleClicked',['../class_so_s_1_1_qt_gui_1_1_general_settings.html#afef10491bb2de18edabdfd7cd0c123ef',1,'SoS::QtGui::GeneralSettings']]],
   ['on_5fsongcheckbox_5fclicked',['on_songCheckbox_clicked',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a28b16fabbb822cb75d0dcc2fcae68e3a',1,'SoS::QtGui::MainWindow']]],
   ['on_5fstopbutton_5fclicked',['on_stopButton_clicked',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a3e4b4c7b78176bd2225fb582f38a2c08',1,'SoS::QtGui::MainWindow']]],
+  ['on_5ftemposlider_5fvaluechanged',['on_tempoSlider_valueChanged',['../class_so_s_1_1_qt_gui_1_1_output_settings.html#a909f23e5f9673c460067f07145ea161f',1,'SoS::QtGui::OutputSettings']]],
   ['on_5ftextlinesbox_5fvaluechanged',['on_textLinesBox_valueChanged',['../class_so_s_1_1_qt_gui_1_1_general_settings.html#a3547f9398cf7d2184d3df3847307dbb9',1,'SoS::QtGui::GeneralSettings']]],
   ['on_5ftimerangeslider_5fvaluechanged',['on_timeRangeSlider_valueChanged',['../class_so_s_1_1_qt_gui_1_1_general_settings.html#ae002484d63990f3c778ce4f83332bf83',1,'SoS::QtGui::GeneralSettings']]],
   ['on_5ftutorialcheckbox_5fclicked',['on_tutorialCheckbox_clicked',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a46b996bbf5c1432f485937f6f698f4b2',1,'SoS::QtGui::MainWindow']]],
@@ -32,7 +33,5 @@ var searchData=
   ['on_5fviewtimeslider_5fvaluechanged',['on_viewTimeSlider_valueChanged',['../class_so_s_1_1_qt_gui_1_1_main_window.html#a8b4bc7f8db83973266a7c45030dcc769',1,'SoS::QtGui::MainWindow']]],
   ['on_5fvolumeslider_5fvaluechanged',['on_volumeSlider_valueChanged',['../class_so_s_1_1_qt_gui_1_1_output_settings.html#a660fd31c2c082f1e647a6ff85340b2e8',1,'SoS::QtGui::OutputSettings']]],
   ['on_5fvolumetresholdslider_5fvaluechanged',['on_volumeTresholdSlider_valueChanged',['../class_so_s_1_1_qt_gui_1_1_audio_in_settings.html#a2c5c5f882862eb94d3a19dd18d35228b',1,'SoS::QtGui::AudioInSettings']]],
-  ['openport',['openPort',['../class_rt_midi.html#ad9e30a89638f93193cb40edebaa536f5',1,'RtMidi::openPort()'],['../class_rt_midi_in.html#a7e853661b1056083e07318d67c51f6fd',1,'RtMidiIn::openPort()'],['../class_rt_midi_out.html#a1b280d67317cd473a8816aeb2fe6c186',1,'RtMidiOut::openPort()']]],
-  ['openstream',['openStream',['../class_rt_audio.html#afacc99740fa4c5606fb35467cdea6da8',1,'RtAudio']]],
-  ['openvirtualport',['openVirtualPort',['../class_rt_midi.html#a9200cde4f5337c0bc421d20bd4fcf654',1,'RtMidi::openVirtualPort()'],['../class_rt_midi_in.html#a245261b3f12ce727faed18fcfeef18c2',1,'RtMidiIn::openVirtualPort()'],['../class_rt_midi_out.html#a47068e1c076d91fd89587c0ccdeddc7a',1,'RtMidiOut::openVirtualPort()']]]
+  ['openstream',['openStream',['../class_rt_audio.html#afacc99740fa4c5606fb35467cdea6da8',1,'RtAudio']]]
 ];

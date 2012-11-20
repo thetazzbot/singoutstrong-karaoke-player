@@ -46,6 +46,8 @@
 #include <time.h>
 #endif
 
+#define SOS_LAUNCHES_TO_PROMO 3
+
 // Don't generate documentation for this napesace
 /// \cond 0
 using namespace std;
@@ -137,6 +139,8 @@ namespace SoS
 				vector<float> fps;						/**< @brief The vector storing the framerates from the last 50 frames (for debugging purposes only) */
 				bool detachViewTime;					/**< @brief When set to \c true, the currentTime of SongSettings will not be automatically set when the viewTime is changed */
 				bool showTutorial;						/**< @brief When set to \c true, the tutorial will be showed at the start of the application */
+				int timesLaunched;						/**< @brief The number of times the app was luanched (used by promo screen) */
+				bool promoShown;						/**< @brief Was the promo screen shown? */
 
 				/**
 				 * @brief Starts or stops the song's playback depending on it's current state
@@ -256,6 +260,14 @@ namespace SoS
 				 * @return bool Return \c true if you DON'T want the event to be passed to the target object and be handled be it too, otherwise return \c false
 				 */
 				bool eventFilter(QObject *target, QEvent *event);
+
+
+				/**
+				 * @brief Shows the promo screen if the user opened enough songs.
+				 *
+				 * The amount of opened songs is greater or equal to SOS_LAUNCHES_TO_PROMO, and the promo screen wasn't shown before
+				 */
+				void processPromo();
 
 			private slots:
 

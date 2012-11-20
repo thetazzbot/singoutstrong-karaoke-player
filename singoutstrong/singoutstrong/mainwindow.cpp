@@ -13,7 +13,9 @@ namespace SoS
 			lowestFPS(100),
 			elapsed(0),
 			detachViewTime(false),
-			showTutorial(false)
+			showTutorial(false),
+			timesLaunched(0),
+			promoShown(false)
 		{
 
 			setFocusPolicy(Qt::StrongFocus);
@@ -71,6 +73,7 @@ namespace SoS
 
 			audioInSettingsWindow.refreshSettings();
 
+			processPromo();
 			timer.start(15, this);
 		}
 
@@ -177,6 +180,13 @@ namespace SoS
 					playlist.lastOpenedDir = QDir(node.attributes().namedItem("Path").nodeValue());
 				}
 
+				node = docElement.firstChildElement("Promo");
+				if(!node.isNull())
+				{
+					timesLaunched = node.attributes().namedItem("TimesLaunched").nodeValue().toInt();
+					promoShown = node.attributes().namedItem("PromoShown").nodeValue().toInt();
+				}
+
 				QDomElement guiSection = docElement.firstChildElement("gui");
 				loadWinProperties(this, &guiSection);
 				loadWinProperties(&audioInSettingsWindow, &guiSection);
@@ -240,6 +250,10 @@ namespace SoS
 			node = getNode("LastOpenedDir", &doc, &root);
 			node.setAttribute("Path", playlist.lastOpenedDir.absolutePath());
 
+			node = getNode("Promo", &doc, &root);
+			node.setAttribute("TimesLaunched", timesLaunched);
+			node.setAttribute("PromoShown", promoShown);
+
 			QDomElement guiNode = getNode("gui", &doc, &root);
 			saveWinProperties(this, &doc, &guiNode);
 			saveWinProperties(&audioInSettingsWindow, &doc, &guiNode);
@@ -293,6 +307,22 @@ namespace SoS
 				parent->appendChild(node);
 			}
 			return node;
+		}
+
+		void MainWindow::processPromo()
+		{
+			if(!promoShown)
+			{
+				timesLaunched++;
+				if(timesLaunched >= SOS_LAUNCHES_TO_PROMO)
+				{
+					sosContext->SongControl->stop();
+					promoShown = true;
+					tutorial.setDocumentName("promo");
+					tutorial.setPage(0);
+					tutorial.show();
+				}
+			}
 		}
 
 	}

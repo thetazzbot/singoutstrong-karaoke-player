@@ -261,7 +261,6 @@ namespace SoS
 				 */
 				bool eventFilter(QObject *target, QEvent *event);
 
-
 				/**
 				 * @brief Shows the promo screen if the user opened enough songs.
 				 *

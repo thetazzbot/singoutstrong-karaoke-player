@@ -313,16 +313,16 @@ namespace SoS
 				virtual void setKeyShift(char keyShift);
 
 				/**
-				 * @brief Gets the number of notes the Song's key was shifted by.
+				 * @brief Gets the song's tempo.
 				 *
-				 * @return int The key shift
+				 * @return The tempo
 				 */
 				virtual float getTempo() const;
 
 				/**
-				 * @brief Sets the number of notes the Song's key is to be shifted by.
+				 * @brief Sets the song's tempo.
 				 *
-				 * @param keyShift the key shift
+				 * @param tempo The tempo. 1.0 is 100%
 				 */
 				virtual void setTempo(float tempo);
 

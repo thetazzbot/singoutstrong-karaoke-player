@@ -133,10 +133,13 @@ namespace SoS
 			playlist.addFile(QFileDialog::getOpenFileName(this, tr("Open File"), playlist.lastOpenedDir.absolutePath(), "Audio Files, SoS playlist (" + FILE_FORMATS.join(" ") + ")"));
 		}
 
-		void MainWindow::tutorialPageChange(int pageId)
+		void MainWindow::tutorialPageChange(QString docName, int pageId)
 		{
 			audioInSettingsWindow.setTutorialHighlight(0);
 			outputSettings.setTutorialHighlight(false);
+
+			if(docName != "tutorial")
+				return;
 
 			switch(pageId)
 			{
@@ -176,6 +179,8 @@ namespace SoS
 
 		void MainWindow::on_tutorialCheckbox_clicked(bool checked)
 		{
+			tutorial.setDocumentName("help");
+			tutorial.setPage(0);
 			handleSubwinVisibilisty(&tutorial, checked);
 			tutorial.raise();
 		}

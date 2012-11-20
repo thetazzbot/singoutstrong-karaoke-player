@@ -43,7 +43,7 @@ namespace SoS
 			connect(&generalSettings, SIGNAL(textLinesSet(int)), &songWindow, SLOT (setTextLines(int)));
 			connect(&playlist, SIGNAL(songLoaded()), this, SLOT (updateSong()));
 			connect(ui->windowBar, SIGNAL(exitPushed()), this, SLOT(close()));
-			connect(&tutorial, SIGNAL(pageChanged(int)), this, SLOT(tutorialPageChange(int)));
+			connect(&tutorial, SIGNAL(pageChanged(QString, int)), this, SLOT(tutorialPageChange(QString, int)));
 
 			audioInSettingsWindow.installEventFilter(this);
 			outputSettings.installEventFilter(this);
@@ -101,7 +101,12 @@ namespace SoS
 			playlist.show();
 			songWindow.show();
 			generalSettings.show();
-			if(showTutorial) tutorial.show();
+			if(showTutorial)
+			{
+				tutorial.setDocumentName("tutorial");
+				tutorial.setPage(0);
+				tutorial.show();
+			}
 			//#ifndef DEBUG
 						ui->label->hide();
 			//#endif

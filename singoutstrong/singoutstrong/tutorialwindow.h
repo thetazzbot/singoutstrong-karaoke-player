@@ -8,6 +8,8 @@
 #include "sossubwindow.h"
 #include <QWizard>
 #include <QLabel>
+#include <QDesktopServices>
+#include <QUrl>
 
 /// \cond 0
 
@@ -56,13 +58,16 @@ namespace SoS
 				 */
 				void show();
 
+				void setDocumentName(QString name);
+				void setPage(int page);
+
 			signals:
 				/**
 				 * @brief A signal sent when the wizard page is changed
 				 *
 				 * @param pageNo The current page number
 				 */
-				void pageChanged(int pageNo);
+				void pageChanged(QString docName, int pageNo);
 
 			private slots:
 				/**
@@ -79,9 +84,12 @@ namespace SoS
 				 */
 				void on_prevButton_clicked();
 
+				void on_label_linkActivated(const QString &link);
+
 			private:
 				Ui::TutorialWindow *ui; /**< @brief Qt's container for the window's subwidgets */
-				int page;				/**< @brief The current page of the wizard */
+				int pageNumber;			/**< @brief The current page of the wizard */
+				QString documentName;
 
 				/**
 				 * @brief Tries to load the current page
@@ -91,7 +99,7 @@ namespace SoS
 				 *
 				 * @return bool \c True if the page was loaded successfully, otherwise \c false.
 				 */
-				bool loadPage();
+				bool reload();
 
 
 		};

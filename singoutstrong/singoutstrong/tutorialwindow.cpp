@@ -9,7 +9,8 @@ namespace SoS
 		TutorialWindow::TutorialWindow(QWidget *parent) :
 			SoSSubWindow(parent),
 			ui(new Ui::TutorialWindow),
-			page(0)
+			pageNumber(0),
+			documentName("tutorial")
 		{
 			allowShow = true;
 			ui->setupUi(this);
@@ -24,14 +25,24 @@ namespace SoS
 
 		void TutorialWindow::show()
 		{
-			page = 0;
-			loadPage();
+			reload();
 			SoSSubWindow::show();
 		}
 
-		bool TutorialWindow::loadPage()
+		void TutorialWindow::setDocumentName(QString name)
 		{
-			QFile file(QString("./docs/tutorial/%1.htm").arg(page));
+			documentName = name;
+		}
+
+		void TutorialWindow::setPage(int page)
+		{
+			pageNumber = page >= 0 ? page : 0;
+		}
+
+		bool TutorialWindow::reload()
+		{
+			QFile file(QString("./docs/%1/%2.htm").arg(documentName).arg(pageNumber));
+			ui->prevButton->show();
 
 			if(file.open(QIODevice::ReadOnly))
 			{
@@ -41,12 +52,16 @@ namespace SoS
 			else
 				return false;
 
-			if(QFile::exists(QString("./docs/tutorial/%1.htm").arg(page+1)))
+			if(QFile::exists(QString("./docs/%1/%2.htm").arg(documentName).arg(pageNumber+1)))
 				ui->nextButton->setText("Next");
 			else
-				ui->nextButton->setText("Finish");
+			{
+				ui->nextButton->setText("Close");
+				if(pageNumber == 0)
+					ui->prevButton->hide();
+			}
 
-			if(page > 0)
+			if(pageNumber > 0)
 				ui->prevButton->setText("Back");
 			else
 				ui->prevButton->setText("Cancel");
@@ -56,20 +71,42 @@ namespace SoS
 
 		void TutorialWindow::on_nextButton_clicked()
 		{
-			page++;
-			if(! loadPage())
+			pageNumber++;
+			if(! reload())
 				close();
 			else
-				emit pageChanged(page);
+				emit pageChanged(documentName, pageNumber);
 		}
 
 		void TutorialWindow::on_prevButton_clicked()
 		{
-			page--;
-			if(! loadPage())
+			pageNumber--;
+			if(! reload())
 				close();
 			else
-				emit pageChanged(page);
+				emit pageChanged(documentName, pageNumber);
+		}
+
+		void TutorialWindow::on_label_linkActivated(const QString &link)
+		{
+			if(link.startsWith("doc:"))
+			{
+				QStringList docInfo = link.split('/');
+				bool success = false;
+				int page = docInfo.back().toInt(&success);
+
+				if(success)
+				{
+					pageNumber = page;
+					docInfo.pop_back();
+					if(docInfo.size() > 0)
+						documentName = docInfo.back();
+
+					reload();
+				}
+			}
+			else
+				QDesktopServices::openUrl(QUrl(link));
 		}
 	}
 }

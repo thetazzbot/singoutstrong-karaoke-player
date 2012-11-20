@@ -352,7 +352,7 @@ namespace SoS
 				 *
 				 * @param pageId
 				 */
-				void tutorialPageChange(int pageId);
+				void tutorialPageChange(QString docName, int pageId);
 
 				/**
 				 * @brief Called when the user closes the tutorial.

@@ -34,7 +34,7 @@ namespace SoS
 
 		void JdkMidiHandler::rewind()
 		{
-			sequencer->GoToZero();
+			moveTo(settings->getCurrentTime());
 		}
 
 		void JdkMidiHandler::moveTo(long time)

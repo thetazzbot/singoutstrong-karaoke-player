@@ -80,6 +80,13 @@ namespace SoS
 				 */
 				void reset();
 
+				/**
+				 * @brief Moves the playback to the specified time
+				 *
+				 * @param time New playback time
+				 */
+				virtual void moveTo(long time);
+
 			public:
 				JdkMidiHandler(Song* song, ISongSettings* settings);
 				~JdkMidiHandler();
@@ -129,13 +136,6 @@ namespace SoS
 				 *
 				 */
 				virtual void updateTrackPlayedTime();
-
-				/**
-				 * @brief Moves the playback to the specified time
-				 *
-				 * @param time New playback time
-				 */
-				virtual void moveTo(long time);
 
 				/**
 				 * @brief Set's the specified Track for solo playback.

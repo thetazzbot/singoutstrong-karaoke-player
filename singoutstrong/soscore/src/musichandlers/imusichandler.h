@@ -40,7 +40,7 @@ namespace SoS
 				virtual bool loadFile(const char* filename) = 0;
 
 				/**
-				 * @brief Rewinds the audio to the beginning
+				 * @brief Rewinds the audio to the currentTime from SongSettings
 				 *
 				 */
 				virtual void rewind() = 0;
@@ -76,13 +76,6 @@ namespace SoS
 				 *
 				 */
 				virtual void updateTrackPlayedTime() = 0;
-
-				/**
-				 * @brief Moves the playback to the specified time
-				 *
-				 * @param time New playback time
-				 */
-				virtual void moveTo(long time) = 0;
 
 				/**
 				 * @brief Set's the specified Track for solo playback.

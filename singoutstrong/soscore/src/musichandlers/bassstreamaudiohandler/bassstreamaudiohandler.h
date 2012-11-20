@@ -46,6 +46,13 @@ namespace SoS
 				HSTREAM stream;				/**< @brief The audio stream */
 				std::map<std::string,std::string> properties; /**< @brief music files (background, guitar, rhythm/bass, drums, vocals) */
 
+				/**
+				 * @brief Moves the playback to the specified time
+				 *
+				 * @param time New playback time
+				 */
+				virtual void moveTo(long time);
+
 			public:
 				BassStreamAudioHandler(Song* song, ISongSettings* settings);
 				~BassStreamAudioHandler();
@@ -95,13 +102,6 @@ namespace SoS
 				 *
 				 */
 				virtual void updateTrackPlayedTime();
-
-				/**
-				 * @brief Moves the playback to the specified time
-				 *
-				 * @param time New playback time
-				 */
-				virtual void moveTo(long time);
 
 				/**
 				 * @brief Set's the specified Track for solo playback.

@@ -46,7 +46,7 @@ namespace SoS
 			if(playing)
 				currentHandler->stopPlaying();
 
-			currentHandler->moveTo(settings.currTime);
+			currentHandler->rewind();
 
 			if(playing && !timeBeyondSelection(settings.currTime))
 				currentHandler->startPlaying();

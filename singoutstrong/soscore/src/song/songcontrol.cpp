@@ -164,8 +164,8 @@ namespace SoS
 
 			if(settings.selectionEnd > 0)
 			{
-				currentHandler->moveTo(settings.selectionStart);
 				settings.currTime = settings.selectionStart;
+				currentHandler->rewind();
 			}
 			else
 			{

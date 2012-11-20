@@ -19,7 +19,7 @@ namespace SoS
 
 		void BassStreamAudioHandler::rewind()
 		{
-			moveTo(0);
+			moveTo(settings->getCurrentTime() * settings->getTempo());
 		}
 
 		void BassStreamAudioHandler::moveTo(long time)
@@ -29,6 +29,7 @@ namespace SoS
 
 		void BassStreamAudioHandler::startPlaying()
 		{
+			rewind();
 			BASS_ChannelPlay(stream,FALSE);
 		}
 
@@ -67,10 +68,7 @@ namespace SoS
 
 		void BassStreamAudioHandler::changeTempo()
 		{
-			float tempo = settings->getTempo() - 1.0;
-			BOOL result = BASS_ChannelSetAttribute(stream, BASS_ATTRIB_TEMPO, tempo*100.0);
-			int err = BASS_ErrorGetCode();
-			int t = 0;
+			BASS_ChannelSetAttribute(stream, BASS_ATTRIB_TEMPO, (settings->getTempo() - 1.0) *100.0);
 		}
 
 		void BassStreamAudioHandler::updateTrackPlayedTime()

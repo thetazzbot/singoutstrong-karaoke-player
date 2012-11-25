@@ -694,6 +694,7 @@ void MIDISequencer::GoToZero()
         state.track_state[i]->GoToZero();
     }
 
+	bpms.clear();
     state.iterator.GoToTime ( 0 );
     state.cur_time_ms = 0.0;
     state.cur_clock = 0;
@@ -895,7 +896,7 @@ bool MIDISequencer::GetNextEventTimeMs ( double *t )
         // calculate delta time from last event time
         double delta_clocks = ( double ) ( ct - state.cur_clock );
 		double delta_ms = 0;
-		if(MidiClockTimeToMs(delta_clocks, &delta_ms))
+		if(MidiClockTimeToMs(delta_clocks, state.track_state[0]->tempobpm, &delta_ms))
 		{
 			*t = delta_ms + state.cur_time_ms;
 		}
@@ -1014,6 +1015,10 @@ bool MIDISequencer::GetNextEvent ( int *tracknum, MIDITimedBigMessage *msg )
 
             // give the beat marker event to the conductor track to process
             state.track_state[*tracknum]->Process ( msg );
+
+			if(msg->IsTempo() && *tracknum == 0)
+				bpms.push_back(BPM(msg->GetTime(), state.track_state[0]->tempobpm));
+
             return true;
         }
 
@@ -1054,6 +1059,8 @@ bool MIDISequencer::GetNextEvent ( int *tracknum, MIDITimedBigMessage *msg )
                     // erase it
                     msg->SetNoOp();
                 }
+				else if(msg->IsTempo() && *tracknum == 0)
+					bpms.push_back(BPM(msg->GetTime(), state.track_state[0]->tempobpm));
 
                 // go to the next event on the multitrack
                 state.iterator.GoToNextEvent();
@@ -1120,9 +1127,9 @@ double MIDISequencer::GetMisicDurationInSeconds()
     return ( 0.001 * event_time );
 }
 
-bool MIDISequencer::MidiClockTimeToMs(MIDIClockTime t, double *ms)
+bool MIDISequencer::MidiClockTimeToMs(MIDIClockTime t, float bpm, double *ms)
 {
-	double clocks_per_sec = ( ( state.track_state[0]->tempobpm *
+	double clocks_per_sec = ( ( bpm *
 								( tempo_scale )
 								* ( 1. / 60. ) ) * state.multitrack->GetClksPerBeat() );
 
@@ -1136,6 +1143,24 @@ bool MIDISequencer::MidiClockTimeToMs(MIDIClockTime t, double *ms)
 	}
 
 	return false;
+}
+
+double MIDISequencer::MidiClockTimeToAbsMs(MIDIClockTime t)
+{
+	double event_time = 0;
+	double result = 0;
+
+	for (std::vector<BPM>::reverse_iterator rit = bpms.rbegin() ; rit < bpms.rend(); ++rit )
+	{
+		MidiClockTimeToMs(t - (*rit).from, (*rit).bpm, &event_time);
+		result += event_time;
+		t -= t - (*rit).from;
+	}
+
+	if(bpms.size() <= 0)
+		MidiClockTimeToMs(t, state.track_state[0]->tempobpm, &result);
+
+	return result;
 }
 
 

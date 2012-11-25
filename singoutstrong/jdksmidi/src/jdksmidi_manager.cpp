@@ -234,7 +234,7 @@ void MIDIManager::TimeTickPlayMode ( unsigned long sys_time_ )
     // find all events that exist before or at this time,
     // but only if we have space in the output queue to do so!
     // also limit ourselves to 100 midi events max.
-    int output_count = 100;
+	int output_count = 100;
 
     while ( sequencer->GetNextEventTimeMs ( &next_event_time ) &&
 			( next_event_time - seq_time_offset ) <= sys_time  &&
@@ -250,8 +250,8 @@ void MIDIManager::TimeTickPlayMode ( unsigned long sys_time_ )
 
 			if(!gotEvent)
 			{
+				last_event_time = sequencer->MidiClockTimeToAbsMs(ev.GetTime());
 				last_event_sys_time = sys_time_;
-				sequencer->MidiClockTimeToMs(ev.GetTime(), &last_event_time);
 				gotEvent = true;
 			}
 

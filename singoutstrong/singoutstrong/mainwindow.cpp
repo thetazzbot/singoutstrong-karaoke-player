@@ -202,6 +202,9 @@ namespace SoS
 			{
 				//if there was no settings file, then assume this is the first run and open the tutorial
 				showTutorial = true;
+				playlist.clearPlaylist();
+				playlist.addFile("samples/jingle_bells.kar");
+				playlist.loadNextSong();
 			}
 		}
 

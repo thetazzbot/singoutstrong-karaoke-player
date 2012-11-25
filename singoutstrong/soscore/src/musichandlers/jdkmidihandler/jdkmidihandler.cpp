@@ -63,7 +63,7 @@ namespace SoS
 
 		void JdkMidiHandler::startPlaying()
 		{
-			moveTo(settings->getCurrentTime());
+			rewind();
 			manager->SetTimeOffset ( timeGetTime() - settings->getCurrentTime());
 			manager->SetSeqOffset(settings->getOutputLatency());
 			manager->SeqPlay();

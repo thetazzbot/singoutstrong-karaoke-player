@@ -34,6 +34,7 @@
 #include "jdksmidi/tempo.h"
 #include "jdksmidi/matrix.h"
 #include "jdksmidi/process.h"
+#include <vector>
 
 namespace jdksmidi
 {
@@ -273,6 +274,13 @@ public:
     MIDIClockTime next_beat_time;
 };
 
+struct BPM
+{
+		BPM(MIDIClockTime u, float b) {from = u; bpm = b;}
+		MIDIClockTime from;
+		float bpm;
+};
+
 class MIDISequencer
 {
 public:
@@ -326,7 +334,8 @@ public:
     bool GetNextEventTime ( MIDIClockTime *t );
     bool GetNextEvent ( int *tracknum, MIDITimedBigMessage *msg );
 
-	bool MidiClockTimeToMs(MIDIClockTime t, double* ms);
+	bool MidiClockTimeToMs(MIDIClockTime t, float bpm, double* ms);
+	double MidiClockTimeToAbsMs(MIDIClockTime t);
 
     void ScanEventsAtThisTime();
 
@@ -344,6 +353,8 @@ protected:
     MIDISequencerTrackProcessor *track_processors[64];
 
     MIDISequencerState state;
+
+	std::vector<BPM> bpms;
 } ;
 
 }

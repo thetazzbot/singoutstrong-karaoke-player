@@ -100,8 +100,8 @@ protected:
 
     unsigned long sys_time_offset;
     unsigned long seq_time_offset;
-    unsigned long curr_time;
 
+    unsigned long curr_time;
 	double last_event_time;
 
     volatile bool play_mode;

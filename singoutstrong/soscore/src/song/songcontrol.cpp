@@ -169,8 +169,8 @@ namespace SoS
 			}
 			else
 			{
-				currentHandler->rewind();
 				settings.currTime = 0;
+				currentHandler->rewind();
 			}
 		}
 

@@ -52,17 +52,17 @@ namespace SoS
 			return false;
 		}
 
-		std::string UltraStarParser::GetMusicFile(std::string type)
+		/*std::string UltraStarParser::GetMusicFile(std::string type)
 		{
-			return parsed ? music[type] : "";
-		}
+			return parsed ? [type] : "";
+		}*/
 
-		std::string UltraStarParser::GetPath()
+		/*std::string UltraStarParser::GetPath()
 		{
 			return parsed ? path : "";
-		}
+		}*/
 
-		UltraStarParser::UltraStarParser(ISongSettings *settings, Song *s, std::string filename, std::map<std::string,std::string> &properties):
+		UltraStarParser::UltraStarParser(ISongSettings *settings, Song *s):
 			m_linenum(),
 			m_relative(),
 			m_gap(),
@@ -75,40 +75,17 @@ namespace SoS
 			m_tsEnd(),
 			_settings(settings),
 			parsed(false),
-			lyricLine(0),
-			music(properties)
+			lyricLine(0)
 		{
-			Parse(s, filename);
+			Parse(s);
 		}
 
-		void UltraStarParser::Parse(Song* s, std::string filename)
+		void UltraStarParser::Parse(Song* s)
 		{
 			enum { NONE, TXT, INI, SM } type = NONE;
 			// Read the file, determine the type and do some initial validation checks
 
-			music.clear();
-			std::string ext = "";
-			std::string filenameNoext = "";
-			size_t sep = filename.find_last_of("\\/");
-			if (sep != std::string::npos)
-			{
-				path = filename.substr(0, sep + 1);
-				music["filename"] = filename.substr(sep+1, filename.size() - sep - 1);
-			}
-
-			sep = filename.find_last_of(".");
-			if (sep != std::string::npos)
-			{
-				ext = filename.substr(sep + 1, filename.size() - sep - 1);
-				filenameNoext = filename.substr(0, sep+1);
-			}
-
-			// This works a bit different then the original Performous parser. We assume we're given an audio
-			// stream file, and look for a .txt file with the same name in the same directory
-			music["background"] = filename;
-
-			filename = filenameNoext+"txt";
-			std::ifstream f((filename).c_str(), std::ios::binary);
+			std::ifstream f((s->properties["path"] + s->properties["txtFile"]).c_str(), std::ios::binary);
 
 			if (!f.is_open())
 				return; //throw SongParserException("Could not open song file", 0);
@@ -212,7 +189,7 @@ namespace SoS
 			while (getline(line) && txtParseField(s, line)) {}
 
 			//|| s.artist.empty()
-			if (s->name.empty()) throw std::runtime_error("Required header fields missing");
+			if (s->properties["name"].empty()) throw std::runtime_error("Required header fields missing");
 			if (m_bpm != 0.0) addBPM(0, m_bpm);
 		}
 
@@ -266,14 +243,14 @@ namespace SoS
 			if (value.empty())
 				return true;
 
-			if (key == "TITLE") music["title"] = value.substr(value.find_first_not_of(" :"));
-			else if (key == "ARTIST") music["artist"] =  value.substr(value.find_first_not_of(" "));
+			if (key == "TITLE") s->properties["title"] = value.substr(value.find_first_not_of(" :"));
+			else if (key == "ARTIST") s->properties["artist"] =  value.substr(value.find_first_not_of(" "));
 			//else if (key == "EDITION") m_song.edition = value.substr(value.find_first_not_of(" "));
 			//else if (key == "GENRE") m_song.genre = value.substr(value.find_first_not_of(" "));
 			//else if (key == "CREATOR") m_song.creator = value.substr(value.find_first_not_of(" "));
 			//else if (key == "COVER") m_song.cover = value;
-			//else if (key == "MP3") music["background"] = path + value;
-			else if (key == "VOCALS") music["vocals"] = path + value;
+			else if (key == "MP3" && s->properties["background"].empty()) s->properties["background"] = value;
+			else if (key == "VOCALS") s->properties["vocals"] = value;
 			//else if (key == "VIDEO") m_song.video = value;
 			//else if (key == "BACKGROUND") m_song.background = value;
 			//else if (key == "START") assign(m_song.start, value);

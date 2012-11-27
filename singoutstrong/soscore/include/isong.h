@@ -43,14 +43,7 @@ namespace SoS
 				 *
 				 * @return const char The song name
 				 */
-				virtual const char* getName() const = 0;
-
-				/**
-				 * @brief Gets the song description
-				 *
-				 * @return const char The song description
-				 */
-				virtual const char* getDescription() const = 0;
+				virtual const char* getProperty(const char* property) const = 0;
 
 				/**
 				 * @brief Gets the number of tracks in the song

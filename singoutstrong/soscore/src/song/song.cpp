@@ -18,8 +18,7 @@ namespace SoS
 
 		void Song::clear()
 		{
-			name.clear();
-			description.clear();
+			properties.clear();
 			songDuration = 0;
 
 			for(int i = 0; i < tracks.size(); i++)
@@ -59,14 +58,9 @@ namespace SoS
 			return track >= 0 && track < tracks.size() ? tracks[track] : NULL;
 		}
 
-		const char* Song::getName() const
+		const char* Song::getProperty(const char *property) const
 		{
-			return name.c_str();
-		}
-
-		const char* Song::getDescription() const
-		{
-			return description.c_str();
+			return properties.find(property)->second.c_str();
 		}
 
 		const ITrack* Song::getSelectedTrack() const

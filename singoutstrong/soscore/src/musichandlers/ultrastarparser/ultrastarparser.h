@@ -38,17 +38,14 @@ namespace SoS
 		{
 			public:
 				/// constructor
-				UltraStarParser(ISongSettings* settings, Song* s, std::string filename, std::map<std::string,std::string> &properties);
+				UltraStarParser(ISongSettings* settings, Song* s);
 
-				void Parse(Song* s, std::string filename);
+				void Parse(Song* s);
 
-				std::string GetMusicFile(std::string type);
-				std::string GetPath();
+				//std::string GetMusicFile(std::string type);
+				//std::string GetPath();
 
 			private:
-				std::map<std::string,std::string>& music; ///< music files (background, guitar, rhythm/bass, drums, vocals)
-				std::string path; ///< filepath
-
 				void finalize(Song* s);
 
 				const ISongSettings* _settings;

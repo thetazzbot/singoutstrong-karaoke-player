@@ -69,25 +69,49 @@ namespace SoS
 		{
 			loaded = false;
 			rewind();
+			song->clear();
 
-			std::string name = filename;
+			std::string filenameNoExt = filename;
 			std::string ext = "";
+			std::string path = "";
 
-			size_t sep = name.find_last_of(".");
+			size_t sep = filenameNoExt.find_last_of("\\/");
 			if (sep != std::string::npos)
 			{
-				ext = name.substr(sep + 1, name.size() - sep - 1);
-				name = name.substr(0, sep+1);
+				path = filenameNoExt.substr(0, sep + 1);
+				filenameNoExt = filenameNoExt.substr(sep + 1, filenameNoExt.size() - sep - 1);
 			}
 
+			sep = filenameNoExt.find_last_of(".");
+			if (sep != std::string::npos)
+			{
+				ext = filenameNoExt.substr(sep + 1, filenameNoExt.size() - sep - 1);
+				filenameNoExt = filenameNoExt.substr(0, sep+1);
+			}
+
+			song->properties["path"] = path;
+			song->properties["ext"] = ext;
 			song->encoding = ISong::ANSI;
 
 			currentHandler->free();
-			if(ext == "mid" || ext == "kar") currentHandler = midiHandler;
-			else currentHandler = streamHandler;
+			if(ext == "mid" || ext == "kar")
+			{
+				currentHandler = midiHandler;
+				song->properties["background"] = filenameNoExt + ext;
+			}
+			else if(ext == "txt")
+			{
+				currentHandler = streamHandler;
+				song->properties["txtFile"] = filenameNoExt + ext;
+			}
+			else
+			{
+				currentHandler = streamHandler;
+				song->properties["background"] = filenameNoExt + ext;
+				song->properties["txtFile"] = filenameNoExt + "txt";
+			}
 
 			loaded = currentHandler->loadFile(filename);
-
 			if(loaded)
 			{
 				if(song->tracks.size() > 0 && currentHandler == streamHandler)
@@ -96,8 +120,8 @@ namespace SoS
 				{
 					//if the file was loaded, but there's no track info, it must have been a stream file with no txt file
 					//but maybe there's a .kar or .mid file that we can use
-					if(song->tracks.size() == 0) midiHandler->loadFile((name + "kar").c_str());
-					if(song->tracks.size() == 0) midiHandler->loadFile((name + "mid").c_str());
+					if(song->tracks.size() == 0) midiHandler->loadFile((path + filenameNoExt + "kar").c_str());
+					if(song->tracks.size() == 0) midiHandler->loadFile((path + filenameNoExt + "mid").c_str());
 				}
 
 				setSelectedTrackIndex(settings.selectedTrackIndex);

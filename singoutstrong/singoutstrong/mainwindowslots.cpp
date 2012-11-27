@@ -13,11 +13,11 @@ namespace SoS
 			const ISong* song = sosContext->SongControl->getSong();
 			if(sosContext->SongControl->isLoaded())
 			{
-				title = QString::fromLocal8Bit(song->getName());
+				title = QString::fromLocal8Bit(song->getProperty("background"));
 				if(song->getEncoding() == ISong::ANSI)
-					description = QString::fromLocal8Bit(song->getDescription()).replace("\n", "<br />");
+					description = QString::fromLocal8Bit(song->getProperty("description")).replace("\n", "<br />");
 				else
-					description = QString::fromUtf8(song->getDescription());
+					description = QString::fromUtf8(song->getProperty("description"));
 			}
 
 			ui->descriptioneLabel->setText(description.length() > 55 ? description.left(52) + "..." : description);

@@ -7,6 +7,7 @@
 #include "..\..\include\isong.h"
 #include "..\essentials.h"
 #include "track.h"
+#include <map>
 
 /*!
  *  \addtogroup SoS
@@ -38,8 +39,7 @@ namespace SoS
 				static const ISongSettings* settings;	/**< @brief the settings from the SongControl class */
 				std::vector<Track*> tracks; /**< @brief The song's tracks */
 				long songDuration; /**< @brief The song's time length */
-				std::string name; /**< @brief The song name */
-				std::string description; /**< @brief The song description */
+				std::map<std::string, std::string> properties; /**< @brief music files (background, guitar, rhythm/bass, drums, vocals) */
 				ISong::TextEncoding encoding;
 
 				/**
@@ -55,18 +55,11 @@ namespace SoS
 				void clearEmptyTracks();
 
 				/**
-				 * @brief Gets the song name
+				 * @brief Gets the value of the specified property
 				 *
-				 * @return const char The song name
+				 * @return const char The name of the property
 				 */
-				virtual const char* getName() const;
-
-				/**
-				 * @brief Gets the song description
-				 *
-				 * @return const char The song description
-				 */
-				virtual const char* getDescription() const;
+				virtual const char* getProperty(const char* property) const;
 
 				/**
 				 * @brief Gets the number of tracks in the song

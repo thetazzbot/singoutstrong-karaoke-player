@@ -44,7 +44,6 @@ namespace SoS
 				ISongSettings* settings;	/**< @brief The SongSettings from SongControl */
 
 				HSTREAM stream;				/**< @brief The audio stream */
-				std::map<std::string,std::string> properties; /**< @brief music files (background, guitar, rhythm/bass, drums, vocals) */
 
 				/**
 				 * @brief Moves the playback to the specified time

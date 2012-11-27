@@ -190,7 +190,7 @@ namespace SoS
 			if (sep != std::string::npos)
 				name = name.substr(sep + 1, name.size() - sep - 1);
 
-			song->name = name.c_str();
+			song->properties["name"] = name;
 
 			return true;
 		}
@@ -275,7 +275,7 @@ namespace SoS
 						track->name = textData->text;
 
 					if(trackNum == 0 && cmpMsg.GetMetaType() != META_COPYRIGHT && cmpMsg.GetMetaType() != META_LYRIC_TEXT)
-						song->description += textData->text + " ";
+						song->properties["description"] += textData->text + " ";
 
 					track->textData[textData->type].push_back(textData);
 				}

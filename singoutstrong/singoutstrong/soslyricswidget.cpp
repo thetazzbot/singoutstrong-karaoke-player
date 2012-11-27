@@ -118,6 +118,7 @@ namespace SoS
 
 		void SoSLyricsWidget::setLineCount(int count)
 		{
+			oldStart = oldEnd = 0;
 			lines.clear();
 			while(lines.size() < count)
 				lines.push_back(QStringList());

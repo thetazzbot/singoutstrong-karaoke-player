@@ -24,7 +24,7 @@ DefaultGroupName={#MyAppName}
 VersionInfoVersion={#MyAppVersion}
 AllowNoIcons=yes
 OutputDir=.\
-OutputBaseFilename=sossetup
+OutputBaseFilename=sossetup{#MyAppVersion}
 Compression=lzma
 SolidCompression=yes
 SignTool=signstandard $f
@@ -41,6 +41,7 @@ Source: ".\soscore\release\soscore.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: ".\jdksmidi\release\jdksmidi.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: ".\singoutstrong\skins\*"; DestDir: "{app}\skins\"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: ".\singoutstrong\docs\*"; DestDir: "{app}\docs\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: ".\singoutstrong\samples\*"; DestDir: "{app}\samples\"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: ".\libs\dll\release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

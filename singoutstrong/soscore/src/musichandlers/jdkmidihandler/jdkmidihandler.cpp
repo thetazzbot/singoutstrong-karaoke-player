@@ -179,20 +179,9 @@ namespace SoS
 				return false;
 			}
 
-
-
 			handleSongLoaded();
-
-			std::string name = filename;
-			std::string ext = "";
-
-			size_t sep = name.find_last_of("\\/");
-			if (sep != std::string::npos)
-				name = name.substr(sep + 1, name.size() - sep - 1);
-
-			song->properties["name"] = name;
-
 			return true;
+
 		}
 
 		void JdkMidiHandler::handleSongLoaded()
@@ -200,8 +189,6 @@ namespace SoS
 			sequencer->GoToZero();
 			MIDITimedBigMessage cmpMsg;
 			int trackNum = -1;
-			//unsigned int txtLineNum = 0;
-			//unsigned int txtParNum = 0;
 
 			for(int i = 0; i < multiTrack->GetNumTracks(); i++)
 			{

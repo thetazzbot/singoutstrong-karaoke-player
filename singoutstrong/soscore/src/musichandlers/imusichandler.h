@@ -34,10 +34,9 @@ namespace SoS
 				/**
 				 * @brief Loads an audio file
 				 *
-				 * @param filename The path to the file
 				 * @return bool \c True if loading was sucessful, otherwise \c false
 				 */
-				virtual bool loadFile(const char* filename) = 0;
+				virtual bool loadMusic() = 0;
 
 				/**
 				 * @brief Rewinds the audio to the currentTime from SongSettings

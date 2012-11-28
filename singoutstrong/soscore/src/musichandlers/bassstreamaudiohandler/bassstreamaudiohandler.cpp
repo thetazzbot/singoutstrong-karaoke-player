@@ -84,7 +84,7 @@ namespace SoS
 			}
 		}
 
-		bool BassStreamAudioHandler::loadFile(const char *filename)
+		bool BassStreamAudioHandler::loadMusic()
 		{
 			free();
 

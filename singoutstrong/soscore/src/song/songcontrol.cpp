@@ -98,6 +98,7 @@ namespace SoS
 			{
 				currentHandler = midiHandler;
 				song->properties["background"] = filenameNoExt + ext;
+				song->properties["midiFile"] = filenameNoExt + ext;
 			}
 			else if(ext == "txt")
 			{
@@ -111,7 +112,7 @@ namespace SoS
 				song->properties["txtFile"] = filenameNoExt + "txt";
 			}
 
-			loaded = currentHandler->loadFile(filename);
+			loaded = currentHandler->loadMusic();
 			if(loaded)
 			{
 				if(song->tracks.size() > 0 && currentHandler == streamHandler)
@@ -120,8 +121,16 @@ namespace SoS
 				{
 					//if the file was loaded, but there's no track info, it must have been a stream file with no txt file
 					//but maybe there's a .kar or .mid file that we can use
-					if(song->tracks.size() == 0) midiHandler->loadFile((path + filenameNoExt + "kar").c_str());
-					if(song->tracks.size() == 0) midiHandler->loadFile((path + filenameNoExt + "mid").c_str());
+					if(song->tracks.size() == 0)
+					{
+						song->properties["midiFile"] = filenameNoExt + "kar";
+						midiHandler->loadMusic();
+					}
+					if(song->tracks.size() == 0)
+					{
+						song->properties["midiFile"] = filenameNoExt + "mid";
+						midiHandler->loadMusic();
+					}
 				}
 
 				setSelectedTrackIndex(settings.selectedTrackIndex);

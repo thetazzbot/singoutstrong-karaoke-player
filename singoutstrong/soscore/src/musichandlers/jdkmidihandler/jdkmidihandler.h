@@ -94,10 +94,9 @@ namespace SoS
 				/**
 				 * @brief Loads an audio file
 				 *
-				 * @param filename The path to the file
 				 * @return bool \c True if loading was sucessful, otherwise \c false
 				 */
-				virtual bool loadFile(const char* filename);
+				virtual bool loadMusic();
 
 				/**
 				 * @brief Rewinds the audio to the beginning

@@ -156,9 +156,9 @@ namespace SoS
 			}
 		}
 
-		bool JdkMidiHandler::loadFile(const char *filename)
+		bool JdkMidiHandler::loadMusic()
 		{
-			MIDIFileReadStreamFile rs ( filename );
+			MIDIFileReadStreamFile rs ( (song->properties["path"] + song->properties["midiFile"]).c_str() );
 			MIDIFileReadMultiTrack track_loader ( multiTrack );
 			MIDIFileRead reader ( &rs, &track_loader );
 
@@ -167,7 +167,6 @@ namespace SoS
 
 			reset();
 			multiTrack->Clear();
-			song->clear();
 			sequencer->SetCurrentTempoScale(1.0);
 			sequencer->SetSoloMode(false);
 			for(int i = 0; i < sequencer->GetNumTracks(); i++)
@@ -175,7 +174,7 @@ namespace SoS
 
 			if(!reader.Parse())
 			{
-				FILE_LOG(logWARNING) << "[JdkMidiHandler]: File \"" << filename << "\" could not be parsed!";
+				FILE_LOG(logWARNING) << "[JdkMidiHandler]: File \"" << (song->properties["path"] + song->properties["midiFile"]).c_str() << "\" could not be parsed!";
 				return false;
 			}
 

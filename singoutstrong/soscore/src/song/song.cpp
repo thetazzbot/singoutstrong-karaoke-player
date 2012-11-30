@@ -59,8 +59,8 @@ namespace SoS
 		}
 
 		const char* Song::getProperty(const char *property) const
-		{
-			std::map<std::string, std::string>::const_iterator it = properties.find(property);
+        {
+            std::map<std::string, std::string>::const_iterator it = properties.find(property);
 			return it == properties.end() ? "" : (*it).second.c_str();
 		}
 

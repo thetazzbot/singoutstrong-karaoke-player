@@ -158,7 +158,7 @@ namespace SoS
 
 		bool JdkMidiHandler::loadMusic()
 		{
-			MIDIFileReadStreamFile rs ( (song->properties["path"] + song->properties["midiFile"]).c_str() );
+            MIDIFileReadStreamFile rs ( (song->properties[SOS_SONG_PROP_PATH] + song->properties[SOS_SONG_PROP_MIDIFILENAME]).c_str() );
 			MIDIFileReadMultiTrack track_loader ( multiTrack );
 			MIDIFileRead reader ( &rs, &track_loader );
 
@@ -174,7 +174,7 @@ namespace SoS
 
 			if(!reader.Parse())
 			{
-				FILE_LOG(logWARNING) << "[JdkMidiHandler]: File \"" << (song->properties["path"] + song->properties["midiFile"]).c_str() << "\" could not be parsed!";
+                FILE_LOG(logWARNING) << "[JdkMidiHandler]: File \"" << (song->properties[SOS_SONG_PROP_PATH] + song->properties[SOS_SONG_PROP_MIDIFILENAME]).c_str() << "\" could not be parsed!";
 				return false;
 			}
 
@@ -261,7 +261,7 @@ namespace SoS
 						track->name = textData->text;
 
 					if(trackNum == 0 && cmpMsg.GetMetaType() != META_COPYRIGHT && cmpMsg.GetMetaType() != META_LYRIC_TEXT)
-						song->properties["description"] += textData->text + " ";
+                        song->properties[SOS_SONG_PROP_DESCRIPTION] += textData->text + " ";
 
 					track->textData[textData->type].push_back(textData);
 				}

@@ -89,19 +89,19 @@ namespace SoS
 			free();
 
 			UltraStarParser parser(settings, song);
-			stream = BASS_StreamCreateFile(FALSE,(song->properties["path"] + song->properties["background"]).c_str(),0,0,BASS_STREAM_DECODE);
+            stream = BASS_StreamCreateFile(FALSE,(song->properties[SOS_SONG_PROP_PATH] + song->properties[SOS_SONG_PROP_MP3BACKGROUND]).c_str(),0,0,BASS_STREAM_DECODE);
 			stream = BASS_FX_TempoCreate(stream, BASS_SAMPLE_LOOP|BASS_FX_FREESOURCE);
 			BASS_ChannelFlags(stream, 0, BASS_SAMPLE_LOOP);
 
 			song->songDuration = BASS_ChannelBytes2Seconds(stream, BASS_ChannelGetLength(stream, BASS_POS_BYTE)) * 1000;
 
-			if(!song->properties["artist"].empty())
-				song->properties["description"] = song->properties["artist"];
-			if(!song->properties["title"].empty())
+            if(!song->properties[SOS_SONG_PROP_ARTIST].empty())
+                song->properties[SOS_SONG_PROP_DESCRIPTION] = song->properties[SOS_SONG_PROP_ARTIST];
+            if(!song->properties[SOS_SONG_PROP_TITLE].empty())
 			{
-				if(!song->properties["artist"].empty())
-					song->properties["description"] += " - ";
-				song->properties["description"] += song->properties["title"];
+                if(!song->properties[SOS_SONG_PROP_ARTIST].empty())
+                    song->properties[SOS_SONG_PROP_DESCRIPTION] += " - ";
+                song->properties[SOS_SONG_PROP_DESCRIPTION] += song->properties[SOS_SONG_PROP_TITLE];
 			}
 
 			return stream > 0;

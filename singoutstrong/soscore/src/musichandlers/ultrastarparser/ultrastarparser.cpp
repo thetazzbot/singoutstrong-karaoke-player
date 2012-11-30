@@ -85,7 +85,7 @@ namespace SoS
 			enum { NONE, TXT, INI, SM } type = NONE;
 			// Read the file, determine the type and do some initial validation checks
 
-			std::ifstream f((s->properties["path"] + s->properties["txtFile"]).c_str(), std::ios::binary);
+            std::ifstream f((s->properties[SOS_SONG_PROP_PATH] + s->properties[SOS_SONG_PROP_ULTRASTARTXTFILE]).c_str(), std::ios::binary);
 
 			if (!f.is_open())
 				return; //throw SongParserException("Could not open song file", 0);
@@ -189,7 +189,7 @@ namespace SoS
 			while (getline(line) && txtParseField(s, line)) {}
 
 			//|| s.artist.empty()
-			if (s->properties["name"].empty()) throw std::runtime_error("Required header fields missing");
+            if (s->properties[SOS_SONG_PROP_MP3BACKGROUND].empty()) throw std::runtime_error("Required header fields missing");
 			if (m_bpm != 0.0) addBPM(0, m_bpm);
 		}
 
@@ -238,19 +238,22 @@ namespace SoS
 				throw std::runtime_error("Invalid txt format, should be #key:value");
 
 			std::string key = trim(line.substr(1, pos - 1));
-			std::string value = trim(line.substr(pos + 1));
+            std::string value = trim(line.substr(pos + 1));
+
+            std::string::size_type endpos = value.find_last_of("\a\b\f\n\r\t\v");
+            value = trim(value.substr(0, endpos));
 
 			if (value.empty())
 				return true;
 
-			if (key == "TITLE") s->properties["title"] = value.substr(value.find_first_not_of(" :"));
-			else if (key == "ARTIST") s->properties["artist"] =  value.substr(value.find_first_not_of(" "));
+            if (key == "TITLE") s->properties[SOS_SONG_PROP_TITLE] = value.substr(value.find_first_not_of(" :"));
+            else if (key == "ARTIST") s->properties[SOS_SONG_PROP_ARTIST] =  value.substr(value.find_first_not_of(" "));
 			//else if (key == "EDITION") m_song.edition = value.substr(value.find_first_not_of(" "));
 			//else if (key == "GENRE") m_song.genre = value.substr(value.find_first_not_of(" "));
 			//else if (key == "CREATOR") m_song.creator = value.substr(value.find_first_not_of(" "));
 			//else if (key == "COVER") m_song.cover = value;
-			else if (key == "MP3" && s->properties["background"].empty()) s->properties["background"] = value;
-			else if (key == "VOCALS") s->properties["vocals"] = value;
+            else if (key == "MP3" && s->properties[SOS_SONG_PROP_MP3BACKGROUND].empty()) s->properties[SOS_SONG_PROP_MP3BACKGROUND] = value;
+            else if (key == "VOCALS") s->properties[SOS_SONG_PROP_MP3VOCALS] = value;
 			//else if (key == "VIDEO") m_song.video = value;
 			//else if (key == "BACKGROUND") m_song.background = value;
 			//else if (key == "START") assign(m_song.start, value);

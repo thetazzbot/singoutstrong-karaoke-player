@@ -89,59 +89,56 @@ namespace SoS
 				filenameNoExt = filenameNoExt.substr(0, sep+1);
 			}
 
-			song->properties["path"] = path;
-			song->properties["ext"] = ext;
-			song->encoding = ISong::ANSI;
-
+            song->properties[SOS_SONG_PROP_PATH] = path;
 			currentHandler->free();
+
 			if(ext == "mid" || ext == "kar")
 			{
 				currentHandler = midiHandler;
-				song->properties["background"] = filenameNoExt + ext;
-				song->properties["midiFile"] = filenameNoExt + ext;
+                song->encoding = ISong::ANSI;
+                song->properties[SOS_SONG_PROP_MIDIFILENAME] = filenameNoExt + ext;
+                loaded = midiHandler->loadMusic();
 			}
 			else if(ext == "txt")
 			{
 				currentHandler = streamHandler;
-				song->properties["txtFile"] = filenameNoExt + ext;
+                song->encoding = ISong::UTF8;
+                song->properties[SOS_SONG_PROP_ULTRASTARTXTFILE] = filenameNoExt + ext;
+                loaded = streamHandler->loadMusic();
 			}
 			else
 			{
 				currentHandler = streamHandler;
-				song->properties["background"] = filenameNoExt + ext;
-				song->properties["txtFile"] = filenameNoExt + "txt";
+                song->encoding = ISong::UTF8;
+                song->properties[SOS_SONG_PROP_MP3BACKGROUND] = filenameNoExt + ext;
+                song->properties[SOS_SONG_PROP_ULTRASTARTXTFILE] = filenameNoExt + "txt";
+                loaded = streamHandler->loadMusic();
+
+                if(song->tracks.size() == 0)
+                {
+                    //if the file was loaded, but there's no track info, maybe there's a .kar or .mid file that we can use
+                    if(song->tracks.size() == 0)
+                    {
+                        song->properties[SOS_SONG_PROP_MIDIFILENAME] = filenameNoExt + "kar";
+                        midiHandler->loadMusic();
+                    }
+                    if(song->tracks.size() == 0)
+                    {
+                        song->properties[SOS_SONG_PROP_MIDIFILENAME] = filenameNoExt + "mid";
+                        midiHandler->loadMusic();
+                    }
+                }
 			}
 
-			loaded = currentHandler->loadMusic();
 			if(loaded)
-			{
-				if(song->tracks.size() > 0 && currentHandler == streamHandler)
-					song->encoding = ISong::UTF8;
-				else
-				{
-					//if the file was loaded, but there's no track info, it must have been a stream file with no txt file
-					//but maybe there's a .kar or .mid file that we can use
-					if(song->tracks.size() == 0)
-					{
-						song->properties["midiFile"] = filenameNoExt + "kar";
-						midiHandler->loadMusic();
-					}
-					if(song->tracks.size() == 0)
-					{
-						song->properties["midiFile"] = filenameNoExt + "mid";
-						midiHandler->loadMusic();
-					}
-				}
-
+            {
 				setSelectedTrackIndex(settings.selectedTrackIndex);
 				setKeyShift(0);
 				setTempo(1.0);
-				currentHandler->changeVolume();
-
-				return true;
+                currentHandler->changeVolume();
 			}
 
-			return false;
+            return loaded;
 		}
 
 		void SongControl::start()

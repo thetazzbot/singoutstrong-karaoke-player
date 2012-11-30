@@ -6,6 +6,16 @@
 
 #include "itrack.h"
 
+#define SOS_SONG_PROP_MP3BACKGROUND "mp3background"
+#define SOS_SONG_PROP_MP3VOCALS "mp3vocals"
+#define SOS_SONG_PROP_MIDIFILENAME "midiFile"
+#define SOS_SONG_PROP_MUSICFILE "musicFile"
+#define SOS_SONG_PROP_ULTRASTARTXTFILE "ultrasarTxt"
+#define SOS_SONG_PROP_PATH "path"
+#define SOS_SONG_PROP_ARTIST "artist"
+#define SOS_SONG_PROP_TITLE "title"
+#define SOS_SONG_PROP_DESCRIPTION "description"
+
 /*!
  *  \addtogroup SoS
  *  @{

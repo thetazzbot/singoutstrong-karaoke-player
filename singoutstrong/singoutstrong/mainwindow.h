@@ -40,6 +40,7 @@
 #include "generalsettings.h"
 #include "tutorialwindow.h"
 #include "fileformats.h"
+#include "songsearch.h"
 #include <log.h>
 
 #ifdef DEBUG
@@ -128,6 +129,7 @@ namespace SoS
 				SongWindow songWindow;					/**< @brief The song display window */
 				GeneralSettings generalSettings;		/**< @brief The general settings window */
 				TutorialWindow tutorial;				/**< @brief The tutorial window */
+				SongSearch songSearch;
 				ISongSettings* settings;				/**< @brief The SongSettings from SongControl */
 
 				Ui::MainWindow *ui;						/**< @brief Qt's container for the window's subwidgets */

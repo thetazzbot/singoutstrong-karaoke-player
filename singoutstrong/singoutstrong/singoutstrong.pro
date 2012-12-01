@@ -6,7 +6,8 @@
 
 QT       += core gui \
             opengl \
-            xml
+            xml \
+            network
 
 TARGET = singoutstrong
 
@@ -28,7 +29,9 @@ SOURCES += main.cpp\
     soscontext.cpp \
     soslyricswidget.cpp \
     sosnoteswidget.cpp \
-    sossubwindow.cpp
+    sossubwindow.cpp \
+    httphandler.cpp \
+    songsearch.cpp
 
 HEADERS  += mainwindow.h \
     audioinsettings.h \
@@ -43,7 +46,9 @@ HEADERS  += mainwindow.h \
     soslyricswidget.h \
     sosnoteswidget.h \
     sossubwindow.h \
-    fileformats.h
+    fileformats.h \
+    httphandler.h \
+    songsearch.h
 
 FORMS    += mainwindow.ui \
     audioinsettings.ui \
@@ -52,7 +57,8 @@ FORMS    += mainwindow.ui \
     songwindow.ui \
     generalsettings.ui \
     windowbar.ui \
-    tutorialwindow.ui
+    tutorialwindow.ui \
+    songsearch.ui
 
 RC_FILE = singoutstrong.rc
 CONFIG(debug, debug|release): DEFINES += DEBUG

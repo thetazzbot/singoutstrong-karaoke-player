@@ -40,6 +40,7 @@ namespace SoS
 			playlist.init(sosContext);
 			songWindow.init(sosContext);
 			generalSettings.init(sosContext);
+			songSearch.init(sosContext);
 
 			connect(&generalSettings, SIGNAL(skinSet(QString)), this, SLOT (setSkin(QString)));
 			connect(&generalSettings, SIGNAL(textLinesSet(int)), &songWindow, SLOT (setTextLines(int)));
@@ -53,6 +54,7 @@ namespace SoS
 			songWindow.installEventFilter(this);
 			generalSettings.installEventFilter(this);
 			tutorial.installEventFilter(this);
+			songSearch.installEventFilter(this);
 			installEventFilter(&playlist);
 
 			ui->songCheckbox->installEventFilter(this);
@@ -104,6 +106,7 @@ namespace SoS
 			playlist.show();
 			songWindow.show();
 			generalSettings.show();
+			songSearch.show();
 			if(showTutorial)
 			{
 				tutorial.setDocumentName("tutorial");

@@ -95,6 +95,7 @@ namespace SoS
 			outputSettings.setStyleSheet(ss);
 			generalSettings.setStyleSheet(ss);
 			tutorial.setStyleSheet(ss);
+			songSearch.setStyleSheet(ss);
 		}
 
 		void MainWindow::handleSubwinVisibilisty(SoSSubWindow *window, bool show)

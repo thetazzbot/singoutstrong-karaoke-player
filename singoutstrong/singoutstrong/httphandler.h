@@ -20,12 +20,14 @@ namespace SoS
 		 *
 		 */
 		class HttpHandler : public QObject
-		{
+		{				
 				Q_OBJECT
 			public:
+				enum RequestType{REQUEST_POST, REQUEST_GET};
+
 				explicit HttpHandler(QObject* parent = 0);
 
-				void postRequest(QString url);
+				void sendRequest(RequestType type, QUrl url);
 
 				QString getResponse();
 

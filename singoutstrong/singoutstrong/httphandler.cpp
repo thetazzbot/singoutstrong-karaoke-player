@@ -12,20 +12,14 @@ namespace SoS
 					this, SLOT(handleResponse(QNetworkReply*)));
 		}
 
-		void HttpHandler::postRequest(QString url)
+		void HttpHandler::sendRequest(RequestType type, QUrl url)
 		{
 			response = "";
 			QNetworkRequest request(url);
 			request.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
 
-			QByteArray data;
-			QUrl params;
-
-			params.addQueryItem("expression","Nightwish");
-			params.addQueryItem("search_cat","");
-
-			data = params.encodedQuery();
-			networkManager.post(request, data);
+			if(type == REQUEST_POST) networkManager.post(request, url.encodedQuery());
+			else networkManager.get(request);
 		}
 
 		void HttpHandler::handleResponse(QNetworkReply *networkReply)

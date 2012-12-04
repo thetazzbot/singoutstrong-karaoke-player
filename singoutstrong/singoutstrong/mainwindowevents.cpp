@@ -201,6 +201,7 @@ namespace SoS
 			generalSettings.raise();
 			songWindow.raise();
 			tutorial.raise();
+			songSearch.raise();
 		}
 	}
 }

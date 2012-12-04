@@ -1,0 +1,26 @@
+<!DOCTYPE SearchSites>
+<SearchSites>
+ <Site
+	Type="UltraStar"
+	Request="POST"
+	BaseUrl="http://ultrastar-base.com/"
+	SearchUrl="http://ultrastar-base.com/index.php?section=search_result"
+	SearchForParamNames="search_cat;search_cat;search_cat"
+	SearchForParamValues="title;interpret;"
+	QueryParamName="expression"
+	Regex="&lt;td&gt;([\w\s\(\)\[\]\{\}\-\.\+\=]*)&lt;/td&gt;\s*&lt;td&gt;&lt;a href=&quot;(index\.php\?section=download&amp;amp;cat=\d+&amp;amp;id=\d+)&quot;&gt;([\w\s\(\)\[\]\{\}\-\.\+\=]*)&lt;/a&gt;&lt;/td&gt;\s*&lt;td&gt;([\w\s]*)&lt;/td&gt;" 
+	Groups=";Artist;RelativeLink;Title;Size" 
+	Priority="1" />
+	<Site
+	Type="MIDI"
+	Request="GET"
+	BaseUrl="http://www.vanbasco.com/"
+	SearchUrl="http://www.vanbasco.com/search.html.en"
+	SearchForParamNames=""
+	SearchForParamValues=""
+	QueryParamName="q"
+	AdditionalParams="resultsperpage=50;lyrics=on"
+	Regex="&lt;a href=&quot;(\S+)&quot;&gt;([\w\s\(\)\[\]\{\}\-\.\+\=]+)&lt;/a&gt;\s\((\d+kb)\)" 
+	Groups=";AbsoluteLink;Title;Size" 
+	Priority="1" />
+</SearchSites>

@@ -3,6 +3,10 @@
 
 #include "sossubwindow.h"
 #include "httphandler.h"
+#include <QtXml>
+#include <QHash>
+#include <QList>
+#include <QButtonGroup>
 
 /// \cond 0
 
@@ -29,6 +33,18 @@ namespace SoS
 	namespace QtGui
 	{
 
+		struct SearchSite
+		{
+				HttpHandler::RequestType requestType;
+				QString baseUrl;
+				QString searchUrl;
+				QStringList searchForParamNames;
+				QStringList searchForParamValues;
+				QString queryParamName;
+				QString regExp;
+				QStringList resultGroups;
+		};
+
 		class SongSearch : public SoSSubWindow
 		{
 				Q_OBJECT
@@ -39,12 +55,23 @@ namespace SoS
 
 			private slots:
 				void gotResponse(QString response);
-
 				void on_pushButton_clicked();
 
 			private:
 				Ui::SongSearch *ui;
 				HttpHandler httpHandler;
+				QList<SearchSite> searchSites;
+				QHash<QString, QString> searchResults;
+				QString resultString;
+				QButtonGroup* searchForGroup;
+				QButtonGroup* searchTypeGroup;
+				int currSite;
+				int resultCount;
+				int maxResults;
+
+				void getSearchSites();
+				void getNextSearch();
+				void displayResults();
 		};
 
 	}  /*! @} End of Doxygen Group Core*/

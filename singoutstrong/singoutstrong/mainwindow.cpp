@@ -91,6 +91,7 @@ namespace SoS
 			songWindow.removeEventFilter(this);
 			generalSettings.removeEventFilter(this);
 			tutorial.removeEventFilter(this);
+			songSearch.removeEventFilter(this);
 			tutorial.close();
 
 			sosContext->SingDevice->release();

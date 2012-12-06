@@ -20,7 +20,7 @@
 	SearchForParamValues=""
 	QueryParamName="q"
 	AdditionalParams="resultsperpage=50;lyrics=on"
-	Regex="&lt;a href=&quot;(\S+)&quot;&gt;([\w\s\(\)\[\]\{\}\-\.\+\=]+)&lt;/a&gt;\s\((\d+kb)\)" 
-	Groups=";AbsoluteLink;Title;Size" 
+	Regex="&lt;a href=&quot;(\S+)&quot;&gt;([^\&lt;]+)&lt;/a&gt;\s+\((\d+kb)\)&lt;br&gt;[^&lt;]+&lt;br&gt;([\w\s\(\)\[\]\{\}\-\.\+\=]+)\&amp;nbsp;" 
+	Groups=";AbsoluteLink;Artist;Size;Title" 
 	Priority="1" />
 </SearchSites>

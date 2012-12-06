@@ -14,7 +14,6 @@ namespace SoS
 
 		void HttpHandler::sendRequest(RequestType type, QUrl url)
 		{
-			response = "";
 			QNetworkRequest request(url);
 			request.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
 
@@ -26,12 +25,13 @@ namespace SoS
 		{
 			QUrl url = networkReply->url();
 			if (!networkReply->error()) {
-				QStringList choices;
-				QStringList hits;
-
 				response = networkReply->readAll();
 				emit receivedResponse(response);
 			}
+			else
+				emit responseError(networkReply->errorString());
+
+			networkReply->deleteLater();
 		}
 
 	}

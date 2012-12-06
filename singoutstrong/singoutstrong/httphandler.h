@@ -33,6 +33,7 @@ namespace SoS
 
 			signals:
 				void receivedResponse(QString response);
+				void responseError(QString error);
 
 			private slots:
 				void handleResponse(QNetworkReply *networkReply);

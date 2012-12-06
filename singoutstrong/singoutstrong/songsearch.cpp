@@ -19,6 +19,8 @@ namespace SoS
 			setSubWidgets(ui->windowBar, ui->content);
 			connect(&httpHandler, SIGNAL(receivedResponse(QString)),
 					this, SLOT(gotResponse(QString)));
+			connect(&httpHandler, SIGNAL(responseError(QString)),
+					this, SLOT(gotError(QString)));
 
 			searchForGroup->addButton(ui->titleButton, 1);
 			searchForGroup->addButton(ui->artistButton, 2);
@@ -27,6 +29,20 @@ namespace SoS
 			searchTypeGroup->addButton(ui->ultraStarButton, 1);
 			searchTypeGroup->addButton(ui->midiButton, 2);
 			searchTypeGroup->addButton(ui->anyTypeButton, 3);
+
+			ui->resultTable->resizeColumnsToContents();
+			QHeaderView *headerView = ui->resultTable->horizontalHeader();
+			headerView->setResizeMode(QHeaderView::Stretch);
+			headerView->setResizeMode(2, QHeaderView::Interactive);
+			headerView->setResizeMode(4, QHeaderView::Interactive);
+
+			waitAnimationLabel = new QLabel(ui->content);
+			waitAnimationLabel->setObjectName("loadAnimLabel");
+			waitAnimationLabel->setMovie(new QMovie("./skins/wait.gif"));
+			waitAnimationLabel->setAlignment(Qt::AlignCenter);
+			waitAnimationLabel->movie()->start();
+			ui->gridLayout->addWidget(waitAnimationLabel, 3, 0, 1, 4);
+			waitAnimationLabel->hide();
 		}
 
 		SongSearch::~SongSearch()
@@ -36,13 +52,12 @@ namespace SoS
 
 		void SongSearch::on_pushButton_clicked()
 		{
-			//httpHandler.postRequest("http://ultrastar-base.com/index.php?section=search_result");
 			currSite = 0;
-			resultCount = 0;
-			resultString = "";
-			searchResults.clear();
+			while(ui->resultTable->rowCount() > 0) ui->resultTable->removeRow(0);
+			waitAnimationLabel->show();
 			getSearchSites();
 			getNextSearch();
+			ui->pushButton->setEnabled(false);
 		}
 
 		void SongSearch::getSearchSites()
@@ -64,6 +79,7 @@ namespace SoS
 					SearchSite site;
 					site.requestType = node.attributes().namedItem("Request").nodeValue() == "POST" ?
 								HttpHandler::REQUEST_POST : HttpHandler::REQUEST_GET;
+					site.songType = node.attributes().namedItem("Type").nodeValue();
 					site.baseUrl = node.attributes().namedItem("BaseUrl").nodeValue();
 					site.searchUrl = node.attributes().namedItem("SearchUrl").nodeValue();
 					site.searchForParamNames = node.attributes().namedItem("SearchForParamNames").nodeValue().split(';');
@@ -91,50 +107,84 @@ namespace SoS
 
 				httpHandler.sendRequest(searchSites[currSite].requestType, request);
 			}
-			else displayResults();
+			else
+			{
+				ui->pushButton->setEnabled(true);
+				waitAnimationLabel->hide();
+			}
 		}
 
 		void SongSearch::gotResponse(QString response)
 		{
+			waitAnimationLabel->hide();
 			QRegExp regExp(searchSites[currSite].regExp);
-			QStringList results;
 			int pos = 0;
-			int resultNo = 0;
 
 			while ((pos = regExp.indexIn(response, pos)) != -1)
 			{
+				int row = ui->resultTable->rowCount();
+				QTextDocument htmlEscape;
+				ui->resultTable->insertRow(row);
 				for(int i = 0; i < searchSites[currSite].resultGroups.size(); i++)
 				{
-					if(!searchSites[currSite].resultGroups.at(i).isEmpty())
-						searchResults[QString("%1:%2").arg(resultNo).arg(searchSites[currSite].resultGroups.at(i))] = regExp.cap(i);
+					QTableWidgetItem* item = new QTableWidgetItem(regExp.cap(i));
+					item->setTextAlignment(Qt::AlignCenter);
+
+					if(searchSites[currSite].resultGroups[i] == "Artist")
+						ui->resultTable->setItem(row, 0, item);
+					else if(searchSites[currSite].resultGroups[i] == "Title")
+						ui->resultTable->setItem(row, 1, item);
+					else if(searchSites[currSite].resultGroups[i] == "Size")
+						ui->resultTable->setItem(row, 2, item);
+					else if(searchSites[currSite].resultGroups[i] == "AbsoluteLink")
+					{
+						htmlEscape.setHtml(regExp.cap(i));
+						item->setText(QUrl(htmlEscape.toPlainText()).host());
+						item->setData(Qt::UserRole, htmlEscape.toPlainText());
+						ui->resultTable->setItem(row, 3, item);
+					}
+					else if(searchSites[currSite].resultGroups[i] == "RelativeLink")
+					{
+						htmlEscape.setHtml(searchSites[currSite].baseUrl + regExp.cap(i));
+						item->setText(QUrl(htmlEscape.toPlainText()).host());
+						item->setData(Qt::UserRole, htmlEscape.toPlainText());
+						ui->resultTable->setItem(row, 3, item);
+					}
+					else
+					{
+						if(!ui->resultTable->item(row, 4))
+						{
+							item->setText(searchSites[currSite].songType);
+							ui->resultTable->setItem(row, 4, item);
+						}
+						else delete item;
+					}
 				}
-				results << regExp.cap(0);
+
 				pos += regExp.matchedLength();
-				resultNo++;
 			}
 
-			for(int x = resultCount; x < resultCount + resultNo && x < maxResults; x++)
-			{
-				QString key = QString("%1:%2").arg(x);
-				resultString += QString("<tr><td>%1</td><td><a href=\"%2\">%3</a></td><td>%4</td></tr>")
-						.arg(searchResults[key.arg("Artist")])
-						.arg(searchResults[key.arg("RelativeLink")].isEmpty() ?
-								searchResults[key.arg("AbsoluteLink")] :
-								searchSites[currSite].baseUrl + searchResults[key.arg("RelativeLink")]
-							)
-						.arg(searchResults[key.arg("Title")])
-						.arg(searchResults[key.arg("Size")]);
-			}
-
-			resultCount = resultNo;
 			currSite++;
 			getNextSearch();
 		}
 
-		void SongSearch::displayResults()
+		void SongSearch::gotError(QString error)
 		{
-			ui->label->setText(QString("<html><body><table>%1</table></body></html>").arg(resultString));
+			int row = ui->resultTable->rowCount();
+			ui->resultTable->insertRow(row);
+			ui->resultTable->setItem(row, 0, new QTableWidgetItem("Error!"));
+			ui->resultTable->setItem(row, 1, new QTableWidgetItem(error));
+
+			currSite++;
+			getNextSearch();
 		}
 
+		void SongSearch::on_resultTable_itemClicked(QTableWidgetItem *item)
+		{
+			if (item > 0)
+				QDesktopServices::openUrl(ui->resultTable->item(item->row(), 3)->data(Qt::UserRole).toString());
+		}
 	}
 }
+
+

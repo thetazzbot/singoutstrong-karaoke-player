@@ -121,19 +121,19 @@ Additional style properties for custom widgets:
 		qproperty-indicator_low_inactive	: QImage	- Image file with the inactive current pitch indicator, when the pitch was below the displayed scale
 */
 
-
 *{
 background: #F3F3F3;
 color: #462514;
 border: 1px solid #462514;
-
 }
 
-QPushButton, QSlider, QLabel {
+QPushButton, QRadioButton, QSlider, QLabel, QTableWidget QFrame {
 	border: transparent none;
 }
 
-
+#loadAnimLabel{
+	background: transparent;
+}
 
 /*Main Window - button styles */
 #MainWindow QPushButton{

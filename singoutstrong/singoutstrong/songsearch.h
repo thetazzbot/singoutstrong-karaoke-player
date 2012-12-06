@@ -7,6 +7,11 @@
 #include <QHash>
 #include <QList>
 #include <QButtonGroup>
+#include <QTableWidget>
+#include <QMovie>
+#include <QLabel>
+#include <QDesktopServices>
+#include <QTextDocument>
 
 /// \cond 0
 
@@ -38,6 +43,7 @@ namespace SoS
 				HttpHandler::RequestType requestType;
 				QString baseUrl;
 				QString searchUrl;
+				QString songType;
 				QStringList searchForParamNames;
 				QStringList searchForParamValues;
 				QString queryParamName;
@@ -55,23 +61,24 @@ namespace SoS
 
 			private slots:
 				void gotResponse(QString response);
+				void gotError(QString error);
 				void on_pushButton_clicked();
+
+				void on_resultTable_itemClicked(QTableWidgetItem *item);
 
 			private:
 				Ui::SongSearch *ui;
 				HttpHandler httpHandler;
 				QList<SearchSite> searchSites;
-				QHash<QString, QString> searchResults;
-				QString resultString;
 				QButtonGroup* searchForGroup;
 				QButtonGroup* searchTypeGroup;
+				QLabel* waitAnimationLabel;
 				int currSite;
 				int resultCount;
 				int maxResults;
 
 				void getSearchSites();
 				void getNextSearch();
-				void displayResults();
 		};
 
 	}  /*! @} End of Doxygen Group Core*/

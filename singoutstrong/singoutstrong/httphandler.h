@@ -40,7 +40,10 @@ namespace SoS
 
 			private:
 				QNetworkAccessManager networkManager;
-				QString response;
+				QNetworkReply* reply;
+				int timerId;
+
+				void timerEvent(QTimerEvent *event);
 
 		};
 

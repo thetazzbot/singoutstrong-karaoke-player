@@ -198,6 +198,13 @@ namespace SoS
 				loadWinProperties(&outputSettings, &guiSection);
 				loadWinProperties(&playlist, &guiSection);
 				loadWinProperties(&songWindow, &guiSection);
+				loadWinProperties(&songSearch, &guiSection);
+
+				node = guiSection.firstChildElement(songSearch.objectName());
+				if(!node.isNull())
+				{
+					songSearch.setColumnWidhts(node.attributes().namedItem("columns").nodeValue());
+				}
 
 				node = guiSection.firstChildElement("Skin");
 				setSkin(node.isNull() ? "default" : node.attributes().namedItem("Name").nodeValue());
@@ -268,6 +275,10 @@ namespace SoS
 			saveWinProperties(&outputSettings, &doc, &guiNode);
 			saveWinProperties(&playlist, &doc, &guiNode);
 			saveWinProperties(&songWindow, &doc, &guiNode);
+			saveWinProperties(&songSearch, &doc, &guiNode);
+
+			node = getNode(songSearch.objectName(), &doc, &guiNode);
+			node.setAttribute("columns", songSearch.getColumnWidths());
 
 			node = getNode("Skin", &doc, &guiNode);
 			node.setAttribute("Name", generalSettings.getCurrentSkin());

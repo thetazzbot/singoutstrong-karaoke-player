@@ -46,6 +46,7 @@ namespace SoS
 				QString songType;
 				QStringList searchForParamNames;
 				QStringList searchForParamValues;
+				QStringList additionalParams;
 				QString queryParamName;
 				QString regExp;
 				QStringList resultGroups;
@@ -58,6 +59,9 @@ namespace SoS
 			public:
 				explicit SongSearch(QWidget *parent = 0);
 				~SongSearch();
+
+				void setColumnWidhts(QString columnWidths);
+				QString getColumnWidths();
 
 			private slots:
 				void gotResponse(QString response);

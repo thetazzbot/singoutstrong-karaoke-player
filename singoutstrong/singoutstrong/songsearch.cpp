@@ -30,12 +30,6 @@ namespace SoS
 			searchTypeGroup->addButton(ui->midiButton, 2);
 			searchTypeGroup->addButton(ui->anyTypeButton, 3);
 
-			ui->resultTable->resizeColumnsToContents();
-			QHeaderView *headerView = ui->resultTable->horizontalHeader();
-			headerView->setResizeMode(QHeaderView::Stretch);
-			headerView->setResizeMode(2, QHeaderView::Interactive);
-			headerView->setResizeMode(4, QHeaderView::Interactive);
-
 			waitAnimationLabel = new QLabel(ui->content);
 			waitAnimationLabel->setObjectName("loadAnimLabel");
 			waitAnimationLabel->setMovie(new QMovie("./skins/wait.gif"));
@@ -48,6 +42,26 @@ namespace SoS
 		SongSearch::~SongSearch()
 		{
 			delete ui;
+		}
+
+		void SongSearch::setColumnWidhts(QString columnWidths)
+		{
+			QStringList widths = columnWidths.split(';');
+			for(int i = 0; i < widths.size() && i < ui->resultTable->columnCount(); i++)
+			{
+				ui->resultTable->setColumnWidth(i, widths[i].toInt());
+			}
+		}
+
+		QString SongSearch::getColumnWidths()
+		{
+			QString widths = "";
+			for(int i = 0; i < ui->resultTable->columnCount(); i++)
+			{
+				widths += QString("%1%2").arg(i > 0 ? ";" : "")
+						.arg(ui->resultTable->columnWidth(i));
+			}
+			return widths;
 		}
 
 		void SongSearch::on_pushButton_clicked()
@@ -77,17 +91,25 @@ namespace SoS
 				while(!node.isNull())
 				{
 					SearchSite site;
-					site.requestType = node.attributes().namedItem("Request").nodeValue() == "POST" ?
-								HttpHandler::REQUEST_POST : HttpHandler::REQUEST_GET;
 					site.songType = node.attributes().namedItem("Type").nodeValue();
-					site.baseUrl = node.attributes().namedItem("BaseUrl").nodeValue();
-					site.searchUrl = node.attributes().namedItem("SearchUrl").nodeValue();
-					site.searchForParamNames = node.attributes().namedItem("SearchForParamNames").nodeValue().split(';');
-					site.searchForParamValues = node.attributes().namedItem("SearchForParamValues").nodeValue().split(';');
-					site.queryParamName = node.attributes().namedItem("QueryParamName").nodeValue();
-					site.regExp = node.attributes().namedItem("Regex").nodeValue();
-					site.resultGroups = node.attributes().namedItem("Groups").nodeValue().split(';');
-					searchSites.append(site);
+
+					if(ui->anyTypeButton->isChecked() ||
+					   (site.songType == "MIDI" && ui->midiButton->isChecked()) ||
+					   (site.songType == "UltraStar" && ui->ultraStarButton->isChecked())
+					   )
+					{
+						site.requestType = node.attributes().namedItem("Request").nodeValue() == "POST" ?
+									HttpHandler::REQUEST_POST : HttpHandler::REQUEST_GET;
+						site.baseUrl = node.attributes().namedItem("BaseUrl").nodeValue();
+						site.searchUrl = node.attributes().namedItem("SearchUrl").nodeValue();
+						site.searchForParamNames = node.attributes().namedItem("SearchForParamNames").nodeValue().split(';');
+						site.searchForParamValues = node.attributes().namedItem("SearchForParamValues").nodeValue().split(';');
+						site.queryParamName = node.attributes().namedItem("QueryParamName").nodeValue();
+						site.regExp = node.attributes().namedItem("Regex").nodeValue();
+						site.resultGroups = node.attributes().namedItem("Groups").nodeValue().split(';');
+						site.additionalParams = node.attributes().namedItem("AdditionalParams").nodeValue().split(';');
+						searchSites.append(site);
+					}
 					node = node.nextSiblingElement();
 				}
 			}
@@ -98,12 +120,19 @@ namespace SoS
 			if(currSite < searchSites.size())
 			{
 				QUrl request = searchSites[currSite].searchUrl;
-				request.addQueryItem(searchSites[currSite].queryParamName, ui->lineEdit->text());
+				request.addQueryItem(searchSites[currSite].queryParamName, ui->queryField->text());
 
 				int searchForIndex = searchForGroup->checkedId() - 1;
 				if(searchForIndex >= 0 && searchForIndex < searchSites[currSite].searchForParamNames.size())
 					request.addQueryItem(searchSites[currSite].searchForParamNames[searchForIndex],
 										 searchSites[currSite].searchForParamValues[searchForIndex]);
+
+				for(int i = 0; i < searchSites[currSite].additionalParams.count(); i++)
+				{
+					QStringList paramValue = searchSites[currSite].additionalParams[i].split("=");
+					if(paramValue.count() == 2)
+						request.addQueryItem(paramValue[0], paramValue[1]);
+				}
 
 				httpHandler.sendRequest(searchSites[currSite].requestType, request);
 			}

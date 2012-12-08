@@ -333,6 +333,57 @@ QComboBox:!editable, QComboBox::drop-down:editable {
 
 /*--------Scrollbars------------*/
 
+ QScrollBar:horizontal {
+      border: none;
+      background: none;
+      height: 16px;
+      margin-left: 16px;
+      margin-right: 16px;
+
+  }
+  QScrollBar::handle:horizontal {
+      background: #bb5641;
+      min-width: 30px;
+	  border: 1px solid #462514;
+	  border-bottom: none;
+
+  }
+  QScrollBar::add-line:horizontal {
+      background: none;
+      width: 16px;
+      subcontrol-position: right;
+      subcontrol-origin: margin;
+	  border: 1px solid #462514;
+	  border-bottom: none;
+  }
+
+  QScrollBar::sub-line:horizontal {
+  	  border-top: 1px solid #462514;
+      width: 16px;
+      subcontrol-position: left;
+      subcontrol-origin: margin;
+  }
+  
+    QScrollBar::left-arrow:horizontal, QScrollBar::right-arrow:horizontal {
+      border: 1px solid #462514;
+	  border-bottom: none;
+      background: #bb5641;
+      width: 16px;
+      height: 16px;
+  }
+  
+ QScrollBar::right-arrow:horizontal {
+ 	 image: url(skins/default/right.png);
+ }
+  QScrollBar::left-arrow:horizontal {
+ 	 image: url(skins/default/left.png);
+ }
+ 
+ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+	background: none;
+	border-top: 1px solid #462514;
+}
+
  QScrollBar:vertical {
       border: none;
       background: none;

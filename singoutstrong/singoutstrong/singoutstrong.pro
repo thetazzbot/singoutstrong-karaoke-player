@@ -34,7 +34,6 @@ SOURCES += main.cpp\
     songsearch.cpp
 
 HEADERS  += mainwindow.h \
-    audioinsettings.h \
     outputsettings.h \
     playlist.h \
     songwindow.h \
@@ -51,7 +50,6 @@ HEADERS  += mainwindow.h \
     songsearch.h
 
 FORMS    += mainwindow.ui \
-    audioinsettings.ui \
     outputsettings.ui \
     playlist.ui \
     songwindow.ui \

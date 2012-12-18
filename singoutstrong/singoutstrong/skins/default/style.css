@@ -635,7 +635,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 	image: url(skins/default/Rewind_on.png);
 }
 
-#AudioInSettings QLabel[tutorialHighlight="true"] {
+#Settings QLabel[tutorialHighlight="true"] {
 	color: red;
 	font: bold;
 }
@@ -648,3 +648,58 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 #TutorialWindow #line {
 	margin: 11px 0 3px 0;
 }
+
+#searchButtonContainer {
+	border: transparent;
+}
+
+QTableView::disabled {
+	background: #ebeadb;
+}
+
+QScrollBar::handle:disabled, QScrollBar::up-arrow:disabled, QScrollBar::down-arrow:disabled , QScrollBar::left-arrow:disabled, QScrollBar::right-arrow:disabled{
+      background: #cac9bc;
+}
+
+ QTabWidget::pane { /* The tab widget frame */
+	margin-top:-1px;
+    border: 0px;
+}
+
+QTabBar {  font-weight: bold;  }
+ 
+QTabBar::tab {
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #dadbde, stop: 1 #cacbce);
+/*border-bottom-color: #C2C7CB; /* same as the pane color */
+border: 1px solid #462514;
+border-radius: 0px;
+padding: 2px;
+padding-left: 8px;
+padding-right: 8px;
+}
+
+QTabBar::tab:!selected { font-weight: normal; }
+
+QTabBar::tab:selected {
+/* expand/overlap to the left and right by 4px */
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f6f7fa, stop: 1 #dadbde);
+margin-left: -1px;
+margin-right: -1px;
+padding-left: 8px;
+padding-right: 8px;
+font-weight: bold;
+}
+QTabBar::tab:first:selected {
+margin-left: 0; /* the first selected tab has nothing to overlap with on the left */
+}
+QTabBar::tab:last:selected {
+margin-right: 0; /* the last selected tab has nothing to overlap with on the right */
+}
+QTabBar::tab:only-one {
+margin: 0; /* if there is only one tab, we don't want overlapping margins */
+}
+
+ 
+ #audioInTab, #generalSettingsTab{
+	border: 0px;
+ }

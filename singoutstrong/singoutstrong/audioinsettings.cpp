@@ -1,26 +1,14 @@
-#include "audioinsettings.h"
-#include "ui_audioinsettings.h"
+#include "generalsettings.h"
+#include "ui_generalsettings.h"
 
 namespace SoS
 {
 	namespace QtGui
 	{
-
-		AudioInSettings::AudioInSettings(QWidget *parent) :
-			SoSSubWindow(parent),
-			ui(new Ui::AudioInSettings)
+		void GeneralSettings::setTutorialHighlight(int stage)
 		{
-			ui->setupUi(this);
-			setSubWidgets(ui->windowBar, ui->content);
-		}
-
-		AudioInSettings::~AudioInSettings()
-		{
-			delete ui;
-		}
-
-		void AudioInSettings::setTutorialHighlight(int stage)
-		{
+			if(stage == 1 || stage == 2)
+				ui->content->setCurrentIndex(0);
 			ui->deviceBox->setProperty("tutorialHighlight", stage == 1);
 			ui->deviceLabel->setProperty("tutorialHighlight", stage == 1);
 			ui->applyButton->setProperty("tutorialHighlight", stage == 1);
@@ -34,7 +22,7 @@ namespace SoS
 			ui->volumeTresholdLabel->setStyleSheet(ui->applyButton->styleSheet());
 		}
 
-		void AudioInSettings::refreshSettings()
+		void GeneralSettings::refreshSettings()
 		{
 			if(!context)
 				return;
@@ -56,7 +44,7 @@ namespace SoS
 			ui->volumeTresholdLabel->setText(QString("Volume Treshold: %1%").arg(context->AudioAnalyzer->getVolumeThreshold()*100));
 		}
 
-		void AudioInSettings::on_applyButton_clicked()
+		void GeneralSettings::on_applyButton_clicked()
 		{
 			if(context->AudioInput->setDevice(ui->deviceBox->itemData(ui->deviceBox->currentIndex()).toInt()))
 				ui->applyButton->setEnabled(false);
@@ -66,21 +54,21 @@ namespace SoS
 									  QMessageBox::Ok);
 		}
 
-		void AudioInSettings::on_deviceBox_currentIndexChanged(int index)
+		void GeneralSettings::on_deviceBox_currentIndexChanged(int index)
 		{
 			ui->applyButton->setEnabled(
 						context->AudioInput->getCurrentDevice().Id != ui->deviceBox->itemData(index)
 					);
 		}
 
-		void AudioInSettings::on_samplesSlider_valueChanged(int value)
+		void GeneralSettings::on_samplesSlider_valueChanged(int value)
 		{
 			int samples = pow(2, value);
 			context->AudioAnalyzer->setSamplesArraySize(samples);
 			ui->samplesLabel->setText(QString("Input Sample: %1").arg(samples));
 		}
 
-		void AudioInSettings::on_volumeTresholdSlider_valueChanged(int value)
+		void GeneralSettings::on_volumeTresholdSlider_valueChanged(int value)
 		{
 			context->AudioAnalyzer->setVolumeThreshold((float)value / 100.0);
 			ui->volumeTresholdLabel->setText(QString("Volume Treshold: %1%").arg(value));

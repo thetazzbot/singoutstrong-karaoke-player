@@ -45,20 +45,20 @@ namespace SoS
 				if(target == &songWindow) ui->songCheckbox->setChecked(false);
 				else if(target == & playlist) ui->playlistCheckbox->setChecked(false);
 				else if(target == & outputSettings) ui->outputCheckbox->setChecked(false);
-				else if(target == & audioInSettingsWindow) ui->audioInCheckbox->setChecked(false);
 				else if(target == & generalSettings) ui->settingsCheckbox->setChecked(false);
 				else if(target == & tutorial) ui->tutorialCheckbox->setChecked(false);
+				else if(target == & songSearch) ui->songSearchCheckbox->setChecked(false);
 				break;
 			case QEvent::Show:
 				if(target == &songWindow) ui->songCheckbox->setChecked(true);
 				else if(target == &playlist) ui->playlistCheckbox->setChecked(true);
 				else if(target == &outputSettings) ui->outputCheckbox->setChecked(true);
-				else if(target == &audioInSettingsWindow) ui->audioInCheckbox->setChecked(true);
 				else if(target == &generalSettings) ui->settingsCheckbox->setChecked(true);
 				else if(target == & tutorial) ui->tutorialCheckbox->setChecked(true);
+				else if(target == & songSearch) ui->songSearchCheckbox->setChecked(true);
 
 				if(target == &songWindow || target == &playlist || target == &outputSettings ||
-						target == &audioInSettingsWindow || target == &generalSettings)
+						target == &songSearch || target == &generalSettings)
 					((QWidget*)target)->setFocus();
 
 				break;
@@ -150,7 +150,7 @@ namespace SoS
 				{
 					playlist.hide();
 					songWindow.hide();
-					audioInSettingsWindow.hide();
+					songSearch.hide();
 					outputSettings.hide();
 					generalSettings.hide();
 				}
@@ -160,7 +160,7 @@ namespace SoS
 					songWindow.show();
 					outputSettings.show();
 					generalSettings.show();
-					audioInSettingsWindow.show();
+					songSearch.show();
 				}
 			}
 
@@ -195,7 +195,6 @@ namespace SoS
 		void MainWindow::bringToTop()
 		{
 			raise();
-			audioInSettingsWindow.raise();
 			outputSettings.raise();
 			playlist.raise();
 			generalSettings.raise();

@@ -11,11 +11,11 @@ namespace SoS
 			ui(new Ui::SongSearch),
 			searchForGroup(new QButtonGroup()),
 			searchTypeGroup(new QButtonGroup()),
-			maxResults(10)
+			maxResults(10),
+			currentTask(TT_SEARCH)
 		{
 			ui->setupUi(this);
 
-			allowShow = true;
 			setSubWidgets(ui->windowBar, ui->content);
 			connect(&httpHandler, SIGNAL(receivedResponse(QString)),
 					this, SLOT(gotResponse(QString)));
@@ -30,13 +30,8 @@ namespace SoS
 			searchTypeGroup->addButton(ui->midiButton, 2);
 			searchTypeGroup->addButton(ui->anyTypeButton, 3);
 
-			waitAnimationLabel = new QLabel(ui->content);
-			waitAnimationLabel->setObjectName("loadAnimLabel");
-			waitAnimationLabel->setMovie(new QMovie("./skins/wait.gif"));
-			waitAnimationLabel->setAlignment(Qt::AlignCenter);
-			waitAnimationLabel->movie()->start();
-			ui->gridLayout->addWidget(waitAnimationLabel, 3, 0, 1, 4);
-			waitAnimationLabel->hide();
+			ui->searchIcon->setMovie(new QMovie("./skins/search.png"));
+			ui->searchIcon->movie()->start();
 		}
 
 		SongSearch::~SongSearch()
@@ -44,10 +39,45 @@ namespace SoS
 			delete ui;
 		}
 
+		void SongSearch::keyPressEvent(QKeyEvent *event)
+		{
+			if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return)
+				on_searchButton_clicked();
+		}
+
+		void SongSearch::timerEvent(QTimerEvent *event)
+		{
+			if(event->timerId() == timerId)
+			{
+				switch(currentTask)
+				{
+				case TT_CLEAR_RESULTS:
+					timedClearResults(95);
+					if(ui->resultTable->rowCount() == 0)
+						currentTask = TT_SEARCH;
+					break;
+				case TT_PROCESS_RESULTS:
+					timedProcessResponse(50);
+					if(regexPos == -1)
+					{
+						currentTask = TT_SEARCH;
+						currentSite++;
+					}
+					break;
+				case TT_SEARCH:
+				default:
+					this->killTimer(timerId);
+					timerId = 0;
+					getNextSearch();
+					break;
+				}
+			}
+		}
+
 		void SongSearch::setColumnWidhts(QString columnWidths)
 		{
 			QStringList widths = columnWidths.split(';');
-			for(int i = 0; i < widths.size() && i < ui->resultTable->columnCount(); i++)
+			for(int i = 0; i < widths.size() && i < ui->resultTable->columnCount() - 1; i++)
 			{
 				ui->resultTable->setColumnWidth(i, widths[i].toInt());
 			}
@@ -56,7 +86,7 @@ namespace SoS
 		QString SongSearch::getColumnWidths()
 		{
 			QString widths = "";
-			for(int i = 0; i < ui->resultTable->columnCount(); i++)
+			for(int i = 0; i < ui->resultTable->columnCount()-1; i++)
 			{
 				widths += QString("%1%2").arg(i > 0 ? ";" : "")
 						.arg(ui->resultTable->columnWidth(i));
@@ -64,14 +94,17 @@ namespace SoS
 			return widths;
 		}
 
-		void SongSearch::on_pushButton_clicked()
+		void SongSearch::on_searchButton_clicked()
 		{
-			currSite = 0;
-			while(ui->resultTable->rowCount() > 0) ui->resultTable->removeRow(0);
-			waitAnimationLabel->show();
+			currentSite = 0;
+			ui->searchIcon->setMovie(new QMovie("./skins/wait.gif"));
+			ui->searchIcon->movie()->start();
+			ui->searchButton->setEnabled(false);
+			ui->resultTable->setEnabled(false);
+			ui->resultTable->setSortingEnabled(false);
 			getSearchSites();
-			getNextSearch();
-			ui->pushButton->setEnabled(false);
+			currentTask = TT_CLEAR_RESULTS;
+			timerId = this->startTimer(100);
 		}
 
 		void SongSearch::getSearchSites()
@@ -117,84 +150,100 @@ namespace SoS
 
 		void SongSearch::getNextSearch()
 		{
-			if(currSite < searchSites.size())
+			if(currentSite < searchSites.size())
 			{
-				QUrl request = searchSites[currSite].searchUrl;
-				request.addQueryItem(searchSites[currSite].queryParamName, ui->queryField->text());
+				QUrl request = searchSites[currentSite].searchUrl;
+				request.addQueryItem(searchSites[currentSite].queryParamName, ui->queryField->text());
 
 				int searchForIndex = searchForGroup->checkedId() - 1;
-				if(searchForIndex >= 0 && searchForIndex < searchSites[currSite].searchForParamNames.size())
-					request.addQueryItem(searchSites[currSite].searchForParamNames[searchForIndex],
-										 searchSites[currSite].searchForParamValues[searchForIndex]);
+				if(searchForIndex >= 0 && searchForIndex < searchSites[currentSite].searchForParamNames.size())
+					request.addQueryItem(searchSites[currentSite].searchForParamNames[searchForIndex],
+										 searchSites[currentSite].searchForParamValues[searchForIndex]);
 
-				for(int i = 0; i < searchSites[currSite].additionalParams.count(); i++)
+				for(int i = 0; i < searchSites[currentSite].additionalParams.count(); i++)
 				{
-					QStringList paramValue = searchSites[currSite].additionalParams[i].split("=");
+					QStringList paramValue = searchSites[currentSite].additionalParams[i].split("=");
 					if(paramValue.count() == 2)
 						request.addQueryItem(paramValue[0], paramValue[1]);
 				}
 
-				httpHandler.sendRequest(searchSites[currSite].requestType, request);
+				httpHandler.sendRequest(searchSites[currentSite].requestType, request);
 			}
 			else
 			{
-				ui->pushButton->setEnabled(true);
-				waitAnimationLabel->hide();
+				ui->searchButton->setEnabled(true);
+				ui->resultTable->setSortingEnabled(true);
+				ui->searchIcon->setMovie(new QMovie("./skins/search.png"));
+				ui->searchIcon->movie()->start();
 			}
 		}
 
 		void SongSearch::gotResponse(QString response)
 		{
-			waitAnimationLabel->hide();
-			QRegExp regExp(searchSites[currSite].regExp);
-			int pos = 0;
+			currentResponse = response;
+			regexPos = 0;
+			currentTask = TT_PROCESS_RESULTS;
+			timerId = this->startTimer(100);
+		}
 
-			while ((pos = regExp.indexIn(response, pos)) != -1)
+		void SongSearch::timedClearResults(int timeLength)
+		{
+			long startTime = clock();
+			while(clock() - startTime < timeLength && ui->resultTable->rowCount() > 0)
+				ui->resultTable->removeRow(0);
+		}
+
+		void SongSearch::timedProcessResponse(int timeLength)
+		{
+			ui->resultTable->setEnabled(true);
+			QRegExp regExp(searchSites[currentSite].regExp, Qt::CaseSensitive, QRegExp::RegExp2);
+			regExp.setMinimal(true);
+			long startTime = clock();
+
+			while (clock() - startTime < timeLength &&
+				   (regexPos = regExp.indexIn(currentResponse, regexPos)) != -1)
 			{
 				int row = ui->resultTable->rowCount();
 				QTextDocument htmlEscape;
 				ui->resultTable->insertRow(row);
-				for(int i = 0; i < searchSites[currSite].resultGroups.size(); i++)
+				for(int i = 0; i < searchSites[currentSite].resultGroups.size(); i++)
 				{
-					QTableWidgetItem* item = new QTableWidgetItem(regExp.cap(i));
+					htmlEscape.setHtml(regExp.cap(i));
+					QTableWidgetItem* item = new QTableWidgetItem(htmlEscape.toPlainText());
 					item->setTextAlignment(Qt::AlignCenter);
 
-					if(searchSites[currSite].resultGroups[i] == "Artist")
+					if(searchSites[currentSite].resultGroups[i] == "Artist")
 						ui->resultTable->setItem(row, 0, item);
-					else if(searchSites[currSite].resultGroups[i] == "Title")
+					else if(searchSites[currentSite].resultGroups[i] == "Title")
 						ui->resultTable->setItem(row, 1, item);
-					else if(searchSites[currSite].resultGroups[i] == "Size")
+					else if(searchSites[currentSite].resultGroups[i] == "Size")
 						ui->resultTable->setItem(row, 2, item);
-					else if(searchSites[currSite].resultGroups[i] == "AbsoluteLink")
+					else if(searchSites[currentSite].resultGroups[i] == "AbsoluteLink")
 					{
-						htmlEscape.setHtml(regExp.cap(i));
-						item->setText(QUrl(htmlEscape.toPlainText()).host());
-						item->setData(Qt::UserRole, htmlEscape.toPlainText());
+						item->setData(Qt::UserRole, item->text());
+						item->setText(QUrl(item->text()).host());
 						ui->resultTable->setItem(row, 3, item);
 					}
-					else if(searchSites[currSite].resultGroups[i] == "RelativeLink")
+					else if(searchSites[currentSite].resultGroups[i] == "RelativeLink")
 					{
-						htmlEscape.setHtml(searchSites[currSite].baseUrl + regExp.cap(i));
-						item->setText(QUrl(htmlEscape.toPlainText()).host());
+						htmlEscape.setHtml(searchSites[currentSite].baseUrl + regExp.cap(i));
 						item->setData(Qt::UserRole, htmlEscape.toPlainText());
+						item->setText(QUrl(htmlEscape.toPlainText()).host());
 						ui->resultTable->setItem(row, 3, item);
 					}
 					else
 					{
 						if(!ui->resultTable->item(row, 4))
 						{
-							item->setText(searchSites[currSite].songType);
+							item->setText(searchSites[currentSite].songType);
 							ui->resultTable->setItem(row, 4, item);
 						}
 						else delete item;
 					}
 				}
 
-				pos += regExp.matchedLength();
+				regexPos += regExp.matchedLength();
 			}
-
-			currSite++;
-			getNextSearch();
 		}
 
 		void SongSearch::gotError(QString error)
@@ -204,7 +253,7 @@ namespace SoS
 			ui->resultTable->setItem(row, 0, new QTableWidgetItem("Error!"));
 			ui->resultTable->setItem(row, 1, new QTableWidgetItem(error));
 
-			currSite++;
+			currentSite++;
 			getNextSearch();
 		}
 

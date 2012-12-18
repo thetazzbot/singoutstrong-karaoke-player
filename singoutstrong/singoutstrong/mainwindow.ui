@@ -275,10 +275,10 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="text">
-      <string>Output settings</string>
+      <string>Audio output</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="audioInCheckbox">
+    <widget class="QCheckBox" name="songSearchCheckbox">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -291,7 +291,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="text">
-      <string>Input settings</string>
+      <string>Song search</string>
      </property>
     </widget>
     <widget class="QCheckBox" name="settingsCheckbox">
@@ -307,7 +307,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="text">
-      <string>General settings</string>
+      <string>Settings</string>
      </property>
     </widget>
     <widget class="QPushButton" name="ejectButton">
@@ -352,7 +352,7 @@
     <zorder>songCheckbox</zorder>
     <zorder>playlistCheckbox</zorder>
     <zorder>outputCheckbox</zorder>
-    <zorder>audioInCheckbox</zorder>
+    <zorder>songSearchCheckbox</zorder>
     <zorder>settingsCheckbox</zorder>
     <zorder>ejectButton</zorder>
     <zorder>tutorialCheckbox</zorder>

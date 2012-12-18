@@ -33,7 +33,6 @@
 #include <QBasicTimer>
 #include <QtGui>
 #include "soscontext.h"
-#include "audioinsettings.h"
 #include "outputsettings.h"
 #include "Playlist.h"
 #include "songwindow.h"
@@ -123,7 +122,6 @@ namespace SoS
 
 			protected:
 
-				AudioInSettings audioInSettingsWindow;	/**< @brief The audio input settings window */
 				OutputSettings outputSettings;			/**< @brief The output settings window */
 				Playlist playlist;						/**< @brief The playlist window */
 				SongWindow songWindow;					/**< @brief The song display window */
@@ -409,7 +407,7 @@ namespace SoS
 				 *
 				 * @param checked
 				 */
-				void on_audioInCheckbox_clicked(bool checked);
+				void on_songSearchCheckbox_clicked(bool checked);
 
 				/**
 				 * @brief Called when the settingsCheckbox is clicked

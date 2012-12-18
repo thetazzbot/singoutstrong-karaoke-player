@@ -90,7 +90,6 @@ namespace SoS
 			file.close();
 			this->setStyleSheet(ss);
 			playlist.setStyleSheet(ss);
-			audioInSettingsWindow.setStyleSheet(ss);
 			songWindow.setStyleSheet(ss);
 			outputSettings.setStyleSheet(ss);
 			generalSettings.setStyleSheet(ss);
@@ -121,9 +120,9 @@ namespace SoS
 			handleSubwinVisibilisty(&outputSettings, checked);
 		}
 
-		void MainWindow::on_audioInCheckbox_clicked(bool checked)
+		void MainWindow::on_songSearchCheckbox_clicked(bool checked)
 		{
-			handleSubwinVisibilisty(&audioInSettingsWindow, checked);
+			handleSubwinVisibilisty(&songSearch, checked);
 		}
 
 		void MainWindow::on_settingsCheckbox_clicked(bool checked)
@@ -138,7 +137,7 @@ namespace SoS
 
 		void MainWindow::tutorialPageChange(QString docName, int pageId)
 		{
-			audioInSettingsWindow.setTutorialHighlight(0);
+			generalSettings.setTutorialHighlight(0);
 			outputSettings.setTutorialHighlight(false);
 
 			if(docName != "tutorial")
@@ -149,15 +148,15 @@ namespace SoS
 			case 0:
 				break;
 			case 1:
-				audioInSettingsWindow.setAllowShow(true);
-				audioInSettingsWindow.show();
+				generalSettings.setAllowShow(true);
+				generalSettings.show();
 				songWindow.setAllowShow(true);
 				songWindow.show();
 				tutorial.raise();
-				audioInSettingsWindow.setTutorialHighlight(1);
+				generalSettings.setTutorialHighlight(1);
 				break;
 			case 2:
-				audioInSettingsWindow.setTutorialHighlight(2);
+				generalSettings.setTutorialHighlight(2);
 				break;
 			case 3:
 				outputSettings.setAllowShow(true);
@@ -175,7 +174,7 @@ namespace SoS
 
 		void MainWindow::tutorialClose()
 		{
-			audioInSettingsWindow.setTutorialHighlight(false);
+			generalSettings.setTutorialHighlight(false);
 			outputSettings.setTutorialHighlight(false);
 			tutorial.close();
 		}

@@ -3,6 +3,7 @@
 
 #include "sossubwindow.h"
 #include "httphandler.h"
+#include <time.h>
 #include <QtXml>
 #include <QHash>
 #include <QList>
@@ -66,23 +67,32 @@ namespace SoS
 			private slots:
 				void gotResponse(QString response);
 				void gotError(QString error);
-				void on_pushButton_clicked();
+				void on_searchButton_clicked();
 
 				void on_resultTable_itemClicked(QTableWidgetItem *item);
 
 			private:
+				enum timed_task {TT_SEARCH, TT_PROCESS_RESULTS, TT_CLEAR_RESULTS};
 				Ui::SongSearch *ui;
 				HttpHandler httpHandler;
 				QList<SearchSite> searchSites;
 				QButtonGroup* searchForGroup;
 				QButtonGroup* searchTypeGroup;
-				QLabel* waitAnimationLabel;
-				int currSite;
 				int resultCount;
 				int maxResults;
+				timed_task currentTask;
+				int currentSite;
+				QString currentResponse;
+				int regexPos;
+				int timerId;
 
 				void getSearchSites();
 				void getNextSearch();
+				void timedClearResults(int timeLength);
+				void timedProcessResponse(int timeLength);
+
+				void timerEvent(QTimerEvent *event);
+				void keyPressEvent(QKeyEvent *event);
 		};
 
 	}  /*! @} End of Doxygen Group Core*/

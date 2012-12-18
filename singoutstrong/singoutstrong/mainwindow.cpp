@@ -35,7 +35,6 @@ namespace SoS
 			settings->setOutputLatency(150);
 			settings->setViewedTime(0);
 
-			audioInSettingsWindow.init(sosContext);
 			outputSettings.init(sosContext);
 			playlist.init(sosContext);
 			songWindow.init(sosContext);
@@ -48,7 +47,6 @@ namespace SoS
 			connect(ui->windowBar, SIGNAL(exitPushed()), this, SLOT(close()));
 			connect(&tutorial, SIGNAL(pageChanged(QString, int)), this, SLOT(tutorialPageChange(QString, int)));
 
-			audioInSettingsWindow.installEventFilter(this);
 			outputSettings.installEventFilter(this);
 			playlist.installEventFilter(this);
 			songWindow.installEventFilter(this);
@@ -62,8 +60,8 @@ namespace SoS
 			move(50, 20);
 			playlist.move(x(), frameGeometry().bottom()+1);
 			outputSettings.move(frameGeometry().right()+1, frameGeometry().top());
-			audioInSettingsWindow.move(outputSettings.frameGeometry().right()+1, frameGeometry().top());
-			generalSettings.move(audioInSettingsWindow.frameGeometry().right()+1, frameGeometry().top());
+			songSearch.move(outputSettings.frameGeometry().right()+1, frameGeometry().top());
+			generalSettings.move(songSearch.frameGeometry().right()+1, frameGeometry().top());
 			songWindow.move(frameGeometry().right()+1, frameGeometry().bottom()+1);
 
 			setAcceptDrops(true);
@@ -73,7 +71,7 @@ namespace SoS
 			loadSettings();
 			outputSettings.updateSettings();
 
-			audioInSettingsWindow.refreshSettings();
+			generalSettings.refreshSettings();
 
 			processPromo();
 			timer.start(15, this);
@@ -85,7 +83,6 @@ namespace SoS
 			FILE_LOG(logDEBUG) << "[MainWindow]: Lowest FPS: " << lowestFPS;
 #endif
 			removeEventFilter(&playlist);
-			audioInSettingsWindow.removeEventFilter(this);
 			outputSettings.removeEventFilter(this);
 			playlist.removeEventFilter(this);
 			songWindow.removeEventFilter(this);
@@ -102,7 +99,6 @@ namespace SoS
 		void MainWindow::show()
 		{
 			QMainWindow::show();
-			audioInSettingsWindow.show();
 			outputSettings.show();
 			playlist.show();
 			songWindow.show();
@@ -193,7 +189,6 @@ namespace SoS
 
 				QDomElement guiSection = docElement.firstChildElement("gui");
 				loadWinProperties(this, &guiSection);
-				loadWinProperties(&audioInSettingsWindow, &guiSection);
 				loadWinProperties(&generalSettings, &guiSection);
 				loadWinProperties(&outputSettings, &guiSection);
 				loadWinProperties(&playlist, &guiSection);
@@ -270,7 +265,6 @@ namespace SoS
 
 			QDomElement guiNode = getNode("gui", &doc, &root);
 			saveWinProperties(this, &doc, &guiNode);
-			saveWinProperties(&audioInSettingsWindow, &doc, &guiNode);
 			saveWinProperties(&generalSettings, &doc, &guiNode);
 			saveWinProperties(&outputSettings, &doc, &guiNode);
 			saveWinProperties(&playlist, &doc, &guiNode);

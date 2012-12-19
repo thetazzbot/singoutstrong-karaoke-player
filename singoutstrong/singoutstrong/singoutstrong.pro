@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     sosnoteswidget.cpp \
     sossubwindow.cpp \
     httphandler.cpp \
-    songsearch.cpp
+    songsearch.cpp \
+    skinmanager.cpp
 
 HEADERS  += mainwindow.h \
     outputsettings.h \
@@ -47,7 +48,8 @@ HEADERS  += mainwindow.h \
     sossubwindow.h \
     fileformats.h \
     httphandler.h \
-    songsearch.h
+    songsearch.h \
+    skinmanager.h
 
 FORMS    += mainwindow.ui \
     outputsettings.ui \

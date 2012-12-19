@@ -9,6 +9,7 @@
 #include <QMainWindow>
 #include "highlightlist.h"
 #include "sossubwindow.h"
+#include "skinmanager.h"
 
 /// \cond 0
 
@@ -61,13 +62,6 @@ namespace SoS
 				void refresh();
 
 				/**
-				 * @brief Gets the currently selected skin's name
-				 *
-				 * @return QString The skin name
-				 */
-				QString getCurrentSkin();
-
-				/**
 				 * @brief Stores the currently selected skin name for future reference
 				 *
 				 * @param name The current skin name
@@ -102,9 +96,9 @@ namespace SoS
 				/**
 				 * @brief A signal sent when a new skin is set
 				 *
-				 * @param name The name of the new skin
+				 * @param name The current skin manager
 				 */
-				void skinSet(QString name);
+				void skinSet(const SkinManager* smgr);
 
 				/**
 				 * @brief A signal sent when the number of displayed lines of lyrics is changed
@@ -199,7 +193,7 @@ namespace SoS
 
 			private:
 				Ui::GeneralSettings *ui;	/**< @brief Qt's container for the window's subwidgets */
-				QString currentSkin;		/**< @brief The name of the currently selected skin */
+				SkinManager skinManager;		/**< @brief Helper object that handles the currently selected skin */
 		};
 	}  /*! @} End of Doxygen Group Core*/
 } /*! @} End of Doxygen Group QtGui*/

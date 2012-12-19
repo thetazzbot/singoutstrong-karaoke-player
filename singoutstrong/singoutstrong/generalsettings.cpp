@@ -37,7 +37,7 @@ namespace SoS
 
 			for(int i = 0; i < ui->skinsList->count(); i++)
 			{
-				if(ui->skinsList->item(i)->text() == currentSkin)
+				if(ui->skinsList->item(i)->text() == skinManager.getSkinName())
 				{
 					ui->skinsList->setHighlightedItem(i);
 					break;
@@ -50,14 +50,10 @@ namespace SoS
 			ui->groupedByBox->setValue(context->SongControl->getSettings()->getTextGroupBy());
 		}
 
-		QString GeneralSettings::getCurrentSkin()
-		{
-			return currentSkin;
-		}
-
 		void GeneralSettings::setCurrentSkin(QString name)
 		{
-			currentSkin = name;
+			skinManager.setSkin(name);
+			emit skinSet(&skinManager);
 		}
 
 		void GeneralSettings::on_latencySlider_valueChanged(int value)
@@ -76,8 +72,6 @@ namespace SoS
 		{
 			ui->skinsList->setHighlightedItem(item->listWidget()->currentRow());
 			setCurrentSkin(item->text());
-
-			emit skinSet(item->text());
 		}
 
 		void GeneralSettings::on_textLinesBox_valueChanged(int arg1)

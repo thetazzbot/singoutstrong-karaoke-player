@@ -76,25 +76,16 @@ namespace SoS
 			}
 		}
 
-		void MainWindow::setSkin(QString skinName)
+		void MainWindow::setSkin(const SkinManager *smgr)
 		{
-			generalSettings.setCurrentSkin(skinName.isEmpty() ? "default" : skinName);
-
-			QFile file(QString("skins/%1/style.css").arg(generalSettings.getCurrentSkin()));
-
-			if(!file.exists())
-				return;
-
-			file.open(QIODevice::ReadOnly);
-			QString ss = file.readAll();
-			file.close();
-			this->setStyleSheet(ss);
-			playlist.setStyleSheet(ss);
-			songWindow.setStyleSheet(ss);
-			outputSettings.setStyleSheet(ss);
-			generalSettings.setStyleSheet(ss);
-			tutorial.setStyleSheet(ss);
-			songSearch.setStyleSheet(ss);
+			skinMgr = smgr;
+			this->setStyleSheet(smgr->getStyleSheet());
+			playlist.setStyleSheet(smgr->getStyleSheet());
+			songWindow.setStyleSheet(smgr->getStyleSheet());
+			outputSettings.setStyleSheet(smgr->getStyleSheet());
+			generalSettings.setStyleSheet(smgr->getStyleSheet());
+			tutorial.setStyleSheet(smgr->getStyleSheet());
+			songSearch.setStyleSheet(smgr->getStyleSheet());
 		}
 
 		void MainWindow::handleSubwinVisibilisty(SoSSubWindow *window, bool show)
@@ -169,6 +160,10 @@ namespace SoS
 				playlist.loadNextSong();
 				outputSettings.setTutorialHighlight(true);
 				break;
+			case 5:
+				songSearch.setAllowShow(true);
+				songSearch.show();
+				tutorial.raise();
 			}
 		}
 

@@ -199,8 +199,8 @@ namespace SoS
 			playlist.raise();
 			generalSettings.raise();
 			songWindow.raise();
-			tutorial.raise();
 			songSearch.raise();
+			tutorial.raise();
 		}
 	}
 }

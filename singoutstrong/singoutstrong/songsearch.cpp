@@ -12,7 +12,9 @@ namespace SoS
 			searchForGroup(new QButtonGroup()),
 			searchTypeGroup(new QButtonGroup()),
 			maxResults(10),
-			currentTask(TT_SEARCH)
+			currentTask(TT_SEARCH),
+			timerId(0),
+			skinMgr(0)
 		{
 			ui->setupUi(this);
 
@@ -29,9 +31,6 @@ namespace SoS
 			searchTypeGroup->addButton(ui->ultraStarButton, 1);
 			searchTypeGroup->addButton(ui->midiButton, 2);
 			searchTypeGroup->addButton(ui->anyTypeButton, 3);
-
-			ui->searchIcon->setMovie(new QMovie("./skins/search.png"));
-			ui->searchIcon->movie()->start();
 		}
 
 		SongSearch::~SongSearch()
@@ -94,10 +93,21 @@ namespace SoS
 			return widths;
 		}
 
+		void SongSearch::skinChanged(const SkinManager *smgr)
+		{
+			skinMgr = smgr;
+			if(timerId > 0)
+				ui->searchIcon->setMovie(new QMovie(skinMgr ? skinMgr->getFileFromSkin("wait.png") : ""));
+			else
+				ui->searchIcon->setMovie(new QMovie(skinMgr ? skinMgr->getFileFromSkin("search.png") : ""));
+
+			ui->searchIcon->movie()->start();
+		}
+
 		void SongSearch::on_searchButton_clicked()
 		{
 			currentSite = 0;
-			ui->searchIcon->setMovie(new QMovie("./skins/wait.gif"));
+			ui->searchIcon->setMovie(new QMovie(skinMgr ? skinMgr->getFileFromSkin("wait.gif") : ""));
 			ui->searchIcon->movie()->start();
 			ui->searchButton->setEnabled(false);
 			ui->resultTable->setEnabled(false);
@@ -173,7 +183,7 @@ namespace SoS
 			{
 				ui->searchButton->setEnabled(true);
 				ui->resultTable->setSortingEnabled(true);
-				ui->searchIcon->setMovie(new QMovie("./skins/search.png"));
+				ui->searchIcon->setMovie(new QMovie(skinMgr ? skinMgr->getFileFromSkin("search.png") : ""));
 				ui->searchIcon->movie()->start();
 			}
 		}

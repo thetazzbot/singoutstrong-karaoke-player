@@ -3,6 +3,7 @@
 
 #include "sossubwindow.h"
 #include "httphandler.h"
+#include "skinmanager.h"
 #include <time.h>
 #include <QtXml>
 #include <QHash>
@@ -64,6 +65,9 @@ namespace SoS
 				void setColumnWidhts(QString columnWidths);
 				QString getColumnWidths();
 
+			public slots:
+				void skinChanged(const SkinManager* smgr);
+
 			private slots:
 				void gotResponse(QString response);
 				void gotError(QString error);
@@ -78,6 +82,8 @@ namespace SoS
 				QList<SearchSite> searchSites;
 				QButtonGroup* searchForGroup;
 				QButtonGroup* searchTypeGroup;
+				const SkinManager* skinMgr;
+
 				int resultCount;
 				int maxResults;
 				timed_task currentTask;

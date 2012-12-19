@@ -40,6 +40,7 @@
 #include "tutorialwindow.h"
 #include "fileformats.h"
 #include "songsearch.h"
+#include "skinmanager.h"
 #include <log.h>
 
 #ifdef DEBUG
@@ -129,6 +130,7 @@ namespace SoS
 				TutorialWindow tutorial;				/**< @brief The tutorial window */
 				SongSearch songSearch;
 				ISongSettings* settings;				/**< @brief The SongSettings from SongControl */
+				const SkinManager* skinMgr;
 
 				Ui::MainWindow *ui;						/**< @brief Qt's container for the window's subwidgets */
 				SoSContext* sosContext;					/**< @brief The context for accessing the core interfaces */
@@ -345,7 +347,7 @@ namespace SoS
 				 *
 				 * @param skinName
 				 */
-				void setSkin(QString skinName);
+				void setSkin(const SkinManager* smgr);
 
 				/**
 				 * @brief Called when a new song is loaded

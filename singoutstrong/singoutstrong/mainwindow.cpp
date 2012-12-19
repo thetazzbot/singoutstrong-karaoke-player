@@ -15,7 +15,8 @@ namespace SoS
 			detachViewTime(false),
 			showTutorial(false),
 			timesLaunched(0),
-			promoShown(false)
+			promoShown(false),
+			skinMgr(0)
 		{
 
 			setFocusPolicy(Qt::StrongFocus);
@@ -41,7 +42,8 @@ namespace SoS
 			generalSettings.init(sosContext);
 			songSearch.init(sosContext);
 
-			connect(&generalSettings, SIGNAL(skinSet(QString)), this, SLOT (setSkin(QString)));
+			connect(&generalSettings, SIGNAL(skinSet(const SkinManager*)), this, SLOT (setSkin(const SkinManager*)));
+			connect(&generalSettings, SIGNAL(skinSet(const SkinManager*)), &songSearch, SLOT (skinChanged(const SkinManager*)));
 			connect(&generalSettings, SIGNAL(textLinesSet(int)), &songWindow, SLOT (setTextLines(int)));
 			connect(&playlist, SIGNAL(songLoaded()), this, SLOT (updateSong()));
 			connect(ui->windowBar, SIGNAL(exitPushed()), this, SLOT(close()));
@@ -65,7 +67,7 @@ namespace SoS
 			songWindow.move(frameGeometry().right()+1, frameGeometry().bottom()+1);
 
 			setAcceptDrops(true);
-			setSkin("");
+			generalSettings.setCurrentSkin("");
 
 			playlist.loadPlaylist(QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "\\playlist." + LIST_EXT);
 			loadSettings();
@@ -202,7 +204,7 @@ namespace SoS
 				}
 
 				node = guiSection.firstChildElement("Skin");
-				setSkin(node.isNull() ? "default" : node.attributes().namedItem("Name").nodeValue());
+				generalSettings.setCurrentSkin(node.isNull() ? "" : node.attributes().namedItem("Name").nodeValue());
 			}
 			else
 			{
@@ -275,7 +277,8 @@ namespace SoS
 			node.setAttribute("columns", songSearch.getColumnWidths());
 
 			node = getNode("Skin", &doc, &guiNode);
-			node.setAttribute("Name", generalSettings.getCurrentSkin());
+			QString v = skinMgr ? skinMgr->getSkinName() : "";
+			node.setAttribute("Name", v);
 
 			if(file.open(QIODevice::WriteOnly))
 			{

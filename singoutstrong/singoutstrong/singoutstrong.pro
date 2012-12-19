@@ -38,7 +38,6 @@ HEADERS  += mainwindow.h \
     outputsettings.h \
     playlist.h \
     songwindow.h \
-    generalsettings.h \
     highlightlist.h \
     windowbar.h \
     tutorialwindow.h \
@@ -49,16 +48,17 @@ HEADERS  += mainwindow.h \
     fileformats.h \
     httphandler.h \
     songsearch.h \
-    skinmanager.h
+    skinmanager.h \
+    settings.h
 
 FORMS    += mainwindow.ui \
     outputsettings.ui \
     playlist.ui \
     songwindow.ui \
-    generalsettings.ui \
     windowbar.ui \
     tutorialwindow.ui \
-    songsearch.ui
+    songsearch.ui \
+    settings.ui
 
 RC_FILE = singoutstrong.rc
 CONFIG(debug, debug|release): DEFINES += DEBUG

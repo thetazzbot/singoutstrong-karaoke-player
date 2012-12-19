@@ -1,32 +1,31 @@
-#include <QtGui>
-#include "generalsettings.h"
-#include "ui_generalsettings.h"
+#include "settings.h"
+#include "ui_settings.h"
 
 namespace SoS
 {
 	namespace QtGui
 	{
 
-		GeneralSettings::GeneralSettings(QWidget *parent) :
+		Settings::Settings(QWidget *parent) :
 			SoSSubWindow(parent),
-			ui(new Ui::GeneralSettings)
+			ui(new Ui::Settings)
 		{
 			ui->setupUi(this);
 			setSubWidgets(ui->windowBar, ui->content);
 		}
 
-		GeneralSettings::~GeneralSettings()
+		Settings::~Settings()
 		{
 			delete ui;
 		}
 
-		void GeneralSettings::show()
+		void Settings::show()
 		{
 			refresh();
 			SoSSubWindow::show();
 		}
 
-		void GeneralSettings::refresh()
+		void Settings::refresh()
 		{
 			ui->skinsList->clear();
 			QDir dir("skins");
@@ -50,38 +49,38 @@ namespace SoS
 			ui->groupedByBox->setValue(context->SongControl->getSettings()->getTextGroupBy());
 		}
 
-		void GeneralSettings::setCurrentSkin(QString name)
+		void Settings::setCurrentSkin(QString name)
 		{
 			skinManager.setSkin(name);
 			emit skinSet(&skinManager);
 		}
 
-		void GeneralSettings::on_latencySlider_valueChanged(int value)
+		void Settings::on_latencySlider_valueChanged(int value)
 		{
 			context->SongControl->getSettings()->setOutputLatency(value*10);
 			ui->latencyValueLabel->setText(QString("%1 ms").arg(value*10));
 		}
 
-		void GeneralSettings::on_timeRangeSlider_valueChanged(int value)
+		void Settings::on_timeRangeSlider_valueChanged(int value)
 		{
 			context->SongControl->getSettings()->setViewTimeRange(value*100);
 			ui->timeRangeValueLabel->setText(QString("%1 ms").arg(value*100));
 		}
 
-		void GeneralSettings::on_skinsList_itemDoubleClicked(QListWidgetItem *item)
+		void Settings::on_skinsList_itemDoubleClicked(QListWidgetItem *item)
 		{
 			ui->skinsList->setHighlightedItem(item->listWidget()->currentRow());
 			setCurrentSkin(item->text());
 		}
 
-		void GeneralSettings::on_textLinesBox_valueChanged(int arg1)
+		void Settings::on_textLinesBox_valueChanged(int arg1)
 		{
 			context->SongControl->getSettings()->setTextLineCount(arg1);
 			ui->groupedByBox->setMaximum(arg1);
 			emit textLinesSet(arg1);
 		}
 
-		void GeneralSettings::on_groupedByBox_valueChanged(int arg1)
+		void Settings::on_groupedByBox_valueChanged(int arg1)
 		{
 			context->SongControl->getSettings()->setTextGroupBy(arg1);
 		}

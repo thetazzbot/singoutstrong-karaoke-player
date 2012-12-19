@@ -126,7 +126,7 @@ namespace SoS
 				OutputSettings outputSettings;			/**< @brief The output settings window */
 				Playlist playlist;						/**< @brief The playlist window */
 				SongWindow songWindow;					/**< @brief The song display window */
-				GeneralSettings generalSettings;		/**< @brief The general settings window */
+				Settings settingsWindow;		/**< @brief The general settings window */
 				TutorialWindow tutorial;				/**< @brief The tutorial window */
 				SongSearch songSearch;
 				ISongSettings* settings;				/**< @brief The SongSettings from SongControl */

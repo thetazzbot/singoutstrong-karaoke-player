@@ -83,7 +83,7 @@ namespace SoS
 			playlist.setStyleSheet(smgr->getStyleSheet());
 			songWindow.setStyleSheet(smgr->getStyleSheet());
 			outputSettings.setStyleSheet(smgr->getStyleSheet());
-			generalSettings.setStyleSheet(smgr->getStyleSheet());
+			settingsWindow.setStyleSheet(smgr->getStyleSheet());
 			tutorial.setStyleSheet(smgr->getStyleSheet());
 			songSearch.setStyleSheet(smgr->getStyleSheet());
 		}
@@ -118,7 +118,7 @@ namespace SoS
 
 		void MainWindow::on_settingsCheckbox_clicked(bool checked)
 		{
-			handleSubwinVisibilisty(&generalSettings, checked);
+			handleSubwinVisibilisty(&settingsWindow, checked);
 		}
 
 		void MainWindow::on_ejectButton_clicked()
@@ -128,7 +128,7 @@ namespace SoS
 
 		void MainWindow::tutorialPageChange(QString docName, int pageId)
 		{
-			generalSettings.setTutorialHighlight(0);
+			settingsWindow.setTutorialHighlight(0);
 			outputSettings.setTutorialHighlight(false);
 
 			if(docName != "tutorial")
@@ -139,15 +139,15 @@ namespace SoS
 			case 0:
 				break;
 			case 1:
-				generalSettings.setAllowShow(true);
-				generalSettings.show();
+				settingsWindow.setAllowShow(true);
+				settingsWindow.show();
 				songWindow.setAllowShow(true);
 				songWindow.show();
 				tutorial.raise();
-				generalSettings.setTutorialHighlight(1);
+				settingsWindow.setTutorialHighlight(1);
 				break;
 			case 2:
-				generalSettings.setTutorialHighlight(2);
+				settingsWindow.setTutorialHighlight(2);
 				break;
 			case 3:
 				outputSettings.setAllowShow(true);
@@ -169,7 +169,7 @@ namespace SoS
 
 		void MainWindow::tutorialClose()
 		{
-			generalSettings.setTutorialHighlight(false);
+			settingsWindow.setTutorialHighlight(false);
 			outputSettings.setTutorialHighlight(false);
 			tutorial.close();
 		}

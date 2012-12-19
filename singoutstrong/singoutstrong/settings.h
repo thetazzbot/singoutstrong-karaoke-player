@@ -14,7 +14,7 @@
 /// \cond 0
 
 namespace Ui {
-	class GeneralSettings;
+	class Settings;
 }
 
 /// \endcond
@@ -40,13 +40,13 @@ namespace SoS
 		 * @brief The general settings window class
 		 *
 		 */
-		class GeneralSettings : public SoSSubWindow
+		class Settings : public SoSSubWindow
 		{
 				Q_OBJECT
 
 			public:
-				explicit GeneralSettings(QWidget *parent = 0);
-				~GeneralSettings();
+				explicit Settings(QWidget *parent = 0);
+				~Settings();
 
 				/**
 				 * @brief Shows the window
@@ -192,7 +192,7 @@ namespace SoS
 				void on_volumeTresholdSlider_valueChanged(int value);
 
 			private:
-				Ui::GeneralSettings *ui;	/**< @brief Qt's container for the window's subwidgets */
+				Ui::Settings *ui;	/**< @brief Qt's container for the window's subwidgets */
 				SkinManager skinManager;		/**< @brief Helper object that handles the currently selected skin */
 		};
 	}  /*! @} End of Doxygen Group Core*/

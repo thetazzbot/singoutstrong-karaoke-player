@@ -31,7 +31,7 @@ namespace SoS
 					long timeRange = settings->getViewTimeRange() - wEvent->delta();
 					timeRange = timeRange < 1000 ? 1000 : timeRange > 10000 ? 10000 : timeRange;
 					settings->setViewTimeRange(timeRange);
-					generalSettings.refresh();
+					settingsWindow.refresh();
 					return true;
 				}
 				break;
@@ -45,7 +45,7 @@ namespace SoS
 				if(target == &songWindow) ui->songCheckbox->setChecked(false);
 				else if(target == & playlist) ui->playlistCheckbox->setChecked(false);
 				else if(target == & outputSettings) ui->outputCheckbox->setChecked(false);
-				else if(target == & generalSettings) ui->settingsCheckbox->setChecked(false);
+				else if(target == & settingsWindow) ui->settingsCheckbox->setChecked(false);
 				else if(target == & tutorial) ui->tutorialCheckbox->setChecked(false);
 				else if(target == & songSearch) ui->songSearchCheckbox->setChecked(false);
 				break;
@@ -53,12 +53,12 @@ namespace SoS
 				if(target == &songWindow) ui->songCheckbox->setChecked(true);
 				else if(target == &playlist) ui->playlistCheckbox->setChecked(true);
 				else if(target == &outputSettings) ui->outputCheckbox->setChecked(true);
-				else if(target == &generalSettings) ui->settingsCheckbox->setChecked(true);
+				else if(target == &settingsWindow) ui->settingsCheckbox->setChecked(true);
 				else if(target == & tutorial) ui->tutorialCheckbox->setChecked(true);
 				else if(target == & songSearch) ui->songSearchCheckbox->setChecked(true);
 
 				if(target == &songWindow || target == &playlist || target == &outputSettings ||
-						target == &songSearch || target == &generalSettings)
+						target == &songSearch || target == &settingsWindow)
 					((QWidget*)target)->setFocus();
 
 				break;
@@ -152,14 +152,14 @@ namespace SoS
 					songWindow.hide();
 					songSearch.hide();
 					outputSettings.hide();
-					generalSettings.hide();
+					settingsWindow.hide();
 				}
 				else
 				{
 					playlist.show();
 					songWindow.show();
 					outputSettings.show();
-					generalSettings.show();
+					settingsWindow.show();
 					songSearch.show();
 				}
 			}
@@ -197,7 +197,7 @@ namespace SoS
 			raise();
 			outputSettings.raise();
 			playlist.raise();
-			generalSettings.raise();
+			settingsWindow.raise();
 			songWindow.raise();
 			songSearch.raise();
 			tutorial.raise();

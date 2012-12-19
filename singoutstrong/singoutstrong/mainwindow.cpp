@@ -39,12 +39,12 @@ namespace SoS
 			outputSettings.init(sosContext);
 			playlist.init(sosContext);
 			songWindow.init(sosContext);
-			generalSettings.init(sosContext);
+			settingsWindow.init(sosContext);
 			songSearch.init(sosContext);
 
-			connect(&generalSettings, SIGNAL(skinSet(const SkinManager*)), this, SLOT (setSkin(const SkinManager*)));
-			connect(&generalSettings, SIGNAL(skinSet(const SkinManager*)), &songSearch, SLOT (skinChanged(const SkinManager*)));
-			connect(&generalSettings, SIGNAL(textLinesSet(int)), &songWindow, SLOT (setTextLines(int)));
+			connect(&settingsWindow, SIGNAL(skinSet(const SkinManager*)), this, SLOT (setSkin(const SkinManager*)));
+			connect(&settingsWindow, SIGNAL(skinSet(const SkinManager*)), &songSearch, SLOT (skinChanged(const SkinManager*)));
+			connect(&settingsWindow, SIGNAL(textLinesSet(int)), &songWindow, SLOT (setTextLines(int)));
 			connect(&playlist, SIGNAL(songLoaded()), this, SLOT (updateSong()));
 			connect(ui->windowBar, SIGNAL(exitPushed()), this, SLOT(close()));
 			connect(&tutorial, SIGNAL(pageChanged(QString, int)), this, SLOT(tutorialPageChange(QString, int)));
@@ -52,7 +52,7 @@ namespace SoS
 			outputSettings.installEventFilter(this);
 			playlist.installEventFilter(this);
 			songWindow.installEventFilter(this);
-			generalSettings.installEventFilter(this);
+			settingsWindow.installEventFilter(this);
 			tutorial.installEventFilter(this);
 			songSearch.installEventFilter(this);
 			installEventFilter(&playlist);
@@ -63,17 +63,17 @@ namespace SoS
 			playlist.move(x(), frameGeometry().bottom()+1);
 			outputSettings.move(frameGeometry().right()+1, frameGeometry().top());
 			songSearch.move(outputSettings.frameGeometry().right()+1, frameGeometry().top());
-			generalSettings.move(songSearch.frameGeometry().right()+1, frameGeometry().top());
+			settingsWindow.move(songSearch.frameGeometry().right()+1, frameGeometry().top());
 			songWindow.move(frameGeometry().right()+1, frameGeometry().bottom()+1);
 
 			setAcceptDrops(true);
-			generalSettings.setCurrentSkin("");
+			settingsWindow.setCurrentSkin("");
 
 			playlist.loadPlaylist(QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "\\playlist." + LIST_EXT);
 			loadSettings();
 			outputSettings.updateSettings();
 
-			generalSettings.refreshSettings();
+			settingsWindow.refreshSettings();
 
 			processPromo();
 			timer.start(15, this);
@@ -88,7 +88,7 @@ namespace SoS
 			outputSettings.removeEventFilter(this);
 			playlist.removeEventFilter(this);
 			songWindow.removeEventFilter(this);
-			generalSettings.removeEventFilter(this);
+			settingsWindow.removeEventFilter(this);
 			tutorial.removeEventFilter(this);
 			songSearch.removeEventFilter(this);
 			tutorial.close();
@@ -104,7 +104,7 @@ namespace SoS
 			outputSettings.show();
 			playlist.show();
 			songWindow.show();
-			generalSettings.show();
+			settingsWindow.show();
 			songSearch.show();
 			if(showTutorial)
 			{
@@ -191,7 +191,7 @@ namespace SoS
 
 				QDomElement guiSection = docElement.firstChildElement("gui");
 				loadWinProperties(this, &guiSection);
-				loadWinProperties(&generalSettings, &guiSection);
+				loadWinProperties(&settingsWindow, &guiSection);
 				loadWinProperties(&outputSettings, &guiSection);
 				loadWinProperties(&playlist, &guiSection);
 				loadWinProperties(&songWindow, &guiSection);
@@ -204,7 +204,7 @@ namespace SoS
 				}
 
 				node = guiSection.firstChildElement("Skin");
-				generalSettings.setCurrentSkin(node.isNull() ? "" : node.attributes().namedItem("Name").nodeValue());
+				settingsWindow.setCurrentSkin(node.isNull() ? "" : node.attributes().namedItem("Name").nodeValue());
 			}
 			else
 			{
@@ -267,7 +267,7 @@ namespace SoS
 
 			QDomElement guiNode = getNode("gui", &doc, &root);
 			saveWinProperties(this, &doc, &guiNode);
-			saveWinProperties(&generalSettings, &doc, &guiNode);
+			saveWinProperties(&settingsWindow, &doc, &guiNode);
 			saveWinProperties(&outputSettings, &doc, &guiNode);
 			saveWinProperties(&playlist, &doc, &guiNode);
 			saveWinProperties(&songWindow, &doc, &guiNode);

@@ -36,7 +36,7 @@
 #include "outputsettings.h"
 #include "Playlist.h"
 #include "songwindow.h"
-#include "generalsettings.h"
+#include "settings.h"
 #include "tutorialwindow.h"
 #include "fileformats.h"
 #include "songsearch.h"
